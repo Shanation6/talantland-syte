@@ -1,0 +1,188 @@
+/* UI/UX Pro Max Design System Tokens & Styles for TalantLand */
+:root {
+  --bg: #FAF7F0;
+  --surface: #F2EAD8;
+  --surface-card: #FFFFFF;
+  --surface-elevated: #FFFDF9;
+  --fg: #1D2A26;
+  --fg-muted: #5C6763;
+  --border: #E5DAC2;
+  --border-subtle: #EDE4D3;
+  --accent: #185A56;
+  --accent-hover: #104340;
+  --accent-light: #E7F1F0;
+  --accent-on: #FAF7F0;
+  
+  --play-amber: #D97706;
+  --play-amber-bg: #FEF3C7;
+  --play-coral: #E06D53;
+  --play-coral-bg: #FEECE8;
+  --play-green: #15803D;
+  --play-green-bg: #DCFCE7;
+  
+  --font-display: 'Nunito', sans-serif;
+  --font-editorial: 'Literata', serif;
+  --font-body: 'Onest', sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(24, 90, 86, 0.07), 0 2px 6px -1px rgba(24, 90, 86, 0.04);
+  --shadow-hover: 0 16px 36px -4px rgba(24, 90, 86, 0.12), 0 6px 14px -2px rgba(24, 90, 86, 0.06);
+  --shadow-card: 0 2px 10px rgba(29, 42, 38, 0.04);
+  --shadow-clay: 4px 4px 0px #185A56;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utility Classes */
+.font-display { font-family: var(--font-display); }
+.font-editorial { font-family: var(--font-editorial); }
+.font-body { font-family: var(--font-body); }
+
+/* Buttons & Interactive Elements */
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--accent-on);
+  font-family: var(--font-display);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  padding: 16px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(24, 90, 86, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(24, 90, 86, 0.32);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--surface-card);
+  color: var(--accent);
+  border: 2px solid var(--border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  padding: 14px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.btn-amber {
+  background-color: var(--play-amber);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  padding: 16px 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.3);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-amber:hover {
+  background-color: #B45309;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
+}
+
+/* Card Elevate Micro-interactions */
+.interactive-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border);
+}
+
+/* Quiz Claymorphic Option */
+.quiz-option {
+  background-color: #FFFFFF;
+  border: 2px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.quiz-option:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+  transform: translateY(-2px);
+}
+.quiz-option.selected {
+  border-color: var(--accent);
+  background-color: #EBF4F3;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Badge styles */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+/* Focus states for WCAG accessibility */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

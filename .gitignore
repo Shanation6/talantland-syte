@@ -1,0 +1,5 @@
+.agents/
+__pycache__/
+*.pyc
+*.py
+test_utf8.txt

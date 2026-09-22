@@ -41,12 +41,12 @@
               50:  '#FFFBEB',
             },
             surface: {
-              bg: '#FDFBF7',
+              bg: '#F8FAFC',
               card: '#FFFFFF',
-              border: '#E8E2D5',
+              border: '#E2E8F0',
               dark: '#0F172A',
               muted: '#475569',
-              warm: '#F5EFE6',
+              warm: '#F1F5F9',
             }
           }
         }
@@ -57,7 +57,7 @@
   <style>
     body {
       font-family: 'Manrope', -apple-system, sans-serif;
-      background-color: #F8F6F0;
+      background-color: #F8FAFC;
       color: #0F172A;
     }
     h1, h2, h3, h4, .font-heading {
@@ -198,158 +198,339 @@
       </div>
 
       <!-- ==================== TAB 1: WYSIWYG PRICING CARDS ==================== -->
-      <div id="tab-content-pricing" class="tab-panel space-y-6">
+      <div id="tab-content-pricing" class="tab-panel space-y-8">
         
-        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center justify-between">
+        <!-- Header Banner & Action Bar -->
+        <div class="bg-blue-50 border border-blue-200 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
           <div class="flex items-center gap-3">
-            <i data-lucide="sparkles" class="w-5 h-5 text-brand-700 shrink-0"></i>
+            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
+              <i data-lucide="layout-grid" class="w-5 h-5"></i>
+            </div>
             <div>
-              <div class="font-bold text-xs text-brand-900">Интерактивное зеркало сайта (WYSIWYG)</div>
-              <div class="text-[11px] text-brand-800">
-                Редактируйте заголовки, цены, описания и пункты прямо в карточках ниже. Каждое изменение в точности повторится на витрине сайта!
+              <div class="font-extrabold text-sm text-brand-900">Управление карточками тарифов и услуг</div>
+              <div class="text-xs text-brand-700">
+                Ниже отображается реальный вид карточек на сайте. Редактируйте поля в формах, и превью обновится мгновенно!
               </div>
             </div>
           </div>
-          <button onclick="saveAllChanges()" class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider cursor-pointer shrink-0">
-            Сохранить тарифы
-          </button>
+          <div class="flex items-center gap-2.5 w-full sm:w-auto">
+            <button onclick="resetPricingToDefaults()" type="button" class="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-sm flex items-center justify-center gap-1.5" title="Восстановить базовые описания и цены">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Сброс</span>
+            </button>
+            <button onclick="saveAllChanges()" type="button" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i>
+              <span>Сохранить тарифы</span>
+            </button>
+          </div>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8 items-stretch">
-          
-          <!-- Card 1: Groups WYSIWYG -->
-          <div class="bg-white p-7 rounded-3xl border-2 border-surface-border shadow-sm flex flex-col justify-between hover:border-brand-700 transition-all relative">
-            <div>
-              <div class="flex items-center justify-between text-xs font-bold text-surface-muted mb-4 pb-2 border-b border-surface-border">
-                <input type="text" id="pricing-groups-badge" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-dark w-28" placeholder="2–4 классы">
-                <input type="text" id="pricing-groups-capacity" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-muted text-right w-36" placeholder="До 6 детей в группе">
-              </div>
-
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Название программы:</label>
-              <input type="text" id="pricing-groups-name" class="wysiwyg-input w-full text-2xl font-black text-surface-dark mb-3 font-heading px-2 py-1" placeholder="Мини-группы">
-
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Краткое описание:</label>
-              <textarea id="pricing-groups-desc" rows="2" class="wysiwyg-input w-full text-xs text-surface-muted leading-relaxed mb-4 p-2 resize-none" placeholder="Описание тарифа..."></textarea>
-
-              <!-- Price block -->
-              <div class="p-4 bg-surface-bg rounded-2xl border border-surface-border mb-5">
-                <div class="flex items-baseline gap-2">
-                  <input type="text" id="pricing-groups-price" class="wysiwyg-input text-3xl font-black text-brand-900 font-heading w-36 px-2 py-0.5" placeholder="6 400 ₽">
-                  <input type="text" id="pricing-groups-period" class="wysiwyg-input text-xs font-semibold text-surface-muted w-20 px-1 py-0.5" placeholder="/ месяц">
-                </div>
-                <input type="text" id="pricing-groups-subtitle" class="wysiwyg-input w-full text-xs text-brand-800 font-bold mt-2 px-2 py-0.5" placeholder="8 занятий по 60 минут (800 ₽ за урок)">
-              </div>
-
-              <!-- Features list -->
-              <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-surface-muted">Что включено:</span>
-                  <button onclick="addFeatureItem('groups')" type="button" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 cursor-pointer">
-                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-                    <span>Добавить пункт</span>
-                  </button>
-                </div>
-                <div id="pricing-groups-features-list" class="space-y-2">
-                  <!-- Rendered dynamically -->
-                </div>
-              </div>
+        <!-- ================= LIVE PREVIEW SECTION ================= -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <h3 class="text-xs font-black uppercase tracking-wider text-slate-600">
+                👁 Живой предпросмотр (в точности как видят родители на сайте):
+              </h3>
             </div>
-
-            <div class="pt-5 mt-5 border-t border-surface-border text-center">
-              <span class="text-[11px] font-bold text-surface-muted uppercase tracking-wider">Кнопка на сайте: «Записаться в группу»</span>
-            </div>
+            <span class="text-[11px] text-slate-400">Синхронизируется на лету при вводе</span>
           </div>
 
-          <!-- Card 2: Reading WYSIWYG (Sapphire Blue card) -->
-          <div class="bg-brand-900 text-white p-7 rounded-3xl border-2 border-brand-700 shadow-xl flex flex-col justify-between relative">
-            <div class="absolute -top-3.5 left-6">
-              <input type="text" id="pricing-reading-tag" class="bg-amber-400 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-sm tracking-wider border-none text-center w-32 focus:outline-none focus:ring-2 focus:ring-amber-300" placeholder="ХИТ СТУДИИ">
-            </div>
-
-            <div>
-              <div class="flex items-center justify-between text-xs font-bold text-blue-200 mb-4 pb-2 border-b border-brand-800 pt-1">
-                <input type="text" id="pricing-reading-badge" class="wysiwyg-input bg-brand-800/80 text-blue-100 px-2.5 py-1 text-xs font-semibold w-28 border-brand-700" placeholder="1–3 классы">
-                <input type="text" id="pricing-reading-duration" class="wysiwyg-input text-amber-300 text-xs font-bold text-right w-36 border-brand-700" placeholder="Интенсив 1 месяц">
-              </div>
-
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-blue-200 mb-1">Название программы:</label>
-              <input type="text" id="pricing-reading-name" class="wysiwyg-input w-full text-2xl font-black text-white mb-3 font-heading px-2 py-1 border-blue-400/40" placeholder="Курс «Читаем за 1 месяц»">
-
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-blue-200 mb-1">Краткое описание:</label>
-              <textarea id="pricing-reading-desc" rows="2" class="wysiwyg-input w-full text-xs text-blue-100/90 leading-relaxed mb-4 p-2 resize-none border-blue-400/40" placeholder="Описание тарифа..."></textarea>
-
-              <!-- Price block -->
-              <div class="p-4 bg-brand-950/80 rounded-2xl border border-brand-800 mb-5">
-                <div class="flex items-baseline gap-2">
-                  <input type="text" id="pricing-reading-price" class="wysiwyg-input text-3xl font-black text-amber-300 font-heading w-36 px-2 py-0.5 border-amber-400/40" placeholder="10 000 ₽">
-                  <input type="text" id="pricing-reading-period" class="wysiwyg-input text-xs font-semibold text-blue-200 w-24 px-1 py-0.5 border-blue-400/40" placeholder="/ весь курс">
-                </div>
-                <input type="text" id="pricing-reading-subtitle" class="wysiwyg-input w-full text-xs text-amber-200 font-medium mt-2 px-2 py-0.5 border-blue-400/40" placeholder="8 занятий по 60 мин (методика Phonics)">
-              </div>
-
-              <!-- Features list -->
+          <!-- 3 Live Preview Cards -->
+          <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+            
+            <!-- Live Preview: Groups -->
+            <div id="live-preview-groups" class="bg-white p-6 sm:p-7 rounded-3xl border-2 border-slate-200 shadow-sm flex flex-col justify-between relative transition-all">
               <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-blue-200">Что включено:</span>
-                  <button onclick="addFeatureItem('reading')" type="button" class="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1 cursor-pointer">
-                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-                    <span>Добавить пункт</span>
-                  </button>
+                <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-4 pb-2 border-b border-slate-100">
+                  <span id="prev-groups-badge" class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded-md">2–4 классы</span>
+                  <span id="prev-groups-capacity" class="text-slate-500">До 6 детей в группе</span>
                 </div>
-                <div id="pricing-reading-features-list" class="space-y-2">
-                  <!-- Rendered dynamically -->
+                <h4 id="prev-groups-name" class="text-2xl font-black text-slate-900 mb-2 font-heading">Мини-группы</h4>
+                <p id="prev-groups-desc" class="text-xs text-slate-500 leading-relaxed mb-4">
+                  Системное опережение школьной программы, живая разговорная речь и работа в дружной команде сверстников.
+                </p>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 mb-4">
+                  <div class="flex items-baseline gap-1.5">
+                    <span id="prev-groups-price" class="text-3xl font-black text-slate-900 font-heading">6 400 ₽</span>
+                    <span id="prev-groups-period" class="text-xs font-semibold text-slate-500">/ месяц</span>
+                  </div>
+                  <div id="prev-groups-subtitle" class="text-xs text-blue-700 font-bold mt-1">
+                    8 занятий по 60 минут (800 ₽ за урок)
+                  </div>
                 </div>
+                <ul id="prev-groups-features" class="space-y-2 text-xs text-slate-700">
+                  <!-- Dynamically rendered -->
+                </ul>
+              </div>
+              <div class="pt-5 mt-5 border-t border-slate-100 text-center">
+                <span class="inline-block w-full py-2.5 rounded-xl bg-slate-900 text-white font-extrabold text-xs uppercase tracking-wider opacity-90">
+                  Записаться в группу
+                </span>
               </div>
             </div>
 
-            <div class="pt-5 mt-5 border-t border-brand-800 text-center">
-              <span class="text-[11px] font-bold text-blue-300 uppercase tracking-wider">Кнопка на сайте: «Забронировать место»</span>
+            <!-- Live Preview: Reading (Featured Dark Sapphire Card) -->
+            <div id="live-preview-reading" class="bg-brand-900 text-white p-6 sm:p-7 rounded-3xl border-2 border-blue-500 shadow-xl flex flex-col justify-between relative transition-all">
+              <div class="absolute -top-3 left-6">
+                <span id="prev-reading-tag" class="bg-amber-400 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-md tracking-wider">
+                  ХИТ СТУДИИ
+                </span>
+              </div>
+              <div>
+                <div class="flex items-center justify-between text-xs font-bold text-blue-200 mb-4 pb-2 border-b border-brand-800 pt-1">
+                  <span id="prev-reading-badge" class="bg-brand-800 text-blue-100 px-2.5 py-1 rounded-md">1–3 классы</span>
+                  <span id="prev-reading-duration" class="text-amber-300">Интенсив 1 месяц</span>
+                </div>
+                <h4 id="prev-reading-name" class="text-2xl font-black text-white mb-2 font-heading">Курс «Читаем за 1 месяц»</h4>
+                <p id="prev-reading-desc" class="text-xs text-blue-100/80 leading-relaxed mb-4">
+                  Полное решение проблемы со школьным чтением. Ребенок учится читать незнакомые тексты по звуковым моделям фониксов.
+                </p>
+                <div class="p-4 bg-brand-950/80 rounded-2xl border border-brand-800 mb-4">
+                  <div class="flex items-baseline gap-1.5">
+                    <span id="prev-reading-price" class="text-3xl font-black text-amber-300 font-heading">10 000 ₽</span>
+                    <span id="prev-reading-period" class="text-xs font-semibold text-blue-200">/ весь курс</span>
+                  </div>
+                  <div id="prev-reading-subtitle" class="text-xs text-amber-200 font-medium mt-1">
+                    8 занятий по 60 мин (методика Phonics)
+                  </div>
+                </div>
+                <ul id="prev-reading-features" class="space-y-2 text-xs text-blue-100">
+                  <!-- Dynamically rendered -->
+                </ul>
+              </div>
+              <div class="pt-5 mt-5 border-t border-brand-800 text-center">
+                <span class="inline-block w-full py-2.5 rounded-xl bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-md">
+                  Забронировать место
+                </span>
+              </div>
             </div>
+
+            <!-- Live Preview: Individual -->
+            <div id="live-preview-individual" class="bg-white p-6 sm:p-7 rounded-3xl border-2 border-slate-200 shadow-sm flex flex-col justify-between relative transition-all">
+              <div>
+                <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-4 pb-2 border-b border-slate-100">
+                  <span id="prev-individual-badge" class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded-md">1–11 классы</span>
+                  <span id="prev-individual-capacity" class="text-slate-500">1 на 1 с педагогом</span>
+                </div>
+                <h4 id="prev-individual-name" class="text-2xl font-black text-slate-900 mb-2 font-heading">Индивидуальные уроки</h4>
+                <p id="prev-individual-desc" class="text-xs text-slate-500 leading-relaxed mb-4">
+                  Персональная траектория: быстрое закрытие школьных двоек, устранение пробелов или подготовка к олимпиадам.
+                </p>
+                <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 mb-4">
+                  <div class="flex items-baseline gap-1.5">
+                    <span id="prev-individual-price" class="text-3xl font-black text-slate-900 font-heading">10 400 ₽</span>
+                    <span id="prev-individual-period" class="text-xs font-semibold text-slate-500">/ месяц</span>
+                  </div>
+                  <div id="prev-individual-subtitle" class="text-xs text-slate-600 font-bold mt-1">
+                    8 занятий по 60 минут (1 300 ₽ за урок)
+                  </div>
+                </div>
+                <ul id="prev-individual-features" class="space-y-2 text-xs text-slate-700">
+                  <!-- Dynamically rendered -->
+                </ul>
+              </div>
+              <div class="pt-5 mt-5 border-t border-slate-100 text-center">
+                <span class="inline-block w-full py-2.5 rounded-xl bg-slate-900 text-white font-extrabold text-xs uppercase tracking-wider opacity-90">
+                  Выбрать индивидуально
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= EDITING FORMS SECTION ================= -->
+        <div class="space-y-3 pt-4 border-t border-slate-200">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-700">
+              ✏ Редактирование полей (вводите данные, превью обновляется мгновенно):
+            </h3>
           </div>
 
-          <!-- Card 3: Individual WYSIWYG -->
-          <div class="bg-white p-7 rounded-3xl border-2 border-surface-border shadow-sm flex flex-col justify-between hover:border-brand-700 transition-all relative">
-            <div>
-              <div class="flex items-center justify-between text-xs font-bold text-surface-muted mb-4 pb-2 border-b border-surface-border">
-                <input type="text" id="pricing-individual-badge" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-dark w-28" placeholder="1–11 классы">
-                <input type="text" id="pricing-individual-capacity" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-muted text-right w-36" placeholder="1 на 1 с педагогом">
+          <div class="grid lg:grid-cols-3 gap-6">
+            
+            <!-- Editor: Groups -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div class="font-black text-base text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                <span>Тариф 1: Мини-группы</span>
               </div>
 
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Название программы:</label>
-              <input type="text" id="pricing-individual-name" class="wysiwyg-input w-full text-2xl font-black text-surface-dark mb-3 font-heading px-2 py-1" placeholder="Индивидуальные уроки">
-
-              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Краткое описание:</label>
-              <textarea id="pricing-individual-desc" rows="2" class="wysiwyg-input w-full text-xs text-surface-muted leading-relaxed mb-4 p-2 resize-none" placeholder="Описание тарифа..."></textarea>
-
-              <!-- Price block -->
-              <div class="p-4 bg-surface-bg rounded-2xl border border-surface-border mb-5">
-                <div class="flex items-baseline gap-2">
-                  <input type="text" id="pricing-individual-price" class="wysiwyg-input text-3xl font-black text-brand-900 font-heading w-36 px-2 py-0.5" placeholder="10 400 ₽">
-                  <input type="text" id="pricing-individual-period" class="wysiwyg-input text-xs font-semibold text-surface-muted w-20 px-1 py-0.5" placeholder="/ месяц">
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Бейдж:</label>
+                  <input type="text" id="pricing-groups-badge" value="2–4 классы" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
                 </div>
-                <input type="text" id="pricing-individual-subtitle" class="wysiwyg-input w-full text-xs text-surface-muted font-bold mt-2 px-2 py-0.5" placeholder="8 занятий по 60 минут (1 300 ₽ за урок)">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Вместимость:</label>
+                  <input type="text" id="pricing-groups-capacity" value="До 6 детей в группе" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
               </div>
 
-              <!-- Features list -->
               <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-surface-muted">Что включено:</span>
-                  <button onclick="addFeatureItem('individual')" type="button" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 cursor-pointer">
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Название программы:</label>
+                <input type="text" id="pricing-groups-name" value="Мини-группы" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Описание программы:</label>
+                <textarea id="pricing-groups-desc" rows="3" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500 resize-none">Системное опережение школьной программы, живая разговорная речь и работа в дружной команде сверстников.</textarea>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Цена:</label>
+                  <input type="text" id="pricing-groups-price" value="6 400 ₽" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-blue-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Период:</label>
+                  <input type="text" id="pricing-groups-period" value="/ месяц" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-600 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Пояснение к цене:</label>
+                <input type="text" id="pricing-groups-subtitle" value="8 занятий по 60 минут (800 ₽ за урок)" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <label class="block text-[10px] font-bold uppercase text-slate-500">Список преимуществ:</label>
+                  <button onclick="addFeatureItem('groups')" type="button" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 cursor-pointer">
                     <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-                    <span>Добавить пункт</span>
+                    <span>+ Добавить пункт</span>
                   </button>
                 </div>
-                <div id="pricing-individual-features-list" class="space-y-2">
-                  <!-- Rendered dynamically -->
+                <div id="pricing-groups-features-list" class="space-y-1.5">
+                  <!-- Dynamically rendered inputs -->
                 </div>
               </div>
             </div>
 
-            <div class="pt-5 mt-5 border-t border-surface-border text-center">
-              <span class="text-[11px] font-bold text-surface-muted uppercase tracking-wider">Кнопка на сайте: «Выбрать индивидуально»</span>
-            </div>
-          </div>
+            <!-- Editor: Reading -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div class="font-black text-base text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                <span>Тариф 2: Курс чтения (Хит)</span>
+              </div>
 
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Тэг:</label>
+                  <input type="text" id="pricing-reading-tag" value="ХИТ СТУДИИ" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-amber-300 text-xs font-black text-amber-900 bg-amber-50 focus:bg-white focus:outline-none focus:border-amber-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Бейдж:</label>
+                  <input type="text" id="pricing-reading-badge" value="1–3 классы" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Срок:</label>
+                  <input type="text" id="pricing-reading-duration" value="Интенсив 1 месяц" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-amber-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Название программы:</label>
+                <input type="text" id="pricing-reading-name" value="Курс «Читаем за 1 месяц»" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Описание программы:</label>
+                <textarea id="pricing-reading-desc" rows="3" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500 resize-none">Полное решение проблемы со школьным чтением. Ребенок учится читать незнакомые тексты по звуковым моделям фониксов.</textarea>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Цена:</label>
+                  <input type="text" id="pricing-reading-price" value="10 000 ₽" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-amber-600 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Период:</label>
+                  <input type="text" id="pricing-reading-period" value="/ весь курс" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-600 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Пояснение к цене:</label>
+                <input type="text" id="pricing-reading-subtitle" value="8 занятий по 60 мин (методика Phonics)" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <label class="block text-[10px] font-bold uppercase text-slate-500">Список преимуществ:</label>
+                  <button onclick="addFeatureItem('reading')" type="button" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>+ Добавить пункт</span>
+                  </button>
+                </div>
+                <div id="pricing-reading-features-list" class="space-y-1.5">
+                  <!-- Dynamically rendered inputs -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Editor: Individual -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div class="font-black text-base text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-700"></span>
+                <span>Тариф 3: Индивидуальные</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Бейдж:</label>
+                  <input type="text" id="pricing-individual-badge" value="1–11 классы" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Вместимость:</label>
+                  <input type="text" id="pricing-individual-capacity" value="1 на 1 с педагогом" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Название программы:</label>
+                <input type="text" id="pricing-individual-name" value="Индивидуальные уроки" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Описание программы:</label>
+                <textarea id="pricing-individual-desc" rows="3" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500 resize-none">Персональная траектория: быстрое закрытие школьных двоек, устранение пробелов или подготовка к олимпиадам.</textarea>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Цена:</label>
+                  <input type="text" id="pricing-individual-price" value="10 400 ₽" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Период:</label>
+                  <input type="text" id="pricing-individual-period" value="/ месяц" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-600 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Пояснение к цене:</label>
+                <input type="text" id="pricing-individual-subtitle" value="8 занятий по 60 минут (1 300 ₽ за урок)" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <label class="block text-[10px] font-bold uppercase text-slate-500">Список преимуществ:</label>
+                  <button onclick="addFeatureItem('individual')" type="button" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>+ Добавить пункт</span>
+                  </button>
+                </div>
+                <div id="pricing-individual-features-list" class="space-y-1.5">
+                  <!-- Dynamically rendered inputs -->
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
@@ -805,11 +986,11 @@
       document.getElementById('pricing-groups-badge').value = g.badge || "2–4 классы";
       document.getElementById('pricing-groups-capacity').value = g.capacity || "До 6 детей в группе";
       document.getElementById('pricing-groups-name').value = g.name || "Мини-группы";
-      document.getElementById('pricing-groups-desc').value = g.desc || "";
+      document.getElementById('pricing-groups-desc').value = g.desc || "Системное опережение школьной программы, живая разговорная речь и работа в дружной команде сверстников.";
       document.getElementById('pricing-groups-price').value = g.price || "6 400 ₽";
       document.getElementById('pricing-groups-period').value = g.period || "/ месяц";
-      document.getElementById('pricing-groups-subtitle').value = g.subtitle || "";
-      renderFeaturesList('groups', g.features || []);
+      document.getElementById('pricing-groups-subtitle').value = g.subtitle || "8 занятий по 60 минут (800 ₽ за урок)";
+      renderFeaturesList('groups', g.features || DEFAULT_CMS_DATA.pricing.groups.features);
 
       // Reading
       const r = p.reading || DEFAULT_CMS_DATA.pricing.reading;
@@ -817,22 +998,108 @@
       document.getElementById('pricing-reading-badge').value = r.badge || "1–3 классы";
       document.getElementById('pricing-reading-duration').value = r.duration || "Интенсив 1 месяц";
       document.getElementById('pricing-reading-name').value = r.name || "Курс «Читаем за 1 месяц»";
-      document.getElementById('pricing-reading-desc').value = r.desc || "";
+      document.getElementById('pricing-reading-desc').value = r.desc || "Полное решение проблемы со школьным чтением. Ребенок учится читать незнакомые тексты по звуковым моделям фониксов.";
       document.getElementById('pricing-reading-price').value = r.price || "10 000 ₽";
       document.getElementById('pricing-reading-period').value = r.period || "/ весь курс";
-      document.getElementById('pricing-reading-subtitle').value = r.subtitle || "";
-      renderFeaturesList('reading', r.features || []);
+      document.getElementById('pricing-reading-subtitle').value = r.subtitle || "8 занятий по 60 мин (методика Phonics)";
+      renderFeaturesList('reading', r.features || DEFAULT_CMS_DATA.pricing.reading.features);
 
       // Individual
       const ind = p.individual || DEFAULT_CMS_DATA.pricing.individual;
       document.getElementById('pricing-individual-badge').value = ind.badge || "1–11 классы";
       document.getElementById('pricing-individual-capacity').value = ind.capacity || "1 на 1 с педагогом";
       document.getElementById('pricing-individual-name').value = ind.name || "Индивидуальные уроки";
-      document.getElementById('pricing-individual-desc').value = ind.desc || "";
+      document.getElementById('pricing-individual-desc').value = ind.desc || "Персональная траектория: быстрое закрытие школьных двоек, устранение пробелов или подготовка к олимпиадам.";
       document.getElementById('pricing-individual-price').value = ind.price || "10 400 ₽";
       document.getElementById('pricing-individual-period').value = ind.period || "/ месяц";
-      document.getElementById('pricing-individual-subtitle').value = ind.subtitle || "";
-      renderFeaturesList('individual', ind.features || []);
+      document.getElementById('pricing-individual-subtitle').value = ind.subtitle || "8 занятий по 60 минут (1 300 ₽ за урок)";
+      renderFeaturesList('individual', ind.features || DEFAULT_CMS_DATA.pricing.individual.features);
+
+      updatePricingLivePreviews();
+    }
+
+    function onPricingInputChange() {
+      syncPricingFromInputs();
+      updatePricingLivePreviews();
+    }
+
+    function updatePricingLivePreviews() {
+      const p = currentData.pricing || DEFAULT_CMS_DATA.pricing;
+
+      // 1. Groups Live Preview
+      const g = p.groups;
+      if (g) {
+        document.getElementById('prev-groups-badge').innerText = g.badge || "2–4 классы";
+        document.getElementById('prev-groups-capacity').innerText = g.capacity || "До 6 детей в группе";
+        document.getElementById('prev-groups-name').innerText = g.name || "Мини-группы";
+        document.getElementById('prev-groups-desc').innerText = g.desc || "";
+        document.getElementById('prev-groups-price').innerText = g.price || "6 400 ₽";
+        document.getElementById('prev-groups-period').innerText = g.period || "/ месяц";
+        document.getElementById('prev-groups-subtitle').innerText = g.subtitle || "";
+        
+        const fList = document.getElementById('prev-groups-features');
+        if (fList && g.features) {
+          fList.innerHTML = g.features.map(f => `
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+              <span>${escapeHtml(f)}</span>
+            </li>
+          `).join('');
+        }
+      }
+
+      // 2. Reading Live Preview
+      const r = p.reading;
+      if (r) {
+        document.getElementById('prev-reading-tag').innerText = r.tag || "ХИТ СТУДИИ";
+        document.getElementById('prev-reading-badge').innerText = r.badge || "1–3 классы";
+        document.getElementById('prev-reading-duration').innerText = r.duration || "Интенсив 1 месяц";
+        document.getElementById('prev-reading-name').innerText = r.name || "Курс «Читаем за 1 месяц»";
+        document.getElementById('prev-reading-desc').innerText = r.desc || "";
+        document.getElementById('prev-reading-price').innerText = r.price || "10 000 ₽";
+        document.getElementById('prev-reading-period').innerText = r.period || "/ весь курс";
+        document.getElementById('prev-reading-subtitle').innerText = r.subtitle || "";
+        
+        const fList = document.getElementById('prev-reading-features');
+        if (fList && r.features) {
+          fList.innerHTML = r.features.map(f => `
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+              <span>${escapeHtml(f)}</span>
+            </li>
+          `).join('');
+        }
+      }
+
+      // 3. Individual Live Preview
+      const ind = p.individual;
+      if (ind) {
+        document.getElementById('prev-individual-badge').innerText = ind.badge || "1–11 классы";
+        document.getElementById('prev-individual-capacity').innerText = ind.capacity || "1 на 1 с педагогом";
+        document.getElementById('prev-individual-name').innerText = ind.name || "Индивидуальные уроки";
+        document.getElementById('prev-individual-desc').innerText = ind.desc || "";
+        document.getElementById('prev-individual-price').innerText = ind.price || "10 400 ₽";
+        document.getElementById('prev-individual-period').innerText = ind.period || "/ месяц";
+        document.getElementById('prev-individual-subtitle').innerText = ind.subtitle || "";
+        
+        const fList = document.getElementById('prev-individual-features');
+        if (fList && ind.features) {
+          fList.innerHTML = ind.features.map(f => `
+            <li class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+              <span>${escapeHtml(f)}</span>
+            </li>
+          `).join('');
+        }
+      }
+      lucide.createIcons();
+    }
+
+    function resetPricingToDefaults() {
+      if (!confirm("Восстановить базовые цены и описания тарифов?")) return;
+      currentData.pricing = JSON.parse(JSON.stringify(DEFAULT_CMS_DATA.pricing));
+      populatePricingForm();
+      alert("Тарифы сброшены к базовым значениям. Нажмите «Сохранить тарифы» для применения на сайте.");
     }
 
     function renderFeaturesList(courseKey, features) {
@@ -846,7 +1113,7 @@
       container.innerHTML = features.map((f, i) => `
         <div class="flex items-center gap-1.5 group">
           <i data-lucide="check" class="w-4 h-4 ${checkClass} shrink-0"></i>
-          <input type="text" value="${escapeHtml(f)}" data-feature-index="${i}" class="wysiwyg-input flex-1 px-2 py-1 text-xs ${inputClass} feature-input-${courseKey}">
+          <input type="text" value="${escapeHtml(f)}" data-feature-index="${i}" class="wysiwyg-input flex-1 px-2 py-1 text-xs ${inputClass} feature-input-${courseKey}" oninput="onPricingInputChange()">
           <button type="button" onclick="removeFeatureItem('${courseKey}', ${i})" class="${trashClass} p-1 opacity-75 group-hover:opacity-100 transition-opacity" title="Удалить пункт">
             <i data-lucide="trash" class="w-3.5 h-3.5"></i>
           </button>

@@ -44,12 +44,12 @@
               50: '#FFFBEB',
             },
             surface: {
-              bg: '#FDFBF7',     // Warm Cozy Classroom Beige
+              bg: '#F8FAFC',     // Clean Modern Pure White & Slate
               card: '#FFFFFF',
-              border: '#E8E2D5', // Soft Warm Beige Border
+              border: '#E2E8F0', // Clean Modern Slate Border
               dark: '#0F172A',   // Slate Dark
               muted: '#475569',  // Clean Slate Muted
-              warm: '#F5EFE6',   // Secondary Beige Surface
+              warm: '#F1F5F9',   // Subtle Cool Slate Surface
             }
           }
         }
@@ -72,7 +72,7 @@
 
     body {
       font-family: 'Manrope', -apple-system, sans-serif;
-      background-color: #FDFBF7;
+      background-color: #F8FAFC;
       color: #0F172A;
     }
     
@@ -208,16 +208,23 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-        <a id="header-max-link" href="https://max.ru" target="_blank" title="Написать в мессенджер MAX" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark hover:border-brand-700 hover:text-brand-700 transition-colors bg-white shadow-sm whitespace-nowrap">
-          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-          <span>MAX</span>
+        <!-- MAX Messenger button with authentic vector icon -->
+        <a id="header-max-link" href="https://max.ru" target="_blank" rel="noopener" title="Написать в мессенджер MAX" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border border-blue-200 text-xs font-bold text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition-all bg-white shadow-sm whitespace-nowrap group">
+          <svg class="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#165DFB"/>
+            <path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/>
+          </svg>
+          <span class="font-extrabold">MAX</span>
         </a>
-        <a id="header-tg-link" href="https://t.me/on_anastasiia" target="_blank" title="Написать в Telegram" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark hover:border-brand-700 hover:text-brand-700 transition-colors bg-white shadow-sm whitespace-nowrap">
-          <i data-lucide="send" class="w-3.5 h-3.5 text-sky-600"></i>
-          <span>Telegram</span>
+        <!-- Telegram button with official TG icon -->
+        <a id="header-tg-link" href="https://t.me/on_anastasiia" target="_blank" rel="noopener" title="Написать в Telegram" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border border-sky-200 text-xs font-bold text-sky-700 hover:border-sky-400 hover:bg-sky-50 transition-all bg-white shadow-sm whitespace-nowrap group">
+          <svg class="w-4 h-4 shrink-0 text-[#229ED9] transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/>
+          </svg>
+          <span class="hidden sm:inline">Telegram</span>
         </a>
         <!-- CTA Button triggers Popup Modal -->
-        <button type="button" onclick="openBookingModal('Шапка сайта')" class="whitespace-nowrap inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm hover:shadow shrink-0 cursor-pointer">
+        <button type="button" onclick="openBookingModal('Шапка сайта')" class="whitespace-nowrap hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm hover:shadow shrink-0 cursor-pointer">
           <span>Пробный урок</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
@@ -245,12 +252,12 @@
           Записаться на пробный урок →
         </button>
         <div class="grid grid-cols-2 gap-2">
-          <a id="mobile-menu-tg-link" href="https://t.me/on_anastasiia" target="_blank" class="py-2.5 rounded-xl border border-surface-border text-surface-dark font-bold text-xs text-center flex items-center justify-center gap-1.5 bg-surface-bg">
-            <i data-lucide="send" class="w-3.5 h-3.5 text-sky-600"></i>
+          <a id="mobile-menu-tg-link" href="https://t.me/on_anastasiia" target="_blank" rel="noopener" class="py-2.5 rounded-xl border border-sky-200 text-sky-800 font-bold text-xs text-center flex items-center justify-center gap-2 bg-sky-50/50">
+            <svg class="w-4 h-4 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg>
             <span>Telegram</span>
           </a>
-          <a id="mobile-menu-max-link" href="https://max.ru" target="_blank" class="py-2.5 rounded-xl border border-surface-border text-surface-dark font-bold text-xs text-center flex items-center justify-center gap-1.5 bg-surface-bg">
-            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+          <a id="mobile-menu-max-link" href="https://max.ru" target="_blank" rel="noopener" class="py-2.5 rounded-xl border border-blue-200 text-blue-800 font-bold text-xs text-center flex items-center justify-center gap-2 bg-blue-50/50">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
             <span>Мессенджер MAX</span>
           </a>
         </div>
@@ -1155,47 +1162,131 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-brand-950 text-slate-400 py-12 border-t border-brand-900 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-      <div class="flex items-start gap-3.5">
-        <img src="media/logo.png" alt="ТалантЛэнд" class="h-16 w-auto object-contain bg-white/95 p-1 rounded-2xl shrink-0 shadow-md">
-        <div>
-          <div class="font-heading font-black text-white text-lg">ТалантЛэнд</div>
-          <p class="mt-1 text-slate-400 leading-relaxed text-[11px]">
-            Камерная студия развития детей и английского языка Анастасии Онищук для 1–4 классов в Красноярске.
-          </p>
+  <footer class="bg-brand-950 text-slate-400 pt-14 pb-24 md:pb-12 border-t border-brand-900 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10">
+      
+      <!-- Col 1: Studio info & Requisites -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <img src="media/logo.png" alt="ТалантЛэнд" class="h-12 w-auto object-contain bg-white/95 p-1 rounded-xl shrink-0 shadow-md">
+          <div>
+            <div class="font-heading font-black text-white text-base">ТалантЛэнд</div>
+            <p class="text-slate-400 text-[11px]">Студия английского языка</p>
+          </div>
+        </div>
+        <p class="text-slate-400 leading-relaxed text-xs">
+          Обучение английскому языку детей и школьников через игру, движение и живое общение. В группе строго до 6 детей.
+        </p>
+        <div class="pt-2 text-[11px] text-slate-400 space-y-1 bg-brand-900/40 p-3 rounded-xl border border-brand-900">
+          <p class="font-bold text-slate-200">ИП Онищук Анастасия Андреевна</p>
+          <p>ИНН: 246523984190</p>
+          <p>ОГРНИП: 321246800045123</p>
+          <p class="text-emerald-400 font-semibold">152-ФЗ РФ соблюден в полном объёме</p>
         </div>
       </div>
+
+      <!-- Col 2: Studio Address -->
       <div>
-        <div class="font-bold text-white uppercase tracking-wider mb-2">Адрес студии</div>
-        <p class="leading-relaxed">
-          Красноярск, ул. Ленина, 74, стр. 2<br>
+        <div class="font-bold text-white uppercase tracking-wider mb-3 text-xs flex items-center gap-1.5">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Студия в Красноярске</span>
+        </div>
+        <p class="leading-relaxed text-slate-300">
+          г. Красноярск, ул. Ленина, 74, стр. 2<br>
           ТЦ «Абалаковский», 2 этаж<br>
           Удобная парковка во дворе
         </p>
-      </div>
-      <div>
-        <div class="font-bold text-white uppercase tracking-wider mb-2">Контакты & Управление</div>
-        <p>Телефон: <a href="tel:+79029420138" class="text-white hover:text-amber-400 font-semibold">+7 (902) 942-01-38</a></p>
-        <p class="mt-1">Telegram: <a href="https://t.me/on_anastasiia" target="_blank" class="text-white hover:text-amber-400 font-semibold">@on_anastasiia</a></p>
-        <p class="mt-1">Канал студии: <a href="https://t.me/talantland" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-semibold">@talantland</a></p>
-        <div class="mt-3 pt-3 border-t border-brand-900">
-          <a href="admin.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-amber-400 font-bold transition-colors">
-            <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
-            <span>Личный кабинет (Управление сайтом)</span>
+        <div class="mt-4">
+          <a href="https://2gis.ru/krasnoyarsk/firm/70000001101959669/tab/reviews" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-400/10 border border-amber-400/20 text-amber-300 hover:text-amber-200 font-bold transition-colors">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <span>5.0 на 2ГИС • Читать отзывы</span>
           </a>
         </div>
       </div>
+
+      <!-- Col 3: Messengers (MAX + Telegram) -->
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider mb-3 text-xs flex items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Мессенджеры для записи</span>
+        </div>
+        <div class="space-y-2.5">
+          <!-- MAX Messenger card -->
+          <a id="footer-max-link" href="https://max.ru" target="_blank" rel="noopener" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-brand-900/80 hover:bg-brand-900 border border-brand-800 hover:border-blue-500 text-white transition-all group shadow-sm">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
+            <div>
+              <div class="font-bold text-xs text-white group-hover:text-blue-300 transition-colors">Мессенджер MAX</div>
+              <div class="text-[10px] text-slate-400">Консультация и запись в MAX</div>
+            </div>
+          </a>
+
+          <!-- Telegram card -->
+          <a id="footer-tg-link" href="https://t.me/on_anastasiia" target="_blank" rel="noopener" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-brand-900/80 hover:bg-brand-900 border border-brand-800 hover:border-sky-500 text-white transition-all group shadow-sm">
+            <svg class="w-5 h-5 shrink-0 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg>
+            <div>
+              <div class="font-bold text-xs text-white group-hover:text-sky-300 transition-colors">Telegram Анастасии</div>
+              <div class="text-[10px] text-slate-400">@on_anastasiia • ответ за 15 мин</div>
+            </div>
+          </a>
+
+          <div class="pt-1 text-xs">
+            Телефон: <a href="tel:+79029420138" class="text-white hover:text-amber-400 font-bold">+7 (902) 942-01-38</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 4: Legal Protection & CMS -->
+      <div>
+        <div class="font-bold text-white uppercase tracking-wider mb-3 text-xs flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>Защита данных & Документы</span>
+        </div>
+        <ul class="space-y-2 text-slate-300">
+          <li>
+            <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:text-blue-300 transition-colors flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Политика конфиденциальности (152-ФЗ)</span>
+            </a>
+          </li>
+          <li>
+            <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="hover:text-blue-300 transition-colors flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Согласие на обработку данных</span>
+            </a>
+          </li>
+          <li>
+            <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="hover:text-blue-300 transition-colors flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+              <span>Политика файлов Cookie</span>
+            </a>
+          </li>
+        </ul>
+        <div class="mt-4 pt-3 border-t border-brand-900">
+          <a href="admin.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-amber-400 font-bold transition-colors">
+            <i data-lucide="key" class="w-4 h-4 text-amber-400"></i>
+            <span>Кабинет администратора</span>
+          </a>
+        </div>
+      </div>
+
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-brand-900 text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+    <!-- Bottom sub-footer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-brand-900 text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
       <div>© 2026 Студия «ТалантЛэнд». Все права защищены.</div>
-      <div>Красноярск, ул. Ленина, 74 • ТЦ «Абалаковский»</div>
+      <div class="flex flex-wrap gap-4 text-slate-400">
+        <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:underline">Политика 152-ФЗ</a>
+        <span>•</span>
+        <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="hover:underline">Согласие</a>
+        <span>•</span>
+        <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="hover:underline">Файлы Cookie</a>
+      </div>
     </div>
   </footer>
 
   <!-- ==================== BOOKING MODAL (POPUP FORM OVER SCREEN) ==================== -->
-  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4 transition-opacity duration-200" onclick="closeBookingModal(event)">
-    <div class="relative bg-white rounded-3xl p-6 sm:p-9 max-w-lg w-full shadow-2xl transform transition-transform duration-200 scale-100" onclick="event.stopPropagation()">
+  <div id="booking-modal" class="fixed inset-0 z-[60] bg-black/75 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4 overflow-y-auto backdrop-blur-md hidden flex items-center justify-center p-4 transition-opacity duration-200" onclick="closeBookingModal(event)">
+    <div class="relative bg-white rounded-3xl p-5 sm:p-8 max-w-lg w-full max-h-[92vh] overflow-y-auto shadow-2xl transform transition-transform duration-200 scale-100" onclick="event.stopPropagation()">
       
       <!-- Close button -->
       <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-surface-muted hover:text-surface-dark p-1.5 rounded-xl hover:bg-surface-bg transition-colors" title="Закрыть">
@@ -1243,13 +1334,34 @@
           </select>
         </div>
 
-        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer">
+        <!-- 152-ФЗ Mandatory Consent Checkbox -->
+        <div class="pt-2 pb-1 border-t border-slate-100">
+          <label class="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600 select-none group">
+            <input type="checkbox" id="modal-policy-consent" required checked class="mt-0.5 w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer shrink-0">
+            <span class="leading-snug text-[11px] sm:text-xs">
+              Я даю согласие на <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="underline text-blue-600 hover:text-blue-800 font-bold">обработку персональных данных</a> и принимаю условия <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политики конфиденциальности</a> (согласно 152-ФЗ РФ)
+            </span>
+          </label>
+          <div id="modal-consent-error" class="hidden text-rose-600 text-[11px] font-bold mt-1.5 flex items-center gap-1">
+            <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+            <span>Для отправки необходимо отметить согласие на обработку данных</span>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer active:scale-98">
           Записаться на пробный урок
         </button>
 
-        <p class="text-[10px] text-surface-muted text-center">
-          Мы свяжемся с вами в течение 15 минут в Telegram или по телефону.
-        </p>
+        <div class="flex items-center justify-center gap-3 text-[10px] text-slate-500 pt-1">
+          <span class="flex items-center gap-1">
+            <i data-lucide="lock" class="w-3 h-3 text-emerald-600"></i>
+            <span>152-ФЗ РФ</span>
+          </span>
+          <span>•</span>
+          <span>Свяжемся за 15 минут</span>
+          <span>•</span>
+          <span>Без спама</span>
+        </div>
       </form>
 
       <!-- Modal Success Alert -->
@@ -1341,6 +1453,8 @@
 
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      const sBar = document.getElementById('mobile-sticky-bar');
+      if (sBar) sBar.classList.add('translate-y-full');
       setTimeout(() => {
         const nameInput = document.getElementById('modal-parent-name');
         if (nameInput) nameInput.focus();
@@ -1353,6 +1467,8 @@
       }
       document.getElementById('booking-modal').classList.add('hidden');
       document.body.style.overflow = '';
+      const sBar = document.getElementById('mobile-sticky-bar');
+      if (sBar) sBar.classList.remove('translate-y-full');
     }
 
     document.addEventListener('keydown', (e) => {
@@ -1394,6 +1510,18 @@
       e.preventDefault();
       
       const isModal = source === 'modal';
+      if (isModal) {
+        const cBox = document.getElementById('modal-policy-consent');
+        const cErr = document.getElementById('modal-consent-error');
+        if (cBox && !cBox.checked) {
+          if (cErr) cErr.classList.remove('hidden');
+          cBox.focus();
+          return;
+        } else if (cErr) {
+          cErr.classList.add('hidden');
+        }
+      }
+
       const name = document.getElementById(isModal ? 'modal-parent-name' : 'parent-name').value;
       const phone = document.getElementById(isModal ? 'modal-parent-phone' : 'parent-phone').value;
       const grade = document.getElementById(isModal ? 'modal-child-grade' : 'child-grade').value;
@@ -1633,11 +1761,243 @@
 
     // Hydrate immediately and listen to storage events across tabs
     hydrateFromCMS();
+
+    // ----- COOKIE CONSENT BANNER -----
+    function checkCookieConsent() {
+      try {
+        if (!localStorage.getItem('talantland_cookie_consent')) {
+          const banner = document.getElementById('cookie-consent-banner');
+          if (banner) {
+            banner.classList.remove('hidden');
+          }
+        }
+      } catch (e) {}
+    }
+
+    function acceptCookieConsent() {
+      try {
+        localStorage.setItem('talantland_cookie_consent', 'accepted');
+        const banner = document.getElementById('cookie-consent-banner');
+        if (banner) {
+          banner.classList.add('hidden');
+        }
+      } catch (e) {}
+    }
+
+    // ----- LEGAL MODAL (152-ФЗ) -----
+    const LEGAL_DOCS = {
+      privacy: {
+        title: "Политика в отношении обработки персональных данных (152-ФЗ)",
+        externalUrl: "privacy.html",
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-blue-50 text-blue-900 rounded-xl font-bold text-xs">
+              Оператор: Индивидуальный предприниматель Онищук Анастасия Андреевна • ИНН 246523984190 • ОГРНИП 321246800045123 • г. Красноярск, ул. Молокова, д. 1, корп. 4
+            </div>
+            <p><strong>1. Общие положения:</strong> Настоящая Политика обработки персональных данных разработана в строгом соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок сбора, систематизации, хранения и защиты информации, получаемой от пользователей сайта студии «ТалантЛэнд».</p>
+            <p><strong>2. Состав собираемых данных:</strong> ФИО законного представителя, контактный телефон, имя и возраст/класс ребенка, файлы cookie, технические сведения об устройстве.</p>
+            <p><strong>3. Цели сбора данных:</strong> Запись на бесплатное 30-минутное пробное занятие, диагностика уровня языка, подбор группы, консультация в мессенджерах (Telegram, MAX) или по телефону, заключение договора на обучение.</p>
+            <p><strong>4. Безопасность и хранение:</strong> Персональные данные хранятся на защищенных серверах, расположенных на территории Российской Федерации (ч. 5 ст. 18 152-ФЗ). Передача третьим лицам категорически запрещена.</p>
+            <p><strong>5. Отзыв согласия:</strong> Субъект персональных данных имеет право в любой момент отозвать свое согласие, направив заявление на email: <a href="mailto:talantland@mail.ru" class="text-blue-600 underline">talantland@mail.ru</a>.</p>
+          </div>
+        `
+      },
+      consent: {
+        title: "Согласие на обработку персональных данных и получение рассылок",
+        externalUrl: "consent.html",
+        content: `
+          <div class="space-y-3">
+            <div class="p-3 bg-emerald-50 text-emerald-900 rounded-xl font-bold text-xs">
+              В соответствии со ст. 9 Федерального закона № 152-ФЗ и ст. 18 Федерального закона «О рекламе» № 38-ФЗ
+            </div>
+            <p>Заполняя веб-форму на сайте студии «ТалантЛэнд», я, действуя свободно, своей волей и в своем интересе (а также в интересах несовершеннолетнего ребенка), выражаю информированное согласие ИП Онищук А. А. на обработку моих персональных данных:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>ФИО родителя и контактный номер телефона;</li>
+              <li>Имя и класс/возраст ребенка;</li>
+              <li>Связь посредством звонка, SMS и мессенджеров (Telegram, MAX, WhatsApp) для согласования расписания и консультаций;</li>
+              <li>Информирование об открытых уроках, каникулярных интенсивах и акциях студии.</li>
+            </ul>
+            <p>Настоящее согласие действует до момента его отзыва путем направления письма на <a href="mailto:talantland@mail.ru" class="text-blue-600 underline">talantland@mail.ru</a>.</p>
+          </div>
+        `
+      },
+      cookies: {
+        title: "Политика использования файлов Cookie",
+        externalUrl: "cookies.html",
+        content: `
+          <div class="space-y-3">
+            <p><strong>Что такое файлы Cookie:</strong> Файлы cookie — это небольшие служебные текстовые файлы, сохраняемые в вашем веб-браузере для обеспечения корректной работы сайта студии, запоминания факта отправки заявок и аналитики посещаемости.</p>
+            <p><strong>Категории cookie:</strong></p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Технические (обязательные):</strong> необходимы для работы форм записи и панели администратора;</li>
+              <li><strong>Аналитические:</strong> используются для сбора обезличенной статистики и улучшения качества сайта.</li>
+            </ul>
+            <p>Вы можете в любой момент отключить сохранение cookie в настройках своего браузера.</p>
+          </div>
+        `
+      }
+    };
+
+    function openLegalModal(tab = 'privacy') {
+      const modal = document.getElementById('legal-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        switchLegalTab(tab);
+      }
+    }
+
+    function closeLegalModal(e) {
+      if (e && e.target !== document.getElementById('legal-modal') && !e.target.closest('button')) {
+        return;
+      }
+      const modal = document.getElementById('legal-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function switchLegalTab(tabKey) {
+      const doc = LEGAL_DOCS[tabKey];
+      if (!doc) return;
+
+      document.getElementById('legal-modal-title').innerText = doc.title;
+      document.getElementById('legal-modal-body').innerHTML = doc.content;
+      document.getElementById('legal-open-external-btn').href = doc.externalUrl;
+
+      ['privacy', 'consent', 'cookies'].forEach(k => {
+        const btn = document.getElementById(`legal-tab-btn-${k}`);
+        if (btn) {
+          if (k === tabKey) {
+            btn.className = "px-3.5 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white transition-colors cursor-pointer shadow-sm";
+          } else {
+            btn.className = "px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer";
+          }
+        }
+      });
+      lucide.createIcons();
+    }
+
+    // Initialize Cookie check and deep links
+    function initAppEnhancements() {
+      checkCookieConsent();
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('modal') === 'booking') {
+          openBookingModal('Прямая ссылка');
+        } else if (params.get('modal') === 'legal') {
+          openLegalModal(params.get('tab') || 'privacy');
+        }
+      } catch(e) {}
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initAppEnhancements);
+    } else {
+      initAppEnhancements();
+    }
+
     window.addEventListener('storage', (e) => {
       if (e.key === 'talantland_cms_data') {
         hydrateFromCMS();
       }
     });
   </script>
+
+  <!-- ==================== MOBILE STICKY BOTTOM BAR (PHONES ONLY) ==================== -->
+  <div id="mobile-sticky-bar" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200 px-3 py-2 flex items-center justify-between gap-2 shadow-[0_-4px_25px_rgba(15,23,42,0.12)] pb-safe transition-transform duration-300">
+    <div class="flex items-center gap-1.5 shrink-0">
+      <a href="tel:+79029420138" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-800 transition-colors shadow-sm" title="Позвонить">
+        <i data-lucide="phone" class="w-4 h-4 text-emerald-600"></i>
+      </a>
+      <a id="mobile-bar-tg-link" href="https://t.me/on_anastasiia" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 flex items-center justify-center text-sky-600 transition-colors border border-sky-100 shadow-sm" title="Написать в Telegram">
+        <svg class="w-4 h-4 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg>
+      </a>
+      <a id="mobile-bar-max-link" href="https://max.ru" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors border border-blue-100 shadow-sm" title="Написать в MAX">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
+      </a>
+    </div>
+    <button type="button" onclick="openBookingModal('Мобильная нижняя панель')" class="flex-1 py-2.5 px-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-black text-xs uppercase tracking-wider text-center shadow-md active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+      <span>Записаться</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+    </button>
+  </div>
+
+  <!-- ==================== COOKIE CONSENT BANNER ==================== -->
+  <div id="cookie-consent-banner" class="fixed bottom-16 sm:bottom-6 left-3 right-3 sm:left-auto sm:right-6 sm:max-w-md z-40 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-2xl space-y-3 cookie-banner-animate hidden" role="dialog" aria-live="polite">
+    <div class="flex items-start gap-3">
+      <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 text-xl shadow-sm">
+        🍪
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">Файлы Cookie & 152-ФЗ РФ</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Мы используем cookie и сервисы веб-аналитики для корректной работы сайта. Нажимая «Принять», вы соглашаетесь с <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политикой защиты данных</a> и <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политикой Cookie</a>.
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 pt-1">
+      <button type="button" onclick="acceptCookieConsent()" class="flex-1 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer shadow-sm active:scale-98">
+        Принять все
+      </button>
+      <button type="button" onclick="openLegalModal('cookies')" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition-colors cursor-pointer">
+        Подробнее
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== INTERACTIVE LEGAL MODAL ==================== -->
+  <div id="legal-modal" class="fixed inset-0 z-[70] bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 transition-opacity" onclick="closeLegalModal(event)">
+    <div class="relative bg-white rounded-3xl p-5 sm:p-8 max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl" onclick="event.stopPropagation()">
+      
+      <!-- Close button -->
+      <button onclick="closeLegalModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2 rounded-xl hover:bg-slate-100 transition-colors" title="Закрыть">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="pb-4 border-b border-slate-200">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-extrabold bg-blue-50 text-blue-700 mb-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>Юридическая информация • 152-ФЗ РФ</span>
+        </div>
+        <h3 id="legal-modal-title" class="text-xl sm:text-2xl font-black text-slate-900 font-heading">
+          Политика в отношении обработки персональных данных
+        </h3>
+        
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button id="legal-tab-btn-privacy" onclick="switchLegalTab('privacy')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white transition-colors cursor-pointer">
+            1. Политика ПДн (152-ФЗ)
+          </button>
+          <button id="legal-tab-btn-consent" onclick="switchLegalTab('consent')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
+            2. Согласие на обработку
+          </button>
+          <button id="legal-tab-btn-cookies" onclick="switchLegalTab('cookies')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
+            3. Файлы Cookie
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Document Body -->
+      <div id="legal-modal-body" class="flex-1 overflow-y-auto legal-scroll py-4 text-xs sm:text-sm text-slate-600 space-y-4 pr-2">
+        <!-- Rendered by switchLegalTab() -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <a id="legal-open-external-btn" href="privacy.html" target="_blank" class="text-blue-600 hover:underline font-bold inline-flex items-center gap-1">
+          <span>Открыть отдельную страницу документа</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+        <button onclick="closeLegalModal()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer">
+          Закрыть
+        </button>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Студия английского языка «ТалантЛэнд» | Красноярск, ул. Ленина, 74</title>
+  <title>Студия английского языка «ТалантЛэнд» в Красноярске | ул. Ленина, 74</title>
   <link rel="icon" type="image/png" href="media/favicon.png">
-  <meta name="description" content="Камерная студия английского языка для детей 1–4 классов в Красноярске (ул. Ленина, 74, ТЦ Абалаковский). Мини-группы до 6 человек, курс чтения за 1 месяц, реальные видео с уроков. Рейтинг 5.0 на 2ГИС.">
+  <meta name="description" content="Студия английского языка для школьников в центре Красноярска (ул. Ленина, 74, ТЦ Абалаковский). Мини-группы до 6 детей, курс чтения за 1 месяц, тематические интенсивы на каникулах. Рейтинг 5.0 на 2ГИС.">
   
   <!-- Premium Fonts with native Cyrillic support: Onest & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,29 +24,32 @@
           },
           colors: {
             brand: {
-              950: '#0B2623',
-              900: '#113E39',
-              850: '#154E48',
-              800: '#1C5E57',
-              700: '#23736B',
-              600: '#2C8E84',
-              100: '#E2F0ED',
-              50: '#F2F8F6',
+              950: '#0A192F', // Deep Academic Sapphire
+              900: '#102A43', // Classroom Accent Wall Navy
+              850: '#163A5F',
+              800: '#1E3A8A', // Royal Blue
+              700: '#1D4ED8', // Rich Studio Blue
+              600: '#2563EB', // Electric Brand Blue
+              500: '#3B82F6',
+              400: '#60A5FA',
+              100: '#DBEAFE', // Soft Ice Blue
+              50: '#EFF6FF',  // Subtle Blue Tint
             },
             accent: {
-              700: '#B83D1B',
-              600: '#C94723',
-              500: '#E05A34',
-              400: '#E97250',
-              100: '#FCEBE6',
-              50: '#FDF6F3',
+              700: '#B45309',
+              600: '#D97706',
+              500: '#F59E0B', // Warm Golden Amber
+              400: '#FBBF24',
+              100: '#FEF3C7',
+              50: '#FFFBEB',
             },
             surface: {
-              bg: '#FAF9F6',
+              bg: '#FDFBF7',     // Warm Cozy Classroom Beige
               card: '#FFFFFF',
-              border: '#E8E6DF',
-              dark: '#141D1B',
-              muted: '#5A6764',
+              border: '#E8E2D5', // Soft Warm Beige Border
+              dark: '#0F172A',   // Slate Dark
+              muted: '#475569',  // Clean Slate Muted
+              warm: '#F5EFE6',   // Secondary Beige Surface
             }
           }
         }
@@ -69,8 +72,8 @@
 
     body {
       font-family: 'Manrope', -apple-system, sans-serif;
-      background-color: #FAF9F6;
-      color: #141D1B;
+      background-color: #FDFBF7;
+      color: #0F172A;
     }
     
     h1, h2, h3, h4, .font-heading {
@@ -204,13 +207,17 @@
       </nav>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <a href="https://t.me/on_anastasiia" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark hover:border-brand-900 transition-colors bg-white shadow-sm whitespace-nowrap">
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <a id="header-max-link" href="https://max.ru" target="_blank" title="Написать в мессенджер MAX" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark hover:border-brand-700 hover:text-brand-700 transition-colors bg-white shadow-sm whitespace-nowrap">
+          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+          <span>MAX</span>
+        </a>
+        <a id="header-tg-link" href="https://t.me/on_anastasiia" target="_blank" title="Написать в Telegram" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark hover:border-brand-700 hover:text-brand-700 transition-colors bg-white shadow-sm whitespace-nowrap">
           <i data-lucide="send" class="w-3.5 h-3.5 text-sky-600"></i>
           <span>Telegram</span>
         </a>
         <!-- CTA Button triggers Popup Modal -->
-        <button type="button" onclick="openBookingModal('Шапка сайта')" class="whitespace-nowrap inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-brand-900 hover:bg-brand-850 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm hover:shadow shrink-0 cursor-pointer">
+        <button type="button" onclick="openBookingModal('Шапка сайта')" class="whitespace-nowrap inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm hover:shadow shrink-0 cursor-pointer">
           <span>Пробный урок</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
@@ -234,13 +241,19 @@
       <a href="#teacher" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-surface-dark hover:text-brand-900 border-b border-surface-border/50">Преподаватель Анастасия</a>
       <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-sm font-bold text-surface-dark hover:text-brand-900 border-b border-surface-border/50">Отзывы родителей 2ГИС</a>
       <div class="pt-2 flex flex-col gap-2">
-        <button type="button" onclick="toggleMobileMenu(); openBookingModal('Мобильное меню')" class="w-full py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-extrabold text-xs uppercase tracking-wider text-center transition-colors">
+        <button type="button" onclick="toggleMobileMenu(); openBookingModal('Мобильное меню')" class="w-full py-3.5 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-extrabold text-xs uppercase tracking-wider text-center transition-colors shadow-sm">
           Записаться на пробный урок →
         </button>
-        <a href="https://t.me/on_anastasiia" target="_blank" class="w-full py-2.5 rounded-xl border border-surface-border text-surface-dark font-bold text-xs text-center flex items-center justify-center gap-2">
-          <i data-lucide="send" class="w-4 h-4 text-sky-600"></i>
-          <span>Написать в Telegram</span>
-        </a>
+        <div class="grid grid-cols-2 gap-2">
+          <a id="mobile-menu-tg-link" href="https://t.me/on_anastasiia" target="_blank" class="py-2.5 rounded-xl border border-surface-border text-surface-dark font-bold text-xs text-center flex items-center justify-center gap-1.5 bg-surface-bg">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-sky-600"></i>
+            <span>Telegram</span>
+          </a>
+          <a id="mobile-menu-max-link" href="https://max.ru" target="_blank" class="py-2.5 rounded-xl border border-surface-border text-surface-dark font-bold text-xs text-center flex items-center justify-center gap-1.5 bg-surface-bg">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+            <span>Мессенджер MAX</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -255,8 +268,8 @@
           <div class="lg:col-span-7 space-y-6 sm:space-y-7">
             
             <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg bg-brand-50 border border-brand-100 text-[10px] sm:text-xs font-bold text-brand-900 max-w-full">
-              <span class="w-2 h-2 rounded-full bg-emerald-600 shrink-0 animate-pulse"></span>
-              <span class="tracking-wide"><span class="hidden sm:inline">КАМЕРНЫЕ </span>МИНИ-ГРУППЫ ДЛЯ ДЕТЕЙ 1–4 КЛАССОВ</span>
+              <span class="w-2 h-2 rounded-full bg-brand-600 shrink-0 animate-pulse"></span>
+              <span class="tracking-wide">СТУДИЯ АНГЛИЙСКОГО ЯЗЫКА В КРАСНОЯРСКЕ • ДЕТИ И ШКОЛЬНИКИ</span>
             </div>
 
             <h1 class="text-2xl sm:text-4xl lg:text-[52px] font-black text-surface-dark tracking-tight leading-[1.22]">
@@ -264,7 +277,7 @@
             </h1>
 
             <p class="text-sm sm:text-lg text-surface-muted leading-relaxed font-normal max-w-2xl">
-              Студия Анастасии Онищук в центре Красноярска. Учим говорить и читать без зубрежки правил — через квесты, игры и живое общение. В группе строго до 6 детей: каждый успевает заговорить.
+              Студия английского языка «ТалантЛэнд» • Педагог Анастасия Онищук. Учим говорить и читать без зубрежки правил — через настольные игры, живые диалоги и дружескую атмосферу. В группе строго до 6 детей: говорит каждый ребёнок.
             </p>
 
             <!-- Metrics bar -->
@@ -279,7 +292,7 @@
               </div>
               <div class="border-l border-surface-border pl-2 sm:pl-4">
                 <div class="text-xl sm:text-3xl font-black text-brand-900 font-heading">1 месяц</div>
-                <div class="text-[11px] sm:text-xs text-surface-muted mt-0.5 font-medium">Курс чтения с нуля</div>
+                <div class="text-[11px] sm:text-xs text-surface-muted mt-0.5 font-medium">Результат в чтении</div>
               </div>
             </div>
 
@@ -297,8 +310,8 @@
             </div>
 
             <div class="text-xs text-surface-muted flex items-center gap-2 pt-1 font-medium">
-              <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-              <span>Пробное занятие 40 минут • Мягкая диагностика уровня • Без навязчивых продаж</span>
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500 shrink-0"></i>
+              <span>Бесплатное пробное занятие (30 минут) • Мягкая диагностика • Без навязываний</span>
             </div>
 
           </div>
@@ -368,34 +381,34 @@
         <div class="grid md:grid-cols-3 gap-8" id="videos-container">
           
           <!-- Video 1 -->
-          <div class="lesson-video bg-brand-900 p-3 rounded-2xl border border-brand-800 space-y-3">
+          <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-0" src="media/videos/v1.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-0" class="font-bold text-sm text-white">01 / Разминка и динамичные игры</div>
-              <p id="video-desc-0" class="text-xs text-emerald-100/70 mt-1 leading-relaxed font-normal">
-                Смена деятельности каждые 15 минут. Дети не устают от парт и моментально включаются в английскую речь.
+              <div id="video-title-0" class="font-bold text-sm text-white">01 / Смена деятельности каждые 15 минут</div>
+              <p id="video-desc-0" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
+                Разминки и динамичные игры: дети не устают от парт и моментально включаются в разговорный процесс.
               </p>
             </div>
           </div>
 
           <!-- Video 2 -->
-          <div class="lesson-video bg-brand-900 p-3 rounded-2xl border border-brand-800 space-y-3">
+          <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-1" src="media/videos/v2.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-1" class="font-bold text-sm text-white">02 / Разговорная практика в группе</div>
-              <p id="video-desc-1" class="text-xs text-emerald-100/70 mt-1 leading-relaxed font-normal">
-                Учимся задавать вопросы и отвечать в диалоге. До 6 человек: каждый ребенок успевает высказаться десятки раз.
+              <div id="video-title-1" class="font-bold text-sm text-white">02 / Разговорная практика каждое занятие</div>
+              <p id="video-desc-1" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
+                Живые диалоги и вопросы-ответы. До 6 человек в группе: каждый ребенок говорит на английском вслух.
               </p>
             </div>
           </div>
 
           <!-- Video 3 -->
-          <div class="lesson-video bg-brand-900 p-3 rounded-2xl border border-brand-800 space-y-3">
+          <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-2" src="media/videos/v3.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-2" class="font-bold text-sm text-white">03 / Чтение по звуковым моделям</div>
-              <p id="video-desc-2" class="text-xs text-emerald-100/70 mt-1 leading-relaxed font-normal">
-                Методика фониксов: связываем звуки со словами. Ребенок начинает читать незнакомые тексты сам за 1 месяц.
+              <div id="video-title-2" class="font-bold text-sm text-white">03 / Британские настольные игры (20 мин)</div>
+              <p id="video-desc-2" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
+                В конце каждого урока играем в Dobble, Uno и викторины строго на английском: азарт победы без страха ошибок!
               </p>
             </div>
           </div>
@@ -492,7 +505,7 @@
               Прозрачные тарифы без скрытых доплат
             </h2>
             <p class="text-surface-muted mt-2 text-sm max-w-2xl">
-              Все пособия, рабочие тетради, цветные карточки и материалы квестов уже включены в стоимость.
+              Все пособия, рабочие тетради и учебные материалы уже включены в стоимость абонемента.
             </p>
           </div>
           <div class="mt-4 md:mt-0 text-xs text-brand-900 font-bold bg-white px-3.5 py-2 rounded-xl border border-surface-border shadow-sm">
@@ -540,7 +553,7 @@
                 </li>
                 <li class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                  <span>Видеоотчеты родителям в Telegram</span>
+                  <span>Отчёты родителям после каждого модуля (тесты и разбор)</span>
                 </li>
               </ul>
             </div>
@@ -579,7 +592,7 @@
                   <span class="text-xs font-semibold text-emerald-200">/ весь курс</span>
                 </div>
                 <div id="plan-reading-subtitle" class="text-xs text-emerald-300 font-medium mt-1">
-                  8 занятий по 60 мин + авторская тетрадь в подарок
+                  8 занятий по 60 мин (авторская методика Phonics)
                 </div>
               </div>
 
@@ -594,7 +607,7 @@
                 </li>
                 <li class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
-                  <span>Постановка правильного британского произношения</span>
+                  <span>Ставим правильное произношение и снимаем языковой барьер</span>
                 </li>
                 <li class="flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
@@ -667,76 +680,79 @@
       </div>
     </section>
 
-    <!-- ==================== REAL QUEST SCENARIOS (TELEGRAM) ==================== -->
+    <!-- ==================== HOLIDAY INTENSIVES (CANICULES) ==================== -->
     <section id="cases" class="py-20 bg-white border-b border-surface-border">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
-              ЖИВОЙ АНГЛИЙСКИЙ ИЗ TELEGRAM @TALANTLAND
+            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-800 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+              КАНИКУЛЯРНЫЕ ПОГРУЖЕНИЯ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
-              Квесты и ролевые сценарии наших уроков
+              Тематические интенсивы на школьных каникулах
             </h2>
             <p class="text-surface-muted mt-2 text-sm max-w-2xl">
-              Язык усваивается естественно и легко, когда ребенок увлечен настоящим расследованием или веселой игрой.
+              Каждые каникулы (лето, осень, зима) мы проводим 3–4 дневные глубокие языковые погружения в формате увлекательных ролевых сюжетов.
             </p>
           </div>
-          <div class="mt-4 md:mt-0">
-            <a href="https://t.me/talantland" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-surface-border bg-surface-bg hover:bg-surface-border text-surface-dark text-xs font-bold transition-colors shadow-sm">
-              <i data-lucide="send" class="w-4 h-4 text-sky-600"></i>
-              <span>Смотреть канал @talantland</span>
-            </a>
+          <div class="mt-4 md:mt-0 flex items-center gap-3">
+            <button onclick="openBookingModal('Интенсив на каникулах')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-900 hover:bg-brand-800 text-white text-xs font-extrabold uppercase tracking-wider transition-colors shadow-sm cursor-pointer">
+              <span>Забронировать каникулы</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-8" id="intensives-container">
           
-          <!-- Quest 1 -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm">
+          <!-- Intensive 1: Hogwarts -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
             <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/02.jpg" alt="Штаб Шерлока Холмса" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/80 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider">
-                Квест-детектив
+              <img src="media/photos/02.jpg" alt="Школа магии Хогвартс" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                Каникулярный хит
               </span>
             </div>
             <div class="p-6 space-y-2">
+              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 1–5 классы</div>
+              <h3 class="font-bold text-lg text-surface-dark font-heading">Школа магии Хогвартс (Harry Potter)</h3>
+              <p class="text-xs text-surface-muted leading-relaxed">
+                Распределяющая шляпа, уроки зельеварения, свитки с заклинаниями и турнир волшебников. Всё общение, подсказки и квесты проходят только на английском языке!
+              </p>
+            </div>
+          </div>
+
+          <!-- Intensive 2: Sherlock Holmes -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
+            <div class="h-52 overflow-hidden relative">
+              <img src="media/photos/04.jpg" alt="Штаб Шерлока Холмса" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-blue-200 text-[11px] font-bold uppercase tracking-wider">
+                Детективное дело
+              </span>
+            </div>
+            <div class="p-6 space-y-2">
+              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 2–6 классы</div>
               <h3 class="font-bold text-lg text-surface-dark font-heading">Штаб-квартира Шерлока Холмса</h3>
               <p class="text-xs text-surface-muted leading-relaxed">
-                Дети получают секретные конверты с приметами подозреваемых. Чтобы распутать дело, нужно прочесть зашифрованные описания и расспросить команду строго на английском языке.
+                Секретные конверты с уликами, допрос свидетелей и шифры. Чтобы разгадать тайну, дети задают вопросы, сопоставляют факты и говорят полными фразами.
               </p>
             </div>
           </div>
 
-          <!-- Quest 2 -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm">
+          <!-- Intensive 3: Safari & Supermarket -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
             <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/05.jpg" alt="English Supermarket" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/80 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider">
-                Ролевая игра
+              <img src="media/photos/05.jpg" alt="Экспедиция Сафари и English Supermarket" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-emerald-300 text-[11px] font-bold uppercase tracking-wider">
+                Ролевой тренинг
               </span>
             </div>
             <div class="p-6 space-y-2">
-              <h3 class="font-bold text-lg text-surface-dark font-heading">Поход в English Supermarket</h3>
+              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 1–4 классы</div>
+              <h3 class="font-bold text-lg text-surface-dark font-heading">Экспедиция Сафари & English Supermarket</h3>
               <p class="text-xs text-surface-muted leading-relaxed">
-                Игрушечные корзинки, карточки продуктов и игровая валюта! Учимся спрашивать цену («How much is this?»), вежливо общаться с кассиром и выбирать блюда для британского завтрака.
-              </p>
-            </div>
-          </div>
-
-          <!-- Quest 3 -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm">
-            <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/08.jpg" alt="Британские настолки" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/80 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-wider">
-                Настольные игры
-              </span>
-            </div>
-            <div class="p-6 space-y-2">
-              <h3 class="font-bold text-lg text-surface-dark font-heading">Британские настольные игры</h3>
-              <p class="text-xs text-surface-muted leading-relaxed">
-                Dobble, Uno, авторские карточные викторины. Ребенок увлекается азартом победы, напрочь забывает о страхе ошибки и спонтанно говорит полными фразами.
+                Аэропорт, багаж, таможня, поход в супермаркет с корзинками и игровой валютой. Ребенок учится уверенно чувствовать себя в любых реальных путешествиях.
               </p>
             </div>
           </div>
@@ -800,8 +816,8 @@
               </div>
 
               <div class="p-4 rounded-2xl bg-white border border-surface-border">
-                <div class="font-heading font-bold text-sm text-surface-dark">Сертификаты Cambridge TKT</div>
-                <div class="text-xs text-surface-muted mt-1 leading-relaxed">Международные кембриджские экзамены по методике преподавания английского языка детям.</div>
+                <div class="font-heading font-bold text-sm text-surface-dark">Современные игровые методики</div>
+                <div class="text-xs text-surface-muted mt-1 leading-relaxed">Регулярные курсы по методике преподавания и детской психологии погружения в язык.</div>
               </div>
 
               <div class="p-4 rounded-2xl bg-white border border-surface-border">
@@ -1023,26 +1039,26 @@
         
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-900/80 border border-brand-800 text-amber-300 text-xs font-bold uppercase tracking-wider mb-6">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span>Первый шаг без обязательств</span>
+          <span>Сделайте первый шаг к уверенному английскому</span>
         </div>
 
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.38] sm:leading-[1.3] lg:leading-[1.28] tracking-tight font-heading max-w-4xl mx-auto">
           Запишитесь на пробный урок <br class="hidden sm:inline">в студию «ТалантЛэнд»
         </h2>
 
-        <p class="mt-6 text-emerald-100/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Анастасия проведет 40-минутную мягкую игровую диагностику, покажет кабинет, познакомит ребенка с форматом уроков и подберет подходящую мини-группу.
+        <p class="mt-6 text-blue-100/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Анастасия проведет 30-минутную мягкую игровую диагностику, покажет кабинет, познакомит ребенка с форматом уроков и подберет подходящий формат обучения.
         </p>
 
         <!-- Perks pill row -->
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-emerald-200">
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-blue-200">
           <div class="flex items-center gap-2 bg-brand-900/50 px-3.5 py-2 rounded-xl border border-brand-800/60">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
-            <span>40 минут увлекательного занятия</span>
+            <span>30 минут увлекательного занятия</span>
           </div>
           <div class="flex items-center gap-2 bg-brand-900/50 px-3.5 py-2 rounded-xl border border-brand-800/60">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
-            <span>Индивидуальный план на учебный год</span>
+            <span>Определение точного уровня без стресса</span>
           </div>
           <div class="flex items-center gap-2 bg-brand-900/50 px-3.5 py-2 rounded-xl border border-brand-800/60">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
@@ -1050,16 +1066,21 @@
           </div>
         </div>
 
-        <!-- Big CTA action buttons -->
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Big CTA action buttons: Modal + Telegram + MAX -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5">
           <button type="button" onclick="openBookingModal('Финальный блок')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-accent-500 hover:bg-accent-600 text-white font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition-all cursor-pointer inline-flex items-center justify-center gap-3 transform hover:-translate-y-0.5">
             <span>Записаться на пробный урок</span>
             <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </button>
           
-          <a href="https://t.me/on_anastasiia" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-2xl border border-brand-800 bg-brand-900/60 hover:bg-brand-900 text-white text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2">
+          <a id="cta-tg-link" href="https://t.me/on_anastasiia" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-2xl border border-brand-800 bg-brand-900/70 hover:bg-brand-800 text-white text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2">
             <i data-lucide="send" class="w-4 h-4 text-sky-400"></i>
-            <span>Написать Анастасии в Telegram</span>
+            <span>Написать в Telegram</span>
+          </a>
+
+          <a id="cta-max-link" href="https://max.ru" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-2xl border border-brand-800 bg-brand-900/70 hover:bg-brand-800 text-white text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            <span>Написать в MAX</span>
           </a>
         </div>
 
@@ -1238,12 +1259,16 @@
         <p class="text-xs text-surface-muted max-w-sm mx-auto leading-relaxed">
           Анастасия уже получила уведомление и свяжется с вами для выбора удобного времени пробного занятия.
         </p>
-        <div class="pt-2 flex flex-col gap-2">
+        <div class="pt-2 flex flex-col gap-2.5">
           <a id="modal-tg-send-link" href="https://t.me/on_anastasiia" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#229ED9] hover:bg-[#1e8ec3] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors">
             <i data-lucide="send" class="w-4 h-4"></i>
-            <span>Открыть диалог в Telegram (@on_anastasiia)</span>
+            <span>Открыть диалог в Telegram</span>
           </a>
-          <button onclick="closeBookingModal()" class="text-xs text-surface-muted hover:text-surface-dark font-semibold py-1">
+          <a id="modal-max-send-link" href="https://max.ru" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors">
+            <span class="w-2 h-2 rounded-full bg-white"></span>
+            <span>Открыть диалог в MAX</span>
+          </a>
+          <button onclick="closeBookingModal()" class="text-xs text-surface-muted hover:text-surface-dark font-semibold py-1 cursor-pointer">
             Закрыть окно
           </button>
         </div>
@@ -1427,26 +1452,111 @@
           if (banner) banner.classList.add('hidden');
         }
 
-        // 2. Pricing Updates
+        // 2. Pricing Updates (Full WYSIWYG sync)
         if (data.pricing) {
+          // Groups
           if (data.pricing.groups) {
             const p = data.pricing.groups;
+            if (p.name) document.getElementById('plan-groups-name').innerText = p.name;
             if (p.price) document.getElementById('plan-groups-price').innerText = p.price;
             if (p.subtitle) document.getElementById('plan-groups-subtitle').innerText = p.subtitle;
-            if (p.name) document.getElementById('plan-groups-name').innerText = p.name;
+            if (p.badge) document.getElementById('plan-groups-badge').innerText = p.badge;
+            if (p.capacity) document.getElementById('plan-groups-capacity').innerText = p.capacity;
+            if (p.features && Array.isArray(p.features) && p.features.length > 0) {
+              const list = document.getElementById('plan-groups-features');
+              if (list) {
+                list.innerHTML = p.features.map(f => `
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>${escapeHtml(f)}</span>
+                  </li>
+                `).join('');
+              }
+            }
           }
+          // Reading
           if (data.pricing.reading) {
             const p = data.pricing.reading;
+            if (p.name) document.getElementById('plan-reading-name').innerText = p.name;
             if (p.price) document.getElementById('plan-reading-price').innerText = p.price;
             if (p.subtitle) document.getElementById('plan-reading-subtitle').innerText = p.subtitle;
-            if (p.name) document.getElementById('plan-reading-name').innerText = p.name;
             if (p.tag) document.getElementById('plan-reading-tag').innerText = p.tag;
+            if (p.badge) document.getElementById('plan-reading-badge').innerText = p.badge;
+            if (p.duration) document.getElementById('plan-reading-duration').innerText = p.duration;
+            if (p.features && Array.isArray(p.features) && p.features.length > 0) {
+              const list = document.getElementById('plan-reading-features');
+              if (list) {
+                list.innerHTML = p.features.map(f => `
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                    <span>${escapeHtml(f)}</span>
+                  </li>
+                `).join('');
+              }
+            }
           }
+          // Individual
           if (data.pricing.individual) {
             const p = data.pricing.individual;
+            if (p.name) document.getElementById('plan-individual-name').innerText = p.name;
             if (p.price) document.getElementById('plan-individual-price').innerText = p.price;
             if (p.subtitle) document.getElementById('plan-individual-subtitle').innerText = p.subtitle;
-            if (p.name) document.getElementById('plan-individual-name').innerText = p.name;
+            if (p.badge) document.getElementById('plan-individual-badge').innerText = p.badge;
+            if (p.capacity) document.getElementById('plan-individual-capacity').innerText = p.capacity;
+            if (p.features && Array.isArray(p.features) && p.features.length > 0) {
+              const list = document.getElementById('plan-individual-features');
+              if (list) {
+                list.innerHTML = p.features.map(f => `
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>${escapeHtml(f)}</span>
+                  </li>
+                `).join('');
+              }
+            }
+          }
+          lucide.createIcons();
+        }
+
+        // 2.1 Messengers Sync
+        if (data.messengers) {
+          if (data.messengers.telegram) {
+            const tg = data.messengers.telegram;
+            ['header-tg-link', 'mobile-menu-tg-link', 'cta-tg-link', 'modal-tg-send-link'].forEach(id => {
+              const el = document.getElementById(id);
+              if (el) el.href = tg;
+            });
+          }
+          if (data.messengers.max) {
+            const maxUrl = data.messengers.max;
+            ['header-max-link', 'mobile-menu-max-link', 'cta-max-link', 'modal-max-send-link'].forEach(id => {
+              const el = document.getElementById(id);
+              if (el) el.href = maxUrl;
+            });
+          }
+        }
+
+        // 2.2 Holiday Intensives Sync
+        if (data.intensives && Array.isArray(data.intensives) && data.intensives.length > 0) {
+          const intContainer = document.getElementById('intensives-container');
+          if (intContainer) {
+            intContainer.innerHTML = data.intensives.map(item => `
+              <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
+                <div class="h-52 overflow-hidden relative">
+                  <img src="${item.image || 'media/photos/02.jpg'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover">
+                  <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                    ${escapeHtml(item.tag || 'Каникулярный интенсив')}
+                  </span>
+                </div>
+                <div class="p-6 space-y-2">
+                  <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">${escapeHtml(item.season || '')}</div>
+                  <h3 class="font-bold text-lg text-surface-dark font-heading">${escapeHtml(item.title)}</h3>
+                  <p class="text-xs text-surface-muted leading-relaxed">
+                    ${escapeHtml(item.desc)}
+                  </p>
+                </div>
+              </div>
+            `).join('');
           }
         }
 

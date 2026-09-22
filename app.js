@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confettiContainer = document.getElementById('confettiEffect');
     if (!confettiContainer) return;
     confettiContainer.innerHTML = '';
-    const colors = ['#185A56', '#D97706', '#E06D53', '#22C55E', '#3B82F6'];
+    const colors = ['#1E3A8A', '#2563EB', '#D97706', '#F59E0B', '#3B82F6'];
     for (let i = 0; i < 30; i++) {
       const piece = document.createElement('div');
       piece.style.cssText = `

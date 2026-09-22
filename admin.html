@@ -21,29 +21,32 @@
           },
           colors: {
             brand: {
-              950: '#0B2623',
-              900: '#113E39',
-              850: '#154E48',
-              800: '#1C5E57',
-              700: '#23736B',
-              600: '#2C8E84',
-              100: '#E2F0ED',
-              50: '#F2F8F6',
+              950: '#0A192F',
+              900: '#102A43',
+              850: '#163A5F',
+              800: '#1E3A8A',
+              700: '#1D4ED8',
+              600: '#2563EB',
+              500: '#3B82F6',
+              400: '#60A5FA',
+              100: '#DBEAFE',
+              50:  '#EFF6FF',
             },
             accent: {
-              700: '#B83D1B',
-              600: '#C94723',
-              500: '#E05A34',
-              400: '#E97250',
-              100: '#FCEBE6',
-              50: '#FDF6F3',
+              700: '#B45309',
+              600: '#D97706',
+              500: '#F59E0B',
+              400: '#FBBF24',
+              100: '#FEF3C7',
+              50:  '#FFFBEB',
             },
             surface: {
-              bg: '#F8F9FA',
+              bg: '#FDFBF7',
               card: '#FFFFFF',
-              border: '#E8E6DF',
-              dark: '#141D1B',
-              muted: '#5A6764',
+              border: '#E8E2D5',
+              dark: '#0F172A',
+              muted: '#475569',
+              warm: '#F5EFE6',
             }
           }
         }
@@ -54,11 +57,27 @@
   <style>
     body {
       font-family: 'Manrope', -apple-system, sans-serif;
-      background-color: #F4F6F6;
-      color: #141D1B;
+      background-color: #F8F6F0;
+      color: #0F172A;
     }
     h1, h2, h3, h4, .font-heading {
       font-family: 'Onest', 'Manrope', sans-serif;
+    }
+    .wysiwyg-input {
+      background: transparent;
+      border: 1px dashed rgba(29, 78, 216, 0.25);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .wysiwyg-input:hover, .wysiwyg-input:focus {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: #2563EB;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+    .dropzone-active {
+      border-color: #2563EB !important;
+      background-color: #EFF6FF !important;
     }
   </style>
 </head>
@@ -66,21 +85,21 @@
 
   <!-- ==================== PIN AUTH SCREEN ==================== -->
   <div id="auth-overlay" class="fixed inset-0 z-50 bg-brand-950/95 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl text-center space-y-6">
+    <div class="bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl text-center space-y-6 border border-surface-border">
       <img src="media/logo.png" alt="ТалантЛэнд" class="h-20 w-auto mx-auto object-contain drop-shadow-sm">
       <div>
         <h2 class="text-2xl font-black text-surface-dark font-heading">Вход в кабинет</h2>
-        <p class="text-xs text-surface-muted mt-1">Панель управления сайтом студии «ТалантЛэнд»</p>
+        <p class="text-xs text-surface-muted mt-1">Панель управления студией «ТалантЛэнд»</p>
       </div>
 
       <form onsubmit="handlePinSubmit(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-2">Введите PIN-код:</label>
-          <input type="password" id="pin-input" maxlength="8" placeholder="••••" required autofocus class="w-full text-center tracking-[0.5em] text-2xl font-mono py-3 px-4 rounded-xl border border-surface-border focus:border-brand-900 focus:outline-none">
-          <p class="text-[11px] text-surface-muted mt-2">Пароль по умолчанию: <strong class="text-brand-900 font-mono">1234</strong></p>
+          <input type="password" id="pin-input" maxlength="8" placeholder="••••" required autofocus class="w-full text-center tracking-[0.5em] text-2xl font-mono py-3 px-4 rounded-xl border border-surface-border focus:border-brand-700 focus:outline-none bg-surface-bg">
+          <p class="text-[11px] text-surface-muted mt-2">Пароль по умолчанию: <strong class="text-brand-800 font-mono">1234</strong></p>
         </div>
         <p id="pin-error" class="hidden text-xs text-rose-600 font-bold">Неверный PIN-код. Попробуйте 1234.</p>
-        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-brand-900 hover:bg-brand-850 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md cursor-pointer">
+        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md cursor-pointer">
           Войти в панель
         </button>
       </form>
@@ -91,7 +110,7 @@
   <div id="dashboard-wrapper" class="hidden flex-1 flex flex-col">
 
     <!-- Top Header -->
-    <header class="bg-white border-b border-surface-border sticky top-0 z-40">
+    <header class="bg-white border-b border-surface-border sticky top-0 z-40 shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         
         <div class="flex items-center gap-3">
@@ -99,8 +118,8 @@
           <div>
             <div class="font-heading font-black text-lg text-surface-dark leading-tight flex items-center gap-2">
               <span>Кабинет управления студией</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-brand-800">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
                 <span>Сайт подключен</span>
               </span>
             </div>
@@ -109,11 +128,11 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <a href="./" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-surface-border hover:border-brand-900 bg-surface-bg text-xs font-bold text-surface-dark transition-colors">
+          <a href="./" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-surface-border hover:border-brand-700 bg-surface-bg text-xs font-bold text-surface-dark transition-colors">
             <span>Открыть сайт</span>
-            <i data-lucide="external-link" class="w-3.5 h-3.5 text-brand-900"></i>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-brand-700"></i>
           </a>
-          <button onclick="saveAllChanges()" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-accent-500 hover:bg-accent-600 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm cursor-pointer">
+          <button onclick="saveAllChanges()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm cursor-pointer">
             <i data-lucide="save" class="w-4 h-4"></i>
             <span>Сохранить всё</span>
           </button>
@@ -125,6 +144,17 @@
       </div>
     </header>
 
+    <!-- Save Notification Toast -->
+    <div id="save-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+      <div class="bg-brand-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-brand-700">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+        <div>
+          <div class="font-bold text-xs">Изменения сохранены!</div>
+          <div class="text-[11px] text-blue-200">Данные мгновенно обновлены на сайте</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Container with Tabs -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
       
@@ -132,203 +162,269 @@
       <div class="flex flex-wrap gap-2 border-b border-surface-border pb-4 mb-8">
         <button onclick="switchTab('pricing')" id="tab-btn-pricing" class="tab-btn active px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-brand-900 text-white shadow-sm transition-all flex items-center gap-2">
           <i data-lucide="credit-card" class="w-4 h-4"></i>
-          <span>Цены и тарифы</span>
+          <span>Карточки тарифов (WYSIWYG)</span>
         </button>
 
-        <button onclick="switchTab('promo')" id="tab-btn-promo" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-900 transition-all flex items-center gap-2">
-          <i data-lucide="flame" class="w-4 h-4 text-accent-500"></i>
-          <span>Акции и спецпредложения</span>
+        <button onclick="switchTab('videos')" id="tab-btn-videos" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2">
+          <i data-lucide="video" class="w-4 h-4 text-blue-600"></i>
+          <span>Видео уроков и кемпа</span>
         </button>
 
-        <button onclick="switchTab('photos')" id="tab-btn-photos" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-900 transition-all flex items-center gap-2">
-          <i data-lucide="image" class="w-4 h-4"></i>
+        <button onclick="switchTab('photos')" id="tab-btn-photos" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2">
+          <i data-lucide="image" class="w-4 h-4 text-amber-500"></i>
           <span>Фотографии</span>
         </button>
 
-        <button onclick="switchTab('videos')" id="tab-btn-videos" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-900 transition-all flex items-center gap-2">
-          <i data-lucide="video" class="w-4 h-4"></i>
-          <span>Видео уроков</span>
+        <button onclick="switchTab('intensives')" id="tab-btn-intensives" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+          <span>Каникулярные интенсивы</span>
         </button>
 
-        <button onclick="switchTab('faq')" id="tab-btn-faq" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-900 transition-all flex items-center gap-2">
-          <i data-lucide="help-circle" class="w-4 h-4"></i>
-          <span>Вопросы и ответы (FAQ)</span>
+        <button onclick="switchTab('messengers')" id="tab-btn-messengers" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-sky-600"></i>
+          <span>Мессенджеры (Telegram & MAX)</span>
         </button>
 
-        <button onclick="switchTab('leads')" id="tab-btn-leads" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-900 transition-all flex items-center gap-2 relative">
+        <button onclick="switchTab('promo-faq')" id="tab-btn-promo-faq" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span>Акции и FAQ</span>
+        </button>
+
+        <button onclick="switchTab('leads')" id="tab-btn-leads" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-white text-surface-dark border border-surface-border hover:border-brand-700 transition-all flex items-center gap-2 relative">
           <i data-lucide="users" class="w-4 h-4 text-emerald-600"></i>
-          <span>Заявки от родителей</span>
+          <span>Заявки</span>
           <span id="leads-count-badge" class="px-2 py-0.5 rounded-full text-[10px] font-black bg-accent-500 text-white">0</span>
         </button>
       </div>
 
-      <!-- ==================== TAB 1: PRICING & PROGRAMS ==================== -->
-      <div id="tab-content-pricing" class="tab-panel space-y-8">
+      <!-- ==================== TAB 1: WYSIWYG PRICING CARDS ==================== -->
+      <div id="tab-content-pricing" class="tab-panel space-y-6">
         
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm">
-          <div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-border">
+        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <i data-lucide="sparkles" class="w-5 h-5 text-brand-700 shrink-0"></i>
             <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Тариф 1: Мини-группы</h3>
-              <p class="text-xs text-surface-muted">Основной регулярный формат занятий для школьников 2–4 классов</p>
-            </div>
-            <span class="text-xs font-bold px-3 py-1 bg-surface-bg rounded-lg border border-surface-border text-surface-dark">Слот №1</span>
-          </div>
-
-          <div class="grid sm:grid-cols-3 gap-4 mb-4">
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Название программы:</label>
-              <input type="text" id="pricing-groups-name" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-semibold">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Стоимость (отображение):</label>
-              <input type="text" id="pricing-groups-price" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-bold text-brand-900">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Пояснение к цене:</label>
-              <input type="text" id="pricing-groups-subtitle" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-brand-800/40 shadow-sm">
-          <div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-border">
-            <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Тариф 2: Курс «Читаем за 1 месяц» (Хит)</h3>
-              <p class="text-xs text-surface-muted">Флагманский интенсив по звуковым моделям фониксов</p>
-            </div>
-            <span class="text-xs font-black px-3 py-1 bg-amber-400 text-slate-950 rounded-full uppercase tracking-wider shadow-sm">Хит продаж</span>
-          </div>
-
-          <div class="grid sm:grid-cols-3 gap-4 mb-4">
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Название курса:</label>
-              <input type="text" id="pricing-reading-name" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-semibold">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Стоимость (отображение):</label>
-              <input type="text" id="pricing-reading-price" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-bold text-accent-600">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Пояснение к цене:</label>
-              <input type="text" id="pricing-reading-subtitle" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm">
-          <div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-border">
-            <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Тариф 3: Индивидуальные занятия</h3>
-              <p class="text-xs text-surface-muted">Персональные уроки 1 на 1 для быстрого результата</p>
-            </div>
-            <span class="text-xs font-bold px-3 py-1 bg-surface-bg rounded-lg border border-surface-border text-surface-dark">Слот №3</span>
-          </div>
-
-          <div class="grid sm:grid-cols-3 gap-4 mb-4">
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Название программы:</label>
-              <input type="text" id="pricing-individual-name" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-semibold">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Стоимость (отображение):</label>
-              <input type="text" id="pricing-individual-price" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm font-bold text-brand-900">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Пояснение к цене:</label>
-              <input type="text" id="pricing-individual-subtitle" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ==================== TAB 2: PROMOTIONS & OFFERS ==================== -->
-      <div id="tab-content-promo" class="tab-panel hidden space-y-6">
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          
-          <div class="flex items-center justify-between pb-4 border-b border-surface-border">
-            <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Промо-баннер и специальные акции</h3>
-              <p class="text-xs text-surface-muted">Позволяет вывести яркую полосу акции на самом верху сайта</p>
-            </div>
-            
-            <label class="flex items-center gap-3 cursor-pointer">
-              <span class="text-xs font-bold text-surface-dark">Показывать баннер на сайте</span>
-              <input type="checkbox" id="promo-active-toggle" class="w-5 h-5 accent-accent-500 rounded cursor-pointer">
-            </label>
-          </div>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Текст бейджа:</label>
-              <input type="text" id="promo-badge-input" placeholder="Например: ВЕСЕННИЙ НАБОР или СКИДКА 10%" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Текст предложения:</label>
-              <input type="text" id="promo-text-input" placeholder="Например: Запишитесь на этой неделе и получите скидку 10% на первый месяц!" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-            </div>
-          </div>
-
-          <!-- Preview box -->
-          <div class="p-4 rounded-2xl bg-surface-bg border border-surface-border">
-            <div class="text-xs font-bold uppercase tracking-wider text-surface-muted mb-2">Предпросмотр баннера:</div>
-            <div class="bg-gradient-to-r from-accent-600 via-accent-500 to-amber-500 text-white text-xs py-2.5 px-4 rounded-xl flex items-center justify-between gap-2 shadow-sm">
-              <div class="flex items-center gap-2">
-                <span id="promo-preview-badge" class="px-2 py-0.5 rounded bg-white text-accent-700 font-extrabold text-[10px] uppercase tracking-wider">АКЦИЯ</span>
-                <span id="promo-preview-text" class="font-bold">Скидка 10% на первый месяц обучения!</span>
+              <div class="font-bold text-xs text-brand-900">Интерактивное зеркало сайта (WYSIWYG)</div>
+              <div class="text-[11px] text-brand-800">
+                Редактируйте заголовки, цены, описания и пункты прямо в карточках ниже. Каждое изменение в точности повторится на витрине сайта!
               </div>
-              <span class="px-3 py-1 rounded-lg bg-slate-950/80 text-white text-[11px] font-bold uppercase">Кнопка записи</span>
+            </div>
+          </div>
+          <button onclick="saveAllChanges()" class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider cursor-pointer shrink-0">
+            Сохранить тарифы
+          </button>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Card 1: Groups WYSIWYG -->
+          <div class="bg-white p-7 rounded-3xl border-2 border-surface-border shadow-sm flex flex-col justify-between hover:border-brand-700 transition-all relative">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-surface-muted mb-4 pb-2 border-b border-surface-border">
+                <input type="text" id="pricing-groups-badge" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-dark w-28" placeholder="2–4 классы">
+                <input type="text" id="pricing-groups-capacity" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-muted text-right w-36" placeholder="До 6 детей в группе">
+              </div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Название программы:</label>
+              <input type="text" id="pricing-groups-name" class="wysiwyg-input w-full text-2xl font-black text-surface-dark mb-3 font-heading px-2 py-1" placeholder="Мини-группы">
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Краткое описание:</label>
+              <textarea id="pricing-groups-desc" rows="2" class="wysiwyg-input w-full text-xs text-surface-muted leading-relaxed mb-4 p-2 resize-none" placeholder="Описание тарифа..."></textarea>
+
+              <!-- Price block -->
+              <div class="p-4 bg-surface-bg rounded-2xl border border-surface-border mb-5">
+                <div class="flex items-baseline gap-2">
+                  <input type="text" id="pricing-groups-price" class="wysiwyg-input text-3xl font-black text-brand-900 font-heading w-36 px-2 py-0.5" placeholder="6 400 ₽">
+                  <input type="text" id="pricing-groups-period" class="wysiwyg-input text-xs font-semibold text-surface-muted w-20 px-1 py-0.5" placeholder="/ месяц">
+                </div>
+                <input type="text" id="pricing-groups-subtitle" class="wysiwyg-input w-full text-xs text-brand-800 font-bold mt-2 px-2 py-0.5" placeholder="8 занятий по 60 минут (800 ₽ за урок)">
+              </div>
+
+              <!-- Features list -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-surface-muted">Что включено:</span>
+                  <button onclick="addFeatureItem('groups')" type="button" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>Добавить пункт</span>
+                  </button>
+                </div>
+                <div id="pricing-groups-features-list" class="space-y-2">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-surface-border text-center">
+              <span class="text-[11px] font-bold text-surface-muted uppercase tracking-wider">Кнопка на сайте: «Записаться в группу»</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Reading WYSIWYG (Sapphire Blue card) -->
+          <div class="bg-brand-900 text-white p-7 rounded-3xl border-2 border-brand-700 shadow-xl flex flex-col justify-between relative">
+            <div class="absolute -top-3.5 left-6">
+              <input type="text" id="pricing-reading-tag" class="bg-amber-400 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-sm tracking-wider border-none text-center w-32 focus:outline-none focus:ring-2 focus:ring-amber-300" placeholder="ХИТ СТУДИИ">
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-blue-200 mb-4 pb-2 border-b border-brand-800 pt-1">
+                <input type="text" id="pricing-reading-badge" class="wysiwyg-input bg-brand-800/80 text-blue-100 px-2.5 py-1 text-xs font-semibold w-28 border-brand-700" placeholder="1–3 классы">
+                <input type="text" id="pricing-reading-duration" class="wysiwyg-input text-amber-300 text-xs font-bold text-right w-36 border-brand-700" placeholder="Интенсив 1 месяц">
+              </div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-blue-200 mb-1">Название программы:</label>
+              <input type="text" id="pricing-reading-name" class="wysiwyg-input w-full text-2xl font-black text-white mb-3 font-heading px-2 py-1 border-blue-400/40" placeholder="Курс «Читаем за 1 месяц»">
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-blue-200 mb-1">Краткое описание:</label>
+              <textarea id="pricing-reading-desc" rows="2" class="wysiwyg-input w-full text-xs text-blue-100/90 leading-relaxed mb-4 p-2 resize-none border-blue-400/40" placeholder="Описание тарифа..."></textarea>
+
+              <!-- Price block -->
+              <div class="p-4 bg-brand-950/80 rounded-2xl border border-brand-800 mb-5">
+                <div class="flex items-baseline gap-2">
+                  <input type="text" id="pricing-reading-price" class="wysiwyg-input text-3xl font-black text-amber-300 font-heading w-36 px-2 py-0.5 border-amber-400/40" placeholder="10 000 ₽">
+                  <input type="text" id="pricing-reading-period" class="wysiwyg-input text-xs font-semibold text-blue-200 w-24 px-1 py-0.5 border-blue-400/40" placeholder="/ весь курс">
+                </div>
+                <input type="text" id="pricing-reading-subtitle" class="wysiwyg-input w-full text-xs text-amber-200 font-medium mt-2 px-2 py-0.5 border-blue-400/40" placeholder="8 занятий по 60 мин (методика Phonics)">
+              </div>
+
+              <!-- Features list -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-blue-200">Что включено:</span>
+                  <button onclick="addFeatureItem('reading')" type="button" class="text-xs font-bold text-amber-300 hover:text-amber-200 flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>Добавить пункт</span>
+                  </button>
+                </div>
+                <div id="pricing-reading-features-list" class="space-y-2">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-brand-800 text-center">
+              <span class="text-[11px] font-bold text-blue-300 uppercase tracking-wider">Кнопка на сайте: «Забронировать место»</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Individual WYSIWYG -->
+          <div class="bg-white p-7 rounded-3xl border-2 border-surface-border shadow-sm flex flex-col justify-between hover:border-brand-700 transition-all relative">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-surface-muted mb-4 pb-2 border-b border-surface-border">
+                <input type="text" id="pricing-individual-badge" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-dark w-28" placeholder="1–11 классы">
+                <input type="text" id="pricing-individual-capacity" class="wysiwyg-input px-2.5 py-1 text-xs font-semibold text-surface-muted text-right w-36" placeholder="1 на 1 с педагогом">
+              </div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Название программы:</label>
+              <input type="text" id="pricing-individual-name" class="wysiwyg-input w-full text-2xl font-black text-surface-dark mb-3 font-heading px-2 py-1" placeholder="Индивидуальные уроки">
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-surface-muted mb-1">Краткое описание:</label>
+              <textarea id="pricing-individual-desc" rows="2" class="wysiwyg-input w-full text-xs text-surface-muted leading-relaxed mb-4 p-2 resize-none" placeholder="Описание тарифа..."></textarea>
+
+              <!-- Price block -->
+              <div class="p-4 bg-surface-bg rounded-2xl border border-surface-border mb-5">
+                <div class="flex items-baseline gap-2">
+                  <input type="text" id="pricing-individual-price" class="wysiwyg-input text-3xl font-black text-brand-900 font-heading w-36 px-2 py-0.5" placeholder="10 400 ₽">
+                  <input type="text" id="pricing-individual-period" class="wysiwyg-input text-xs font-semibold text-surface-muted w-20 px-1 py-0.5" placeholder="/ месяц">
+                </div>
+                <input type="text" id="pricing-individual-subtitle" class="wysiwyg-input w-full text-xs text-surface-muted font-bold mt-2 px-2 py-0.5" placeholder="8 занятий по 60 минут (1 300 ₽ за урок)">
+              </div>
+
+              <!-- Features list -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-surface-muted">Что включено:</span>
+                  <button onclick="addFeatureItem('individual')" type="button" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>Добавить пункт</span>
+                  </button>
+                </div>
+                <div id="pricing-individual-features-list" class="space-y-2">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-5 border-t border-surface-border text-center">
+              <span class="text-[11px] font-bold text-surface-muted uppercase tracking-wider">Кнопка на сайте: «Выбрать индивидуально»</span>
             </div>
           </div>
 
         </div>
+
       </div>
 
-      <!-- ==================== TAB 3: PHOTOS & GALLERY ==================== -->
+      <!-- ==================== TAB 2: FAST VIDEOS MANAGER ==================== -->
+      <div id="tab-content-videos" class="tab-panel hidden space-y-6">
+        
+        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <i data-lucide="video" class="w-5 h-5 text-blue-700 shrink-0"></i>
+            <div>
+              <div class="font-bold text-xs text-brand-900">⚡ Быстрая загрузка видеороликов</div>
+              <div class="text-[11px] text-brand-800">
+                Перетащите видеофайл прямо в карточку или нажмите «Выбрать видео». Ролики сразу воспроизводятся в плеере и сохраняются для сайта!
+              </div>
+            </div>
+          </div>
+          <button onclick="saveAllChanges()" class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider cursor-pointer shrink-0">
+            Сохранить видео
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6" id="admin-videos-grid">
+          <!-- Rendered dynamically with live video preview & dropzones -->
+        </div>
+
+      </div>
+
+      <!-- ==================== TAB 3: PHOTOS ==================== -->
       <div id="tab-content-photos" class="tab-panel hidden space-y-8">
         
-        <!-- Teacher photo -->
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          <div class="pb-4 border-b border-surface-border">
-            <h3 class="text-xl font-black text-surface-dark font-heading">Главное фото преподавателя (Анастасия Онищук)</h3>
-            <p class="text-xs text-surface-muted">Отображается в блоке «Преподаватель и методист»</p>
+        <!-- Teacher Main Photo Card -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm">
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-border">
+            <div>
+              <h3 class="text-xl font-black text-surface-dark font-heading">Главное фото преподавателя (Анастасия)</h3>
+              <p class="text-xs text-surface-muted">Отображается в блоке «Преподаватель» и мобильной версии</p>
+            </div>
+            <button onclick="resetTeacherPhoto()" class="text-xs text-brand-700 hover:underline font-bold">
+              Восстановить студийное фото
+            </button>
           </div>
 
           <div class="grid sm:grid-cols-12 gap-6 items-center">
-            <div class="sm:col-span-4">
-              <div class="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-surface-border bg-slate-950 relative shadow-md">
-                <img id="teacher-photo-preview" src="media/photos/teacher_anastasia_new.jpg?v=20260919" alt="Анастасия" class="w-full h-full object-cover object-top">
+            <div class="sm:col-span-4 max-w-[200px] mx-auto sm:mx-0">
+              <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-brand-950 border border-surface-border shadow-md relative">
+                <img id="teacher-photo-preview" src="media/photos/teacher_anastasia_new.jpg" alt="Анастасия" class="w-full h-full object-cover">
               </div>
             </div>
 
             <div class="sm:col-span-8 space-y-4">
-              <div>
-                <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-2">Загрузить новое фото с компьютера:</label>
-                <input type="file" accept="image/*" onchange="handleTeacherPhotoUpload(event)" class="block w-full text-xs text-surface-muted file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-brand-900 file:text-white hover:file:bg-brand-850 cursor-pointer">
+              <div class="border-2 border-dashed border-surface-border rounded-2xl p-6 text-center hover:border-brand-700 transition-colors bg-surface-bg">
+                <i data-lucide="upload-cloud" class="w-8 h-8 text-brand-700 mx-auto mb-2"></i>
+                <div class="font-bold text-xs text-surface-dark mb-1">Загрузите новое фото преподавателя</div>
+                <p class="text-[11px] text-surface-muted mb-3">JPG, PNG до 10 МБ. Рекомендуется вертикальный формат 4:5</p>
+                <label class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-sm">
+                  <i data-lucide="folder" class="w-4 h-4"></i>
+                  <span>Выбрать файл на устройстве</span>
+                  <input type="file" id="teacher-file-input" accept="image/*" class="hidden" onchange="handleTeacherPhotoUpload(event)">
+                </label>
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Или укажите путь / URL к изображению:</label>
-                <div class="flex gap-2">
-                  <input type="text" id="teacher-photo-url" value="media/photos/teacher_anastasia_new.jpg?v=20260919" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm">
-                  <button onclick="applyTeacherPhotoUrl()" class="px-4 py-2.5 rounded-xl bg-surface-bg border border-surface-border hover:border-brand-900 text-xs font-bold transition-colors">
-                    Применить
-                  </button>
-                </div>
-              </div>
-
-              <div class="p-3 bg-brand-50 rounded-xl border border-brand-100 text-xs text-brand-900 font-medium">
-                ✓ Рекомендуются вертикальные или квадратные фотографии педагога в студии. Изображение центрируется автоматически.
+                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Или укажите путь к файлу / URL:</label>
+                <input type="text" id="teacher-photo-url" class="w-full px-4 py-2 rounded-xl border border-surface-border text-xs bg-white">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Studio gallery -->
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          <div class="pb-4 border-b border-surface-border">
-            <h3 class="text-xl font-black text-surface-dark font-heading">Галерея студии (8 фотографий)</h3>
-            <p class="text-xs text-surface-muted">Нажмите на любой слот, чтобы заменить фотографию или загрузить свой снимок</p>
+        <!-- Studio Gallery -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm">
+          <div class="pb-4 border-b border-surface-border mb-6">
+            <h3 class="text-xl font-black text-surface-dark font-heading">Галерея интерьера и занятий (8 фото)</h3>
+            <p class="text-xs text-surface-muted">Нажмите на любой слот, чтобы быстро заменить снимок на своё фото</p>
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="admin-gallery-grid">
@@ -338,191 +434,203 @@
 
       </div>
 
-      <!-- ==================== TAB 4: VIDEOS ==================== -->
-      <div id="tab-content-videos" class="tab-panel hidden space-y-8">
+      <!-- ==================== TAB 4: HOLIDAY INTENSIVES ==================== -->
+      <div id="tab-content-intensives" class="tab-panel hidden space-y-6">
         
-        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          <div class="pb-4 border-b border-surface-border">
-            <h3 class="text-xl font-black text-surface-dark font-heading">Видеоролики с уроков</h3>
-            <p class="text-xs text-surface-muted">Укажите пути к MP4-видео или ссылки, а также заголовки и описания для карточек</p>
-          </div>
-
-          <!-- Video 1 -->
-          <div class="p-5 rounded-2xl bg-surface-bg border border-surface-border space-y-3">
-            <div class="font-heading font-black text-sm text-brand-900">Видеоролик №1 (Разминка)</div>
-            <div class="grid sm:grid-cols-3 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Путь к файлу / URL:</label>
-                <input type="text" id="video-src-0" value="media/videos/v1.mp4" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Заголовок:</label>
-                <input type="text" id="video-title-input-0" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs font-bold">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Описание:</label>
-                <input type="text" id="video-desc-input-0" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
+        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <i data-lucide="sparkles" class="w-5 h-5 text-amber-700 shrink-0"></i>
+            <div>
+              <div class="font-bold text-xs text-amber-950">Тематические интенсивы на каникулах (Лето / Осень / Зима)</div>
+              <div class="text-[11px] text-amber-900">
+                Управляйте названиями программ, сезоном, возрастами и описанием сюжетных погружений студии.
               </div>
             </div>
           </div>
+          <button onclick="saveAllChanges()" class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider cursor-pointer shrink-0">
+            Сохранить интенсивы
+          </button>
+        </div>
 
-          <!-- Video 2 -->
-          <div class="p-5 rounded-2xl bg-surface-bg border border-surface-border space-y-3">
-            <div class="font-heading font-black text-sm text-brand-900">Видеоролик №2 (Диалоги)</div>
-            <div class="grid sm:grid-cols-3 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Путь к файлу / URL:</label>
-                <input type="text" id="video-src-1" value="media/videos/v2.mp4" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Заголовок:</label>
-                <input type="text" id="video-title-input-1" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs font-bold">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Описание:</label>
-                <input type="text" id="video-desc-input-1" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
-              </div>
-            </div>
-          </div>
-
-          <!-- Video 3 -->
-          <div class="p-5 rounded-2xl bg-surface-bg border border-surface-border space-y-3">
-            <div class="font-heading font-black text-sm text-brand-900">Видеоролик №3 (Фониксы)</div>
-            <div class="grid sm:grid-cols-3 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Путь к файлу / URL:</label>
-                <input type="text" id="video-src-2" value="media/videos/v3.mp4" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Заголовок:</label>
-                <input type="text" id="video-title-input-2" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs font-bold">
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Описание:</label>
-                <input type="text" id="video-desc-input-2" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">
-              </div>
-            </div>
-          </div>
-
+        <div class="grid md:grid-cols-3 gap-6" id="admin-intensives-grid">
+          <!-- Rendered dynamically -->
         </div>
 
       </div>
 
-      <!-- ==================== TAB 5: FAQ EDITOR ==================== -->
-      <div id="tab-content-faq" class="tab-panel hidden space-y-6">
+      <!-- ==================== TAB 5: MESSENGERS & CONTACTS ==================== -->
+      <div id="tab-content-messengers" class="tab-panel hidden space-y-6">
+        
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          
+          <div class="pb-4 border-b border-surface-border">
+            <h3 class="text-xl font-black text-surface-dark font-heading">Каналы связи и мессенджеры</h3>
+            <p class="text-xs text-surface-muted">Настройте ссылки на Telegram и мессенджер MAX, чтобы родителям было удобно писать вам</p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Telegram -->
+            <div class="p-5 rounded-2xl border border-surface-border bg-surface-bg space-y-3">
+              <div class="flex items-center gap-2 text-sky-600 font-black text-sm font-heading">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Telegram канал и профиль</span>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Ссылка для связи в Telegram:</label>
+                <input type="text" id="messenger-telegram" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-xs bg-white" placeholder="https://t.me/on_anastasiia">
+              </div>
+              <p class="text-[11px] text-surface-muted">Используется в шапке, мобильном меню и кнопках записи.</p>
+            </div>
+
+            <!-- MAX Messenger -->
+            <div class="p-5 rounded-2xl border border-surface-border bg-surface-bg space-y-3">
+              <div class="flex items-center gap-2 text-blue-600 font-black text-sm font-heading">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                <span>Мессенджер MAX (VK / альтернатива)</span>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Ссылка на диалог / QR MAX:</label>
+                <input type="text" id="messenger-max" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-xs bg-white" placeholder="https://max.ru/on_anastasiia">
+              </div>
+              <p class="text-[11px] text-surface-muted">Позволяет родителям мгновенно написать вам при любых сбоях Telegram.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== TAB 6: PROMO & FAQ ==================== -->
+      <div id="tab-content-promo-faq" class="tab-panel hidden space-y-8">
+        
+        <!-- Promo Banner -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
           <div class="flex items-center justify-between pb-4 border-b border-surface-border">
             <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Редактор часто задаваемых вопросов (FAQ)</h3>
-              <p class="text-xs text-surface-muted">Добавляйте, изменяйте или удаляйте вопросы и ответы, отображаемые на сайте</p>
+              <h3 class="text-xl font-black text-surface-dark font-heading">Промо-баннер акции в шапке</h3>
+              <p class="text-xs text-surface-muted">Включите для вывода специального предложения или скидки</p>
             </div>
-            <button onclick="addFaqItem()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-900 hover:bg-brand-850 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="promo-active-toggle" class="sr-only peer">
+              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-700"></div>
+              <span class="ml-3 text-xs font-bold text-surface-dark">Показывать баннер</span>
+            </label>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Текст бейджа:</label>
+              <input type="text" id="promo-badge-input" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm" placeholder="АКЦИЯ">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-surface-dark uppercase tracking-wider mb-1">Текст акции:</label>
+              <input type="text" id="promo-text-input" class="w-full px-4 py-2.5 rounded-xl border border-surface-border text-sm" placeholder="Скидка 10% на первый месяц обучения...">
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-surface-border">
+            <div>
+              <h3 class="text-xl font-black text-surface-dark font-heading">Редактор вопросов и ответов (FAQ)</h3>
+              <p class="text-xs text-surface-muted">Добавляйте, изменяйте или удаляйте вопросы для родителей</p>
+            </div>
+            <button onclick="addFaqItem()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer">
               <i data-lucide="plus" class="w-4 h-4"></i>
               <span>Добавить вопрос</span>
             </button>
           </div>
 
-          <div id="faq-items-list" class="space-y-4">
-            <!-- Rendered dynamically -->
+          <div id="faq-list" class="space-y-4">
+            <!-- Rendered by JS -->
           </div>
-
         </div>
+
       </div>
 
-      <!-- ==================== TAB 6: LEADS CRM ==================== -->
+      <!-- ==================== TAB 7: LEADS ==================== -->
       <div id="tab-content-leads" class="tab-panel hidden space-y-6">
         <div class="bg-white p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
           
-          <div class="flex items-center justify-between pb-4 border-b border-surface-border">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-surface-border">
             <div>
-              <h3 class="text-xl font-black text-surface-dark font-heading">Журнал поступивших заявок от родителей</h3>
-              <p class="text-xs text-surface-muted">Заявки фиксируются сразу при заполнении формы или модального окна</p>
+              <h3 class="text-xl font-black text-surface-dark font-heading">Поступившие заявки от родителей</h3>
+              <p class="text-xs text-surface-muted">Список заявок, отправленных через формы на сайте</p>
             </div>
-            
-            <div class="flex gap-2">
-              <button onclick="addSampleLead()" class="px-3 py-1.5 rounded-xl border border-surface-border bg-surface-bg hover:border-brand-900 text-xs font-bold text-surface-dark transition-colors">
-                + Тестовая заявка
-              </button>
-              <button onclick="clearAllLeads()" class="px-3 py-1.5 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-bold transition-colors">
-                Очистить журнал
-              </button>
-            </div>
+            <button onclick="clearAllLeads()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-bold transition-colors cursor-pointer">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              <span>Очистить список заявок</span>
+            </button>
           </div>
 
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr class="border-b border-surface-border text-surface-muted uppercase text-[11px] font-bold">
-                  <th class="py-3 px-3">Дата / Время</th>
-                  <th class="py-3 px-3">Имя родителя</th>
-                  <th class="py-3 px-3">Телефон / Telegram</th>
-                  <th class="py-3 px-3">Класс</th>
-                  <th class="py-3 px-3">Формат</th>
-                  <th class="py-3 px-3">Статус</th>
-                  <th class="py-3 px-3 text-right">Действие</th>
-                </tr>
-              </thead>
-              <tbody id="leads-table-body" class="divide-y divide-surface-border font-medium">
-                <!-- Rendered dynamically -->
-              </tbody>
-            </table>
+          <div id="leads-container" class="overflow-x-auto">
+            <!-- Rendered by JS -->
           </div>
 
         </div>
       </div>
 
     </div>
-
-    <!-- Bottom Fixed Action Bar -->
-    <div class="sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-surface-border py-4 px-4 z-40 shadow-lg">
-      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <button onclick="saveAllChanges()" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer">
-            <i data-lucide="check" class="w-4 h-4"></i>
-            <span>Применить и сохранить изменения</span>
-          </button>
-          <button onclick="resetToDefaults()" class="px-5 py-3 rounded-xl border border-surface-border hover:border-surface-dark bg-white text-surface-muted hover:text-surface-dark font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer">
-            Сбросить к исходным
-          </button>
-        </div>
-
-        <div class="text-xs text-surface-muted hidden sm:block">
-          Все изменения мгновенно синхронизируются с главной страницей студии.
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Toast notification -->
-  <div id="toast" class="fixed top-5 right-5 z-50 bg-brand-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl hidden flex items-center gap-3 border border-brand-800 animate-bounce">
-    <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
-    <span id="toast-msg" class="text-xs font-bold">Изменения успешно сохранены!</span>
-  </div>
+  <!-- Hidden file input for quick gallery replace -->
+  <input type="file" id="gallery-file-input" accept="image/*" class="hidden" onchange="handleGalleryUpload(event)">
+  <!-- Hidden file input for video slot upload -->
+  <input type="file" id="video-file-input" accept="video/*" class="hidden" onchange="handleVideoUpload(event)">
 
-  <!-- Script Logic -->
+  <!-- ==================== SCRIPTS & STATE ==================== -->
   <script>
-    lucide.createIcons();
-
     const DEFAULT_CMS_DATA = {
       pricing: {
         groups: {
+          badge: "2–4 классы",
+          capacity: "До 6 детей в группе",
           name: "Мини-группы",
+          desc: "Системное опережение школьной программы, живая разговорная речь и работа в дружной команде сверстников.",
           price: "6 400 ₽",
-          subtitle: "8 занятий по 60 минут (800 ₽ за урок)"
+          period: "/ месяц",
+          subtitle: "8 занятий по 60 минут (800 ₽ за урок)",
+          features: [
+            "2 раза в неделю по 60 минут",
+            "Группы распределены строго по уровню",
+            "80% времени ребенок говорит сам на английском",
+            "Отчёты родителям после каждого модуля"
+          ]
         },
         reading: {
+          tag: "ХИТ СТУДИИ",
+          badge: "1–3 классы",
+          duration: "Интенсив 1 месяц",
           name: "Курс «Читаем за 1 месяц»",
+          desc: "Полное решение проблемы со школьным чтением. Ребенок учится читать незнакомые тексты по звуковым моделям фониксов.",
           price: "10 000 ₽",
-          subtitle: "8 занятий по 60 мин + авторская тетрадь в подарок",
-          tag: "ХИТ СТУДИИ"
+          period: "/ весь курс",
+          subtitle: "8 занятий по 60 мин (методика Phonics)",
+          features: [
+            "8 уроков по 60 минут (2 раза в неделю)",
+            "Учимся читать по звукам (фониксы), без зубрежки",
+            "Постановка правильного звукоизвлечения",
+            "Гарантированный результат: читает незнакомые слова сам"
+          ]
         },
         individual: {
+          badge: "1–11 классы",
+          capacity: "1 на 1 с педагогом",
           name: "Индивидуальные уроки",
+          desc: "Персональная траектория: быстрое закрытие школьных двоек, устранение пробелов или подготовка к олимпиадам.",
           price: "10 400 ₽",
-          subtitle: "8 занятий по 60 минут (1 300 ₽ за урок)"
+          period: "/ месяц",
+          subtitle: "8 занятий по 60 минут (1 300 ₽ за урок)",
+          features: [
+            "Гибкое расписание под первую или вторую смену",
+            "100% фокус на конкретных сложностях ребенка",
+            "Ставим правильное произношение и снимаем языковой барьер",
+            "Очный формат в студии на Ленина или онлайн"
+          ]
         }
+      },
+      messengers: {
+        telegram: "https://t.me/on_anastasiia",
+        max: "https://max.ru"
       },
       promo: {
         active: false,
@@ -547,21 +655,44 @@
         items: [
           {
             src: "media/videos/v1.mp4",
-            title: "01 / Разминка и динамичные игры",
-            desc: "Смена деятельности каждые 15 минут. Дети не устают от парт и моментально включаются в английскую речь."
+            title: "01 / Смена деятельности каждые 15 минут",
+            desc: "Разминки и динамичные игры: дети не устают от парт и моментально включаются в разговорный процесс."
           },
           {
             src: "media/videos/v2.mp4",
-            title: "02 / Разговорная практика в группе",
-            desc: "Учимся задавать вопросы и отвечать в диалоге. До 6 человек: каждый ребенок успевает высказаться десятки раз."
+            title: "02 / Разговорная практика каждое занятие",
+            desc: "Живые диалоги и вопросы-ответы. До 6 человек в группе: каждый ребенок говорит на английском вслух."
           },
           {
             src: "media/videos/v3.mp4",
-            title: "03 / Чтение по звуковым моделям",
-            desc: "Методика фониксов: связываем звуки со словами. Ребенок начинает читать незнакомые тексты сам за 1 месяц."
+            title: "03 / Британские настольные игры (20 мин)",
+            desc: "В конце каждого урока играем в Dobble, Uno и викторины строго на английском: азарт победы без страха ошибок!"
           }
         ]
       },
+      intensives: [
+        {
+          title: "Школа магии Хогвартс (Harry Potter)",
+          tag: "Каникулярный хит",
+          season: "3–4 дня погружения • 1–5 классы",
+          desc: "Распределяющая шляпа, уроки зельеварения, свитки с заклинаниями и турнир волшебников. Всё общение, подсказки и квесты проходят только на английском языке!",
+          image: "media/photos/02.jpg"
+        },
+        {
+          title: "Штаб-квартира Шерлока Холмса",
+          tag: "Детективное дело",
+          season: "3–4 дня погружения • 2–6 классы",
+          desc: "Секретные конверты с уликами, допрос свидетелей и шифры. Чтобы разгадать тайну, дети задают вопросы, сопоставляют факты и говорят полными фразами.",
+          image: "media/photos/04.jpg"
+        },
+        {
+          title: "Экспедиция Сафари & English Supermarket",
+          tag: "Ролевой тренинг",
+          season: "3–4 дня погружения • 1–4 классы",
+          desc: "Аэропорт, багаж, таможня, поход в супермаркет с корзинками и игровой валютой. Ребенок учится уверенно чувствовать себя в любых реальных путешествиях.",
+          image: "media/photos/05.jpg"
+        }
+      ],
       faq: [
         {
           q: "Что делать, если ребенок совсем с нуля и не знает букв?",
@@ -577,12 +708,14 @@
         },
         {
           q: "Нужно ли покупать дорогие учебники и рабочие тетради?",
-          a: "Никаких дополнительных расходов! Все авторские материалы, квест-карточки, цветные распечатки и рабочие тетради уже включены в стоимость абонемента."
+          a: "Никаких дополнительных расходов! Все материалы, квест-карточки, распечатки и рабочие пособия уже включены в стоимость абонемента."
         }
       ]
     };
 
     let currentData = JSON.parse(JSON.stringify(DEFAULT_CMS_DATA));
+    let activeVideoUploadIndex = null;
+    let activeGalleryUploadIndex = null;
 
     // --- AUTHENTICATION ---
     function handlePinSubmit(e) {
@@ -604,19 +737,25 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      if (sessionStorage.getItem('talant_admin_auth') === 'true') {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('auth') === '1' || sessionStorage.getItem('talant_admin_auth') === 'true') {
         document.getElementById('auth-overlay').classList.add('hidden');
         document.getElementById('dashboard-wrapper').classList.remove('hidden');
         initDashboard();
+        const tab = urlParams.get('tab');
+        if (tab) switchTab(tab);
       }
     });
 
     // --- DASHBOARD INIT ---
     function initDashboard() {
       loadData();
-      populateForm();
-      renderGallery();
-      renderFaq();
+      populatePricingForm();
+      renderVideosManager();
+      renderPhotosManager();
+      renderIntensivesManager();
+      populateMessengers();
+      populatePromoAndFaq();
       renderLeads();
       lucide.createIcons();
     }
@@ -639,53 +778,6 @@
       }
     }
 
-    function populateForm() {
-      // Pricing
-      const p = currentData.pricing || DEFAULT_CMS_DATA.pricing;
-      document.getElementById('pricing-groups-name').value = p.groups.name;
-      document.getElementById('pricing-groups-price').value = p.groups.price;
-      document.getElementById('pricing-groups-subtitle').value = p.groups.subtitle;
-
-      document.getElementById('pricing-reading-name').value = p.reading.name;
-      document.getElementById('pricing-reading-price').value = p.reading.price;
-      document.getElementById('pricing-reading-subtitle').value = p.reading.subtitle;
-
-      document.getElementById('pricing-individual-name').value = p.individual.name;
-      document.getElementById('pricing-individual-price').value = p.individual.price;
-      document.getElementById('pricing-individual-subtitle').value = p.individual.subtitle;
-
-      // Promo
-      const promo = currentData.promo || DEFAULT_CMS_DATA.promo;
-      document.getElementById('promo-active-toggle').checked = promo.active;
-      document.getElementById('promo-badge-input').value = promo.badge;
-      document.getElementById('promo-text-input').value = promo.text;
-      updatePromoPreview();
-
-      document.getElementById('promo-badge-input').addEventListener('input', updatePromoPreview);
-      document.getElementById('promo-text-input').addEventListener('input', updatePromoPreview);
-
-      // Photos
-      document.getElementById('teacher-photo-preview').src = currentData.photos.teacher;
-      document.getElementById('teacher-photo-url').value = currentData.photos.teacher;
-
-      // Videos
-      if (currentData.videos && currentData.videos.items) {
-        currentData.videos.items.forEach((item, i) => {
-          const srcInput = document.getElementById(`video-src-${i}`);
-          const titleInput = document.getElementById(`video-title-input-${i}`);
-          const descInput = document.getElementById(`video-desc-input-${i}`);
-          if (srcInput) srcInput.value = item.src;
-          if (titleInput) titleInput.value = item.title;
-          if (descInput) descInput.value = item.desc;
-        });
-      }
-    }
-
-    function updatePromoPreview() {
-      document.getElementById('promo-preview-badge').innerText = document.getElementById('promo-badge-input').value || 'АКЦИЯ';
-      document.getElementById('promo-preview-text').innerText = document.getElementById('promo-text-input').value || 'Спецпредложение';
-    }
-
     // --- TAB SWITCHING ---
     function switchTab(tabId) {
       document.querySelectorAll('.tab-panel').forEach(el => el.classList.add('hidden'));
@@ -704,251 +796,521 @@
       lucide.createIcons();
     }
 
-    // --- TEACHER PHOTO UPLOAD ---
-    function handleTeacherPhotoUpload(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        const dataUrl = evt.target.result;
-        currentData.photos.teacher = dataUrl;
-        document.getElementById('teacher-photo-preview').src = dataUrl;
-        document.getElementById('teacher-photo-url').value = 'Загружен локальный файл (DataURL)';
-      };
-      reader.readAsDataURL(file);
+    // --- WYSIWYG PRICING LOGIC ---
+    function populatePricingForm() {
+      const p = currentData.pricing || DEFAULT_CMS_DATA.pricing;
+      
+      // Groups
+      const g = p.groups || DEFAULT_CMS_DATA.pricing.groups;
+      document.getElementById('pricing-groups-badge').value = g.badge || "2–4 классы";
+      document.getElementById('pricing-groups-capacity').value = g.capacity || "До 6 детей в группе";
+      document.getElementById('pricing-groups-name').value = g.name || "Мини-группы";
+      document.getElementById('pricing-groups-desc').value = g.desc || "";
+      document.getElementById('pricing-groups-price').value = g.price || "6 400 ₽";
+      document.getElementById('pricing-groups-period').value = g.period || "/ месяц";
+      document.getElementById('pricing-groups-subtitle').value = g.subtitle || "";
+      renderFeaturesList('groups', g.features || []);
+
+      // Reading
+      const r = p.reading || DEFAULT_CMS_DATA.pricing.reading;
+      document.getElementById('pricing-reading-tag').value = r.tag || "ХИТ СТУДИИ";
+      document.getElementById('pricing-reading-badge').value = r.badge || "1–3 классы";
+      document.getElementById('pricing-reading-duration').value = r.duration || "Интенсив 1 месяц";
+      document.getElementById('pricing-reading-name').value = r.name || "Курс «Читаем за 1 месяц»";
+      document.getElementById('pricing-reading-desc').value = r.desc || "";
+      document.getElementById('pricing-reading-price').value = r.price || "10 000 ₽";
+      document.getElementById('pricing-reading-period').value = r.period || "/ весь курс";
+      document.getElementById('pricing-reading-subtitle').value = r.subtitle || "";
+      renderFeaturesList('reading', r.features || []);
+
+      // Individual
+      const ind = p.individual || DEFAULT_CMS_DATA.pricing.individual;
+      document.getElementById('pricing-individual-badge').value = ind.badge || "1–11 классы";
+      document.getElementById('pricing-individual-capacity').value = ind.capacity || "1 на 1 с педагогом";
+      document.getElementById('pricing-individual-name').value = ind.name || "Индивидуальные уроки";
+      document.getElementById('pricing-individual-desc').value = ind.desc || "";
+      document.getElementById('pricing-individual-price').value = ind.price || "10 400 ₽";
+      document.getElementById('pricing-individual-period').value = ind.period || "/ месяц";
+      document.getElementById('pricing-individual-subtitle').value = ind.subtitle || "";
+      renderFeaturesList('individual', ind.features || []);
     }
 
-    function applyTeacherPhotoUrl() {
-      const url = document.getElementById('teacher-photo-url').value.trim();
-      if (url) {
-        currentData.photos.teacher = url;
-        document.getElementById('teacher-photo-preview').src = url;
+    function renderFeaturesList(courseKey, features) {
+      const container = document.getElementById(`pricing-${courseKey}-features-list`);
+      if (!container) return;
+      const isDark = courseKey === 'reading';
+      const checkClass = isDark ? 'text-amber-400' : 'text-emerald-600';
+      const inputClass = isDark ? 'text-white border-blue-400/40 bg-brand-950/40' : 'text-surface-dark';
+      const trashClass = isDark ? 'text-rose-400 hover:text-rose-200' : 'text-rose-500 hover:text-rose-700';
+
+      container.innerHTML = features.map((f, i) => `
+        <div class="flex items-center gap-1.5 group">
+          <i data-lucide="check" class="w-4 h-4 ${checkClass} shrink-0"></i>
+          <input type="text" value="${escapeHtml(f)}" data-feature-index="${i}" class="wysiwyg-input flex-1 px-2 py-1 text-xs ${inputClass} feature-input-${courseKey}">
+          <button type="button" onclick="removeFeatureItem('${courseKey}', ${i})" class="${trashClass} p-1 opacity-75 group-hover:opacity-100 transition-opacity" title="Удалить пункт">
+            <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function addFeatureItem(courseKey) {
+      syncPricingFromInputs();
+      if (!currentData.pricing[courseKey].features) currentData.pricing[courseKey].features = [];
+      currentData.pricing[courseKey].features.push("Новое преимущество формата");
+      renderFeaturesList(courseKey, currentData.pricing[courseKey].features);
+    }
+
+    function removeFeatureItem(courseKey, index) {
+      syncPricingFromInputs();
+      if (currentData.pricing[courseKey].features) {
+        currentData.pricing[courseKey].features.splice(index, 1);
+        renderFeaturesList(courseKey, currentData.pricing[courseKey].features);
       }
     }
 
-    // --- GALLERY RENDER ---
-    function renderGallery() {
-      const grid = document.getElementById('admin-gallery-grid');
-      if (!grid) return;
-      grid.innerHTML = currentData.photos.gallery.map((img, i) => `
-        <div class="rounded-2xl border border-surface-border p-2 bg-surface-bg space-y-2">
-          <div class="aspect-square rounded-xl overflow-hidden bg-slate-900">
-            <img id="gallery-preview-${i}" src="${img.src}" alt="${img.alt}" class="w-full h-full object-cover">
-          </div>
-          <div class="text-[11px] font-bold text-surface-dark truncate">Слот #${i+1}: ${img.alt}</div>
-          <input type="file" accept="image/*" onchange="handleGalleryUpload(event, ${i})" class="text-[10px] w-full file:py-1 file:px-2 file:rounded-md file:border-0 file:bg-white file:text-xs file:font-semibold">
-        </div>
-      `).join('');
-    }
-
-    function handleGalleryUpload(e, index) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        const dataUrl = evt.target.result;
-        currentData.photos.gallery[index].src = dataUrl;
-        document.getElementById(`gallery-preview-${index}`).src = dataUrl;
+    function syncPricingFromInputs() {
+      // Groups
+      const gf = Array.from(document.querySelectorAll('.feature-input-groups')).map(el => el.value);
+      currentData.pricing.groups = {
+        badge: document.getElementById('pricing-groups-badge').value,
+        capacity: document.getElementById('pricing-groups-capacity').value,
+        name: document.getElementById('pricing-groups-name').value,
+        desc: document.getElementById('pricing-groups-desc').value,
+        price: document.getElementById('pricing-groups-price').value,
+        period: document.getElementById('pricing-groups-period').value,
+        subtitle: document.getElementById('pricing-groups-subtitle').value,
+        features: gf
       };
-      reader.readAsDataURL(file);
+
+      // Reading
+      const rf = Array.from(document.querySelectorAll('.feature-input-reading')).map(el => el.value);
+      currentData.pricing.reading = {
+        tag: document.getElementById('pricing-reading-tag').value,
+        badge: document.getElementById('pricing-reading-badge').value,
+        duration: document.getElementById('pricing-reading-duration').value,
+        name: document.getElementById('pricing-reading-name').value,
+        desc: document.getElementById('pricing-reading-desc').value,
+        price: document.getElementById('pricing-reading-price').value,
+        period: document.getElementById('pricing-reading-period').value,
+        subtitle: document.getElementById('pricing-reading-subtitle').value,
+        features: rf
+      };
+
+      // Individual
+      const indf = Array.from(document.querySelectorAll('.feature-input-individual')).map(el => el.value);
+      currentData.pricing.individual = {
+        badge: document.getElementById('pricing-individual-badge').value,
+        capacity: document.getElementById('pricing-individual-capacity').value,
+        name: document.getElementById('pricing-individual-name').value,
+        desc: document.getElementById('pricing-individual-desc').value,
+        price: document.getElementById('pricing-individual-price').value,
+        period: document.getElementById('pricing-individual-period').value,
+        subtitle: document.getElementById('pricing-individual-subtitle').value,
+        features: indf
+      };
     }
 
-    // --- FAQ RENDER & MANAGEMENT ---
-    function renderFaq() {
-      const list = document.getElementById('faq-items-list');
-      if (!list) return;
-      list.innerHTML = currentData.faq.map((item, i) => `
-        <div class="p-5 rounded-2xl bg-surface-bg border border-surface-border space-y-3 relative group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-brand-900 uppercase tracking-wider">Вопрос #${i+1}</span>
-            <button onclick="removeFaqItem(${i})" class="text-rose-600 hover:text-rose-800 text-xs font-bold flex items-center gap-1 cursor-pointer">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-              <span>Удалить</span>
-            </button>
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Вопрос:</label>
-            <input type="text" oninput="currentData.faq[${i}].q = this.value" value="${escapeHtml(item.q)}" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs font-bold">
-          </div>
-          <div>
-            <label class="block text-[11px] font-bold text-surface-muted uppercase mb-1">Ответ:</label>
-            <textarea oninput="currentData.faq[${i}].a = this.value" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs">${escapeHtml(item.a)}</textarea>
+    // --- FAST VIDEOS MANAGER ---
+    function renderVideosManager() {
+      const container = document.getElementById('admin-videos-grid');
+      if (!container) return;
+      const videos = (currentData.videos && currentData.videos.items) ? currentData.videos.items : DEFAULT_CMS_DATA.videos.items;
+
+      container.innerHTML = videos.map((vid, idx) => `
+        <div class="bg-white p-5 rounded-3xl border-2 border-surface-border shadow-sm flex flex-col justify-between space-y-4 hover:border-brand-700 transition-colors" id="video-card-${idx}">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-surface-border">
+              <span class="font-heading font-black text-xs text-brand-900 uppercase">Ролик №${idx + 1}</span>
+              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Готов к показу</span>
+            </div>
+
+            <!-- Live Video Preview Player -->
+            <div class="aspect-video bg-black rounded-xl overflow-hidden relative shadow-inner">
+              <video id="admin-video-player-${idx}" src="${vid.src}" controls playsinline preload="metadata" class="w-full h-full object-cover"></video>
+            </div>
+
+            <!-- Drag & Drop / File Select Zone -->
+            <div 
+              class="border-2 border-dashed border-surface-border rounded-xl p-3 text-center bg-surface-bg hover:border-brand-700 transition-colors cursor-pointer" 
+              onclick="triggerVideoUpload(${idx})"
+              ondragover="handleVideoDragOver(event, ${idx})"
+              ondragleave="handleVideoDragLeave(event, ${idx})"
+              ondrop="handleVideoDrop(event, ${idx})"
+              id="video-dropzone-${idx}"
+            >
+              <i data-lucide="upload-cloud" class="w-5 h-5 text-brand-700 mx-auto mb-1"></i>
+              <div class="text-[11px] font-bold text-surface-dark">Загрузить видеофайл</div>
+              <p class="text-[9px] text-surface-muted">Перетащите сюда MP4 или нажмите</p>
+            </div>
+
+            <!-- Source Input -->
+            <div>
+              <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Путь / ссылка:</label>
+              <input type="text" id="video-src-input-${idx}" value="${vid.src}" onchange="updateVideoSrcFromInput(${idx})" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs bg-white">
+            </div>
+
+            <!-- Title Input -->
+            <div>
+              <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Заголовок ролика:</label>
+              <input type="text" id="video-title-input-${idx}" value="${escapeHtml(vid.title)}" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs font-bold text-surface-dark bg-white">
+            </div>
+
+            <!-- Description Input -->
+            <div>
+              <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Описание:</label>
+              <textarea id="video-desc-input-${idx}" rows="2" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs text-surface-muted bg-white resize-none">${escapeHtml(vid.desc)}</textarea>
+            </div>
           </div>
         </div>
       `).join('');
       lucide.createIcons();
     }
 
-    function addFaqItem() {
-      currentData.faq.push({
-        q: "Новый вопрос для родителей",
-        a: "Подробный понятный ответ преподавателя."
+    function triggerVideoUpload(idx) {
+      activeVideoUploadIndex = idx;
+      document.getElementById('video-file-input').click();
+    }
+
+    function handleVideoUpload(event) {
+      const file = event.target.files[0];
+      if (file && activeVideoUploadIndex !== null) {
+        processVideoFile(file, activeVideoUploadIndex);
+      }
+      event.target.value = '';
+    }
+
+    function handleVideoDragOver(e, idx) {
+      e.preventDefault();
+      document.getElementById(`video-dropzone-${idx}`).classList.add('dropzone-active');
+    }
+
+    function handleVideoDragLeave(e, idx) {
+      e.preventDefault();
+      document.getElementById(`video-dropzone-${idx}`).classList.remove('dropzone-active');
+    }
+
+    function handleVideoDrop(e, idx) {
+      e.preventDefault();
+      document.getElementById(`video-dropzone-${idx}`).classList.remove('dropzone-active');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        processVideoFile(e.dataTransfer.files[0], idx);
+      }
+    }
+
+    function processVideoFile(file, idx) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const videoDataUrl = e.target.result;
+        currentData.videos.items[idx].src = videoDataUrl;
+        const player = document.getElementById(`admin-video-player-${idx}`);
+        const input = document.getElementById(`video-src-input-${idx}`);
+        if (player) player.src = videoDataUrl;
+        if (input) input.value = `Загружено: ${file.name} (${(file.size / 1024 / 1024).toFixed(1)} MB)`;
+        showToast("Видео успешно загружено и обновлено!");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function updateVideoSrcFromInput(idx) {
+      const val = document.getElementById(`video-src-input-${idx}`).value;
+      currentData.videos.items[idx].src = val;
+      const player = document.getElementById(`admin-video-player-${idx}`);
+      if (player) player.src = val;
+    }
+
+    function syncVideosFromInputs() {
+      if (!currentData.videos || !currentData.videos.items) return;
+      currentData.videos.items.forEach((vid, idx) => {
+        const titleInput = document.getElementById(`video-title-input-${idx}`);
+        const descInput = document.getElementById(`video-desc-input-${idx}`);
+        const srcInput = document.getElementById(`video-src-input-${idx}`);
+        if (titleInput) vid.title = titleInput.value;
+        if (descInput) vid.desc = descInput.value;
+        if (srcInput && !srcInput.value.startsWith('Загружено:')) vid.src = srcInput.value;
       });
-      renderFaq();
     }
 
-    function removeFaqItem(index) {
-      if (confirm("Удалить этот вопрос из FAQ?")) {
-        currentData.faq.splice(index, 1);
-        renderFaq();
-      }
+    // --- PHOTOS MANAGER ---
+    function renderPhotosManager() {
+      document.getElementById('teacher-photo-preview').src = currentData.photos.teacher;
+      document.getElementById('teacher-photo-url').value = currentData.photos.teacher;
+
+      const galleryGrid = document.getElementById('admin-gallery-grid');
+      if (!galleryGrid) return;
+      const gallery = currentData.photos.gallery || DEFAULT_CMS_DATA.photos.gallery;
+
+      galleryGrid.innerHTML = gallery.map((item, idx) => `
+        <div class="relative group rounded-2xl overflow-hidden border border-surface-border aspect-square bg-surface-bg cursor-pointer" onclick="triggerGalleryUpload(${idx})">
+          <img src="${item.src}" alt="${escapeHtml(item.alt)}" id="admin-gallery-thumb-${idx}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-brand-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
+            <i data-lucide="camera" class="w-6 h-6 mb-1 text-white"></i>
+            <span class="text-[11px] font-bold">Слот #${idx + 1}</span>
+            <span class="text-[9px] text-blue-200">Нажмите, чтобы заменить</span>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
     }
 
-    // --- LEADS CRM MANAGEMENT ---
-    function renderLeads() {
-      const tbody = document.getElementById('leads-table-body');
-      const badge = document.getElementById('leads-count-badge');
-      if (!tbody) return;
+    function handleTeacherPhotoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentData.photos.teacher = e.target.result;
+        document.getElementById('teacher-photo-preview').src = e.target.result;
+        document.getElementById('teacher-photo-url').value = e.target.result;
+        showToast("Фото преподавателя обновлено!");
+      };
+      reader.readAsDataURL(file);
+    }
 
-      const leads = JSON.parse(localStorage.getItem('talantland_leads') || '[]');
-      if (badge) badge.innerText = leads.length;
+    function resetTeacherPhoto() {
+      currentData.photos.teacher = DEFAULT_CMS_DATA.photos.teacher;
+      document.getElementById('teacher-photo-preview').src = currentData.photos.teacher;
+      document.getElementById('teacher-photo-url').value = currentData.photos.teacher;
+      showToast("Установлено оригинальное фото преподавателя");
+    }
 
-      if (leads.length === 0) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="7" class="py-8 text-center text-surface-muted text-xs">
-              Заявок пока нет. Когда родитель заполнит форму на сайте, она моментально появится здесь.
-            </td>
-          </tr>
-        `;
-        return;
+    function triggerGalleryUpload(idx) {
+      activeGalleryUploadIndex = idx;
+      document.getElementById('gallery-file-input').click();
+    }
+
+    function handleGalleryUpload(event) {
+      const file = event.target.files[0];
+      if (file && activeGalleryUploadIndex !== null) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          currentData.photos.gallery[activeGalleryUploadIndex].src = e.target.result;
+          const thumb = document.getElementById(`admin-gallery-thumb-${activeGalleryUploadIndex}`);
+          if (thumb) thumb.src = e.target.result;
+          showToast(`Слот #${activeGalleryUploadIndex + 1} успешно обновлен!`);
+        };
+        reader.readAsDataURL(file);
       }
+      event.target.value = '';
+    }
 
-      tbody.innerHTML = leads.map((lead, i) => `
-        <tr class="hover:bg-surface-bg transition-colors">
-          <td class="py-3 px-3 text-[11px] text-surface-muted">${lead.date || '—'}</td>
-          <td class="py-3 px-3 font-bold text-surface-dark">${escapeHtml(lead.name)}</td>
-          <td class="py-3 px-3 font-mono font-bold text-brand-900">${escapeHtml(lead.phone)}</td>
-          <td class="py-3 px-3">${escapeHtml(lead.grade || '—')}</td>
-          <td class="py-3 px-3 font-semibold text-accent-700">${escapeHtml(lead.format || '—')}</td>
-          <td class="py-3 px-3">
-            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold ${lead.status === 'Обработана' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}">
-              ${lead.status || 'Новая'}
-            </span>
-          </td>
-          <td class="py-3 px-3 text-right space-x-2">
-            <a href="https://t.me/on_anastasiia" target="_blank" class="inline-flex items-center gap-1 text-[11px] text-sky-600 font-bold hover:underline">
-              <span>В Telegram</span>
-            </a>
-            <button onclick="toggleLeadStatus(${i})" class="text-[11px] text-brand-800 font-bold hover:underline cursor-pointer">
-              ${lead.status === 'Обработана' ? 'В новые' : 'Обработано'}
-            </button>
-            <button onclick="deleteLead(${i})" class="text-[11px] text-rose-600 hover:text-rose-800 cursor-pointer" title="Удалить">
-              ✕
-            </button>
-          </td>
-        </tr>
+    // --- INTENSIVES MANAGER ---
+    function renderIntensivesManager() {
+      const container = document.getElementById('admin-intensives-grid');
+      if (!container) return;
+      const list = currentData.intensives || DEFAULT_CMS_DATA.intensives;
+
+      container.innerHTML = list.map((item, idx) => `
+        <div class="bg-white p-5 rounded-3xl border-2 border-surface-border shadow-sm space-y-3">
+          <div class="aspect-video rounded-xl overflow-hidden bg-surface-bg border border-surface-border">
+            <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Метка / Бейдж:</label>
+            <input type="text" id="intensive-tag-${idx}" value="${escapeHtml(item.tag)}" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs font-bold text-brand-700 bg-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Название интенсива:</label>
+            <input type="text" id="intensive-title-${idx}" value="${escapeHtml(item.title)}" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs font-bold text-surface-dark bg-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Возраст и длительность:</label>
+            <input type="text" id="intensive-season-${idx}" value="${escapeHtml(item.season)}" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs text-surface-muted bg-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-surface-muted uppercase mb-1">Описание программы:</label>
+            <textarea id="intensive-desc-${idx}" rows="3" class="w-full px-3 py-1.5 rounded-lg border border-surface-border text-xs text-surface-muted bg-white resize-none">${escapeHtml(item.desc)}</textarea>
+          </div>
+        </div>
       `).join('');
     }
 
-    function toggleLeadStatus(index) {
-      const leads = JSON.parse(localStorage.getItem('talantland_leads') || '[]');
-      if (leads[index]) {
-        leads[index].status = leads[index].status === 'Обработана' ? 'Новая' : 'Обработана';
-        localStorage.setItem('talantland_leads', JSON.stringify(leads));
-        renderLeads();
-      }
+    function syncIntensivesFromInputs() {
+      if (!currentData.intensives) return;
+      currentData.intensives.forEach((item, idx) => {
+        const tagInput = document.getElementById(`intensive-tag-${idx}`);
+        const titleInput = document.getElementById(`intensive-title-${idx}`);
+        const seasonInput = document.getElementById(`intensive-season-${idx}`);
+        const descInput = document.getElementById(`intensive-desc-${idx}`);
+        if (tagInput) item.tag = tagInput.value;
+        if (titleInput) item.title = titleInput.value;
+        if (seasonInput) item.season = seasonInput.value;
+        if (descInput) item.desc = descInput.value;
+      });
     }
 
-    function deleteLead(index) {
-      const leads = JSON.parse(localStorage.getItem('talantland_leads') || '[]');
-      leads.splice(index, 1);
-      localStorage.setItem('talantland_leads', JSON.stringify(leads));
-      renderLeads();
+    // --- MESSENGERS ---
+    function populateMessengers() {
+      const m = currentData.messengers || DEFAULT_CMS_DATA.messengers;
+      document.getElementById('messenger-telegram').value = m.telegram || "https://t.me/on_anastasiia";
+      document.getElementById('messenger-max').value = m.max || "https://max.ru";
+    }
+
+    function syncMessengersFromInputs() {
+      currentData.messengers = {
+        telegram: document.getElementById('messenger-telegram').value || "https://t.me/on_anastasiia",
+        max: document.getElementById('messenger-max').value || "https://max.ru"
+      };
+    }
+
+    // --- PROMO & FAQ ---
+    function populatePromoAndFaq() {
+      const promo = currentData.promo || DEFAULT_CMS_DATA.promo;
+      document.getElementById('promo-active-toggle').checked = promo.active;
+      document.getElementById('promo-badge-input').value = promo.badge || "АКЦИЯ";
+      document.getElementById('promo-text-input').value = promo.text || "";
+
+      renderFaqList();
+    }
+
+    function renderFaqList() {
+      const container = document.getElementById('faq-list');
+      if (!container) return;
+      const faq = currentData.faq || DEFAULT_CMS_DATA.faq;
+
+      container.innerHTML = faq.map((item, idx) => `
+        <div class="p-4 rounded-2xl border border-surface-border bg-surface-bg space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-surface-muted uppercase">Вопрос #${idx + 1}</span>
+            <button onclick="removeFaqItem(${idx})" type="button" class="text-xs text-rose-600 hover:underline font-bold flex items-center gap-1">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              <span>Удалить</span>
+            </button>
+          </div>
+          <input type="text" id="faq-q-${idx}" value="${escapeHtml(item.q)}" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs font-bold text-surface-dark bg-white" placeholder="Вопрос">
+          <textarea id="faq-a-${idx}" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-surface-border text-xs text-surface-muted bg-white resize-none" placeholder="Ответ">${escapeHtml(item.a)}</textarea>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function addFaqItem() {
+      syncFaqFromInputs();
+      currentData.faq.push({ q: "Новый вопрос", a: "Ответ на вопрос..." });
+      renderFaqList();
+    }
+
+    function removeFaqItem(idx) {
+      syncFaqFromInputs();
+      currentData.faq.splice(idx, 1);
+      renderFaqList();
+    }
+
+    function syncFaqFromInputs() {
+      if (!currentData.faq) return;
+      currentData.faq.forEach((item, idx) => {
+        const qInput = document.getElementById(`faq-q-${idx}`);
+        const aInput = document.getElementById(`faq-a-${idx}`);
+        if (qInput) item.q = qInput.value;
+        if (aInput) item.a = aInput.value;
+      });
+      currentData.promo = {
+        active: document.getElementById('promo-active-toggle').checked,
+        badge: document.getElementById('promo-badge-input').value,
+        text: document.getElementById('promo-text-input').value
+      };
+    }
+
+    // --- LEADS CRM ---
+    function renderLeads() {
+      const container = document.getElementById('leads-container');
+      const badge = document.getElementById('leads-count-badge');
+      let leads = [];
+      try {
+        const stored = localStorage.getItem('talantland_leads');
+        if (stored) leads = JSON.parse(stored);
+      } catch(e){}
+
+      if (badge) badge.innerText = leads.length;
+
+      if (!container) return;
+      if (leads.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-surface-muted text-xs">
+            <i data-lucide="inbox" class="w-10 h-10 mx-auto text-surface-muted mb-2"></i>
+            <div>Заявок пока нет. Новые записи с форм сразу отобразятся здесь.</div>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = `
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-surface-border text-surface-muted uppercase font-bold text-[10px]">
+              <th class="py-3 px-4">Дата</th>
+              <th class="py-3 px-4">Родитель</th>
+              <th class="py-3 px-4">Телефон / Контакт</th>
+              <th class="py-3 px-4">Класс</th>
+              <th class="py-3 px-4">Формат</th>
+              <th class="py-3 px-4 text-right">Действие</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-surface-border">
+            ${leads.slice().reverse().map(lead => `
+              <tr class="hover:bg-surface-bg transition-colors">
+                <td class="py-3.5 px-4 font-mono text-[11px] text-surface-muted">${lead.date || 'Сегодня'}</td>
+                <td class="py-3.5 px-4 font-bold text-surface-dark">${escapeHtml(lead.name || '—')}</td>
+                <td class="py-3.5 px-4 font-semibold text-brand-700">${escapeHtml(lead.phone || '—')}</td>
+                <td class="py-3.5 px-4 text-surface-muted">${escapeHtml(lead.grade || '—')}</td>
+                <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md bg-blue-50 text-brand-800 font-bold text-[11px]">${escapeHtml(lead.format || '—')}</span></td>
+                <td class="py-3.5 px-4 text-right space-x-2">
+                  <a href="https://t.me/on_anastasiia" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                    <i data-lucide="send" class="w-3 h-3"></i> Telegram
+                  </a>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+      lucide.createIcons();
     }
 
     function clearAllLeads() {
-      if (confirm("Вы уверены, что хотите очистить весь список заявок?")) {
+      if (confirm('Вы уверены, что хотите очистить весь журнал заявок?')) {
         localStorage.removeItem('talantland_leads');
         renderLeads();
+        showToast("Журнал заявок очищен");
       }
     }
 
-    function addSampleLead() {
-      const samples = [
-        { name: "Ольга Морозова", phone: "+7 (913) 555-12-34", grade: "2 класс", format: "Курс «Читаем за 1 месяц»" },
-        { name: "Дмитрий Кравцов", phone: "@dmitry_krav", grade: "3 класс", format: "Мини-группа 2–4 класс" },
-        { name: "Анна Смирнова", phone: "+7 (902) 888-77-66", grade: "1 класс", format: "Пробный урок" }
-      ];
-      const random = samples[Math.floor(Math.random() * samples.length)];
-      const lead = {
-        id: Date.now(),
-        date: new Date().toLocaleString('ru-RU'),
-        name: random.name,
-        phone: random.phone,
-        grade: random.grade,
-        format: random.format,
-        status: 'Новая'
-      };
-      const existing = JSON.parse(localStorage.getItem('talantland_leads') || '[]');
-      existing.unshift(lead);
-      localStorage.setItem('talantland_leads', JSON.stringify(existing));
-      renderLeads();
-      showToast('Добавлена тестовая заявка!');
-    }
-
-    // --- SAVE ALL CHANGES TO LOCALSTORAGE ---
+    // --- SAVE ALL CHANGES ---
     function saveAllChanges() {
-      // Collect pricing
-      currentData.pricing.groups.name = document.getElementById('pricing-groups-name').value;
-      currentData.pricing.groups.price = document.getElementById('pricing-groups-price').value;
-      currentData.pricing.groups.subtitle = document.getElementById('pricing-groups-subtitle').value;
+      syncPricingFromInputs();
+      syncVideosFromInputs();
+      syncIntensivesFromInputs();
+      syncMessengersFromInputs();
+      syncFaqFromInputs();
 
-      currentData.pricing.reading.name = document.getElementById('pricing-reading-name').value;
-      currentData.pricing.reading.price = document.getElementById('pricing-reading-price').value;
-      currentData.pricing.reading.subtitle = document.getElementById('pricing-reading-subtitle').value;
+      // Photos
+      const teacherUrl = document.getElementById('teacher-photo-url').value;
+      if (teacherUrl) currentData.photos.teacher = teacherUrl;
 
-      currentData.pricing.individual.name = document.getElementById('pricing-individual-name').value;
-      currentData.pricing.individual.price = document.getElementById('pricing-individual-price').value;
-      currentData.pricing.individual.subtitle = document.getElementById('pricing-individual-subtitle').value;
-
-      // Collect promo
-      currentData.promo.active = document.getElementById('promo-active-toggle').checked;
-      currentData.promo.badge = document.getElementById('promo-badge-input').value;
-      currentData.promo.text = document.getElementById('promo-text-input').value;
-
-      // Collect videos
-      for (let i = 0; i < 3; i++) {
-        const srcVal = document.getElementById(`video-src-${i}`)?.value;
-        const titleVal = document.getElementById(`video-title-input-${i}`)?.value;
-        const descVal = document.getElementById(`video-desc-input-${i}`)?.value;
-        if (currentData.videos.items[i]) {
-          if (srcVal) currentData.videos.items[i].src = srcVal;
-          if (titleVal) currentData.videos.items[i].title = titleVal;
-          if (descVal) currentData.videos.items[i].desc = descVal;
-        }
-      }
-
-      // Persist in localStorage
-      localStorage.setItem('talantland_cms_data', JSON.stringify(currentData));
-
-      showToast('Настройки сохранены и синхронизированы с сайтом!');
-    }
-
-    function resetToDefaults() {
-      if (confirm('Сбросить все настройки к стандартным значениям студии?')) {
-        localStorage.removeItem('talantland_cms_data');
-        currentData = JSON.parse(JSON.stringify(DEFAULT_CMS_DATA));
-        populateForm();
-        renderGallery();
-        renderFaq();
-        showToast('Настройки сброшены к стандартным!');
+      try {
+        localStorage.setItem('talantland_cms_data', JSON.stringify(currentData));
+        showToast("Все данные сохранены и применены на сайте!");
+      } catch (err) {
+        console.error(err);
+        alert("Ошибка при сохранении: " + err.message);
       }
     }
 
     function showToast(msg) {
-      const toast = document.getElementById('toast');
-      const msgEl = document.getElementById('toast-msg');
-      if (msgEl) msgEl.innerText = msg;
-      toast.classList.remove('hidden');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 3000);
+      const toast = document.getElementById('save-toast');
+      if (toast) {
+        if (msg) toast.querySelector('.text-xs').innerText = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3500);
+      }
     }
 
     function escapeHtml(str) {
       if (!str) return '';
-      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
   </script>
 </body>

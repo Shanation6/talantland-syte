@@ -21,32 +21,32 @@
           },
           colors: {
             brand: {
-              950: '#142C54',
-              900: '#1B3F77',
-              850: '#204C8F',
-              800: '#245BA8',
-              700: '#2563EB',
-              600: '#3B82F6',
-              500: '#60A5FA',
-              400: '#93C5FD',
-              100: '#DBEAFE',
-              50:  '#EFF6FF',
+              950: '#0C2B44',
+              900: '#113A5C',
+              850: '#154B75',
+              800: '#0369A1',
+              700: '#0284C7',
+              600: '#0EA5E9',
+              500: '#38BDF8',
+              400: '#7DD3FC',
+              100: '#E0F2FE',
+              50:  '#F0F9FF',
             },
             accent: {
-              700: '#B45309',
-              600: '#D97706',
-              500: '#F59E0B',
-              400: '#FBBF24',
-              100: '#FEF3C7',
-              50:  '#FFFBEB',
+              700: '#0369A1',
+              600: '#0284C7',
+              500: '#0284C7',
+              400: '#0EA5E9',
+              100: '#E0F2FE',
+              50:  '#F0F9FF',
             },
             surface: {
               bg: '#F8FAFC',
               card: '#FFFFFF',
               border: '#E2E8F0',
-              dark: '#0F172A',
-              muted: '#475569',
-              warm: '#F1F5F9',
+              dark: '#1E293B',
+              muted: '#64748B',
+              warm: '#F0F9FF',
             }
           }
         }
@@ -84,7 +84,7 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- ==================== PIN AUTH SCREEN ==================== -->
-  <div id="auth-overlay" class="fixed inset-0 z-50 bg-brand-950/95 backdrop-blur-md flex items-center justify-center p-4">
+  <div id="auth-overlay" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl text-center space-y-6 border border-surface-border">
       <img src="media/logo.png" alt="ТалантЛэнд" class="h-20 w-auto mx-auto object-contain drop-shadow-sm">
       <div>
@@ -272,27 +272,27 @@
             </div>
 
             <!-- Live Preview: Reading (Featured Dark Sapphire Card) -->
-            <div id="live-preview-reading" class="bg-brand-900 text-white p-6 sm:p-7 rounded-3xl border-2 border-blue-500 shadow-xl flex flex-col justify-between relative transition-all">
+            <div id="live-preview-reading" class="bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#0C4A6E] text-white p-6 sm:p-7 rounded-3xl border-2 border-sky-300/40 shadow-xl flex flex-col justify-between relative transition-all">
               <div class="absolute -top-3 left-6">
-                <span id="prev-reading-tag" class="bg-amber-400 text-slate-950 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-md tracking-wider">
+                <span id="prev-reading-tag" class="bg-white text-sky-800 text-[11px] font-black uppercase px-3 py-1 rounded-full shadow-md tracking-wider">
                   ХИТ СТУДИИ
                 </span>
               </div>
               <div>
-                <div class="flex items-center justify-between text-xs font-bold text-blue-200 mb-4 pb-2 border-b border-brand-800 pt-1">
-                  <span id="prev-reading-badge" class="bg-brand-800 text-blue-100 px-2.5 py-1 rounded-md">1–3 классы</span>
-                  <span id="prev-reading-duration" class="text-amber-300">Интенсив 1 месяц</span>
+                <div class="flex items-center justify-between text-xs font-bold text-sky-100 mb-4 pb-2 border-b border-white/20 pt-1">
+                  <span id="prev-reading-badge" class="bg-white/20 text-white px-2.5 py-1 rounded-md font-bold">1–3 классы</span>
+                  <span id="prev-reading-duration" class="text-sky-200 font-bold">Интенсив 1 месяц</span>
                 </div>
                 <h4 id="prev-reading-name" class="text-2xl font-black text-white mb-2 font-heading">Курс «Читаем за 1 месяц»</h4>
                 <p id="prev-reading-desc" class="text-xs text-blue-100/80 leading-relaxed mb-4">
                   Полное решение проблемы со школьным чтением. Ребенок учится читать незнакомые тексты по звуковым моделям фониксов.
                 </p>
-                <div class="p-4 bg-brand-950/80 rounded-2xl border border-brand-800 mb-4">
+                <div class="p-4 bg-black/20 rounded-2xl border border-white/15 mb-4 backdrop-blur-sm">
                   <div class="flex items-baseline gap-1.5">
-                    <span id="prev-reading-price" class="text-3xl font-black text-amber-300 font-heading">10 000 ₽</span>
+                    <span id="prev-reading-price" class="text-3xl font-black text-white font-heading">10 000 ₽</span>
                     <span id="prev-reading-period" class="text-xs font-semibold text-blue-200">/ весь курс</span>
                   </div>
-                  <div id="prev-reading-subtitle" class="text-xs text-amber-200 font-medium mt-1">
+                  <div id="prev-reading-subtitle" class="text-xs text-sky-100 font-medium mt-1">
                     8 занятий по 60 мин (методика Phonics)
                   </div>
                 </div>
@@ -300,8 +300,8 @@
                   <!-- Dynamically rendered -->
                 </ul>
               </div>
-              <div class="pt-5 mt-5 border-t border-brand-800 text-center">
-                <span class="inline-block w-full py-2.5 rounded-xl bg-amber-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-md">
+              <div class="pt-5 mt-5 border-t border-white/20 text-center">
+                <span class="inline-block w-full py-2.5 rounded-xl bg-white text-sky-700 font-extrabold text-xs uppercase tracking-wider shadow-md">
                   Забронировать место
                 </span>
               </div>
@@ -413,14 +413,14 @@
             <!-- Editor: Reading -->
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
               <div class="font-black text-base text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
                 <span>Тариф 2: Курс чтения (Хит)</span>
               </div>
 
               <div class="grid grid-cols-3 gap-2">
                 <div>
                   <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Тэг:</label>
-                  <input type="text" id="pricing-reading-tag" value="ХИТ СТУДИИ" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-amber-300 text-xs font-black text-amber-900 bg-amber-50 focus:bg-white focus:outline-none focus:border-amber-500">
+                  <input type="text" id="pricing-reading-tag" value="ХИТ СТУДИИ" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-sky-200 text-xs font-black text-sky-900 bg-sky-50 focus:bg-white focus:outline-none focus:border-sky-500">
                 </div>
                 <div>
                   <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Бейдж:</label>
@@ -428,7 +428,7 @@
                 </div>
                 <div>
                   <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Срок:</label>
-                  <input type="text" id="pricing-reading-duration" value="Интенсив 1 месяц" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-amber-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                  <input type="text" id="pricing-reading-duration" value="Интенсив 1 месяц" oninput="onPricingInputChange()" class="w-full px-2.5 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-sky-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
                 </div>
               </div>
 
@@ -445,7 +445,7 @@
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Цена:</label>
-                  <input type="text" id="pricing-reading-price" value="10 000 ₽" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-amber-600 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
+                  <input type="text" id="pricing-reading-price" value="10 000 ₽" oninput="onPricingInputChange()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-black text-sky-700 bg-slate-50 focus:bg-white focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
                   <label class="block text-[10px] font-bold uppercase text-slate-500 mb-1">Период:</label>
@@ -576,7 +576,7 @@
 
           <div class="grid sm:grid-cols-12 gap-6 items-center">
             <div class="sm:col-span-4 max-w-[200px] mx-auto sm:mx-0">
-              <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-brand-950 border border-surface-border shadow-md relative">
+              <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sky-950 border border-surface-border shadow-md relative">
                 <img id="teacher-photo-preview" src="media/photos/teacher_anastasia_new.jpg" alt="Анастасия" class="w-full h-full object-cover">
               </div>
             </div>
@@ -1064,7 +1064,7 @@
         if (fList && r.features) {
           fList.innerHTML = r.features.map(f => `
             <li class="flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+              <i data-lucide="check" class="w-3.5 h-3.5 text-sky-300 shrink-0"></i>
               <span>${escapeHtml(f)}</span>
             </li>
           `).join('');
@@ -1106,8 +1106,8 @@
       const container = document.getElementById(`pricing-${courseKey}-features-list`);
       if (!container) return;
       const isDark = courseKey === 'reading';
-      const checkClass = isDark ? 'text-amber-400' : 'text-emerald-600';
-      const inputClass = isDark ? 'text-white border-blue-400/40 bg-brand-950/40' : 'text-surface-dark';
+      const checkClass = isDark ? 'text-sky-300' : 'text-sky-600';
+      const inputClass = isDark ? 'text-white border-white/20 bg-black/20' : 'text-surface-dark';
       const trashClass = isDark ? 'text-rose-400 hover:text-rose-200' : 'text-rose-500 hover:text-rose-700';
 
       container.innerHTML = features.map((f, i) => `
@@ -1311,7 +1311,7 @@
       galleryGrid.innerHTML = gallery.map((item, idx) => `
         <div class="relative group rounded-2xl overflow-hidden border border-surface-border aspect-square bg-surface-bg cursor-pointer" onclick="triggerGalleryUpload(${idx})">
           <img src="${item.src}" alt="${escapeHtml(item.alt)}" id="admin-gallery-thumb-${idx}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          <div class="absolute inset-0 bg-brand-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
+          <div class="absolute inset-0 bg-sky-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
             <i data-lucide="camera" class="w-6 h-6 mb-1 text-white"></i>
             <span class="text-[11px] font-bold">Слот #${idx + 1}</span>
             <span class="text-[9px] text-blue-200">Нажмите, чтобы заменить</span>

@@ -1,29 +1,26 @@
-/* UI/UX Pro Max Design System Tokens & Styles for TalantLand */
-/* Clean Modern Palette: Vibrant Royal Blue, Crisp Pure White & Slate */
+/* UI/UX Pro Max Design System: Soft Sky Blue & Gentle Cloud Palette */
 :root {
   --bg: #F8FAFC;
   --surface: #FFFFFF;
   --surface-card: #FFFFFF;
-  --surface-subtle: #F1F5F9;
+  --surface-subtle: #F0F9FF;
   --surface-elevated: #FFFFFF;
-  --fg: #0F172A;
-  --fg-muted: #475569;
+  --fg: #1E293B;
+  --fg-muted: #64748B;
   --border: #E2E8F0;
-  --border-subtle: #F1F5F9;
+  --border-subtle: #F0F9FF;
   
-  /* Brand Studio Blues */
-  --accent: #2563EB;
-  --accent-hover: #1D4ED8;
-  --accent-light: #EFF6FF;
+  /* Soft Sky Blue Brand */
+  --accent: #0284C7;
+  --accent-hover: #0369A1;
+  --accent-light: #F0F9FF;
   --accent-on: #FFFFFF;
   
-  /* Warm Accents */
-  --play-amber: #F59E0B;
-  --play-amber-bg: #FEF3C7;
-  --play-coral: #F97316;
-  --play-coral-bg: #FFEDD5;
+  /* Soft Friendly Accents */
+  --soft-sky: #0EA5E9;
+  --soft-sky-light: #E0F2FE;
   --play-green: #10B981;
-  --play-green-bg: #D1FAE5;
+  --play-green-bg: #ECFDF5;
   
   --font-display: 'Onest', sans-serif;
   --font-body: 'Manrope', sans-serif;
@@ -33,10 +30,10 @@
   --radius-lg: 24px;
   --radius-xl: 32px;
   
-  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  --shadow-hover: 0 20px 35px -5px rgba(37, 99, 235, 0.14), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  --shadow-hover: 0 16px 30px -4px rgba(2, 132, 199, 0.16), 0 6px 14px -2px rgba(15, 23, 42, 0.05);
   --shadow-card: 0 2px 12px rgba(15, 23, 42, 0.04);
-  --shadow-clay: 0 8px 20px -2px rgba(37, 99, 235, 0.25);
+  --shadow-clay: 0 8px 20px -2px rgba(2, 132, 199, 0.22);
 }
 
 html {
@@ -62,8 +59,8 @@ body {
 
 /* Buttons & Interactive Elements */
 .btn-primary {
-  background-color: var(--accent);
-  color: var(--accent-on);
+  background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 700;
   border-radius: 14px;
@@ -72,16 +69,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: 2px solid transparent;
   min-height: 48px;
 }
 .btn-primary:hover {
-  background-color: var(--accent-hover);
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.38);
 }
 .btn-primary:active {
   transform: translateY(0);
@@ -109,8 +106,8 @@ body {
   transform: translateY(-2px);
 }
 
-.btn-amber {
-  background-color: var(--play-amber);
+.btn-amber, .btn-sky {
+  background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
   color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 800;
@@ -120,15 +117,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.28);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28);
   transition: all 0.25s ease;
   cursor: pointer;
   min-height: 48px;
 }
-.btn-amber:hover {
-  background-color: #D97706;
+.btn-amber:hover, .btn-sky:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.38);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.38);
 }
 
 /* Card Elevate Micro-interactions */

@@ -24,16 +24,16 @@
           },
           colors: {
             brand: {
-              950: '#0A192F', // Deep Academic Sapphire
-              900: '#102A43', // Classroom Accent Wall Navy
-              850: '#163A5F',
-              800: '#1E3A8A', // Royal Blue
-              700: '#1D4ED8', // Rich Studio Blue
-              600: '#2563EB', // Electric Brand Blue
-              500: '#3B82F6',
-              400: '#60A5FA',
-              100: '#DBEAFE', // Soft Ice Blue
-              50: '#EFF6FF',  // Subtle Blue Tint
+              950: '#142C54', // Lighter friendly sapphire
+              900: '#1B3F77', // Classroom bright navy
+              850: '#204C8F',
+              800: '#245BA8', // Luminous studio blue
+              700: '#2563EB', // Vibrant bright blue
+              600: '#3B82F6', // Electric sky blue
+              500: '#60A5FA',
+              400: '#93C5FD',
+              100: '#DBEAFE',
+              50: '#EFF6FF',
             },
             accent: {
               700: '#B45309',
@@ -267,18 +267,23 @@
           <!-- Left Column: Copy & Funnel -->
           <div class="lg:col-span-7 space-y-6 sm:space-y-7">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-lg bg-brand-50 border border-brand-100 text-[10px] sm:text-xs font-bold text-brand-900 max-w-full">
-              <span class="w-2 h-2 rounded-full bg-brand-600 shrink-0 animate-pulse"></span>
-              <span class="tracking-wide">СТУДИЯ АНГЛИЙСКОГО ЯЗЫКА В КРАСНОЯРСКЕ • ДЕТИ И ШКОЛЬНИКИ</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-blue-50 border border-blue-200 text-xs font-extrabold text-brand-800 max-w-full shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-blue-500 shrink-0 animate-pulse"></span>
+              <span class="tracking-wide uppercase">БОЛЬШЕ, ЧЕМ ПРОСТО ЗАНЯТИЯ</span>
             </div>
 
             <h1 class="text-2xl sm:text-4xl lg:text-[52px] font-black text-surface-dark tracking-tight leading-[1.22]">
               Английский, который дети действительно любят
             </h1>
 
-            <p class="text-sm sm:text-lg text-surface-muted leading-relaxed font-normal max-w-2xl">
-              Студия английского языка «ТалантЛэнд» • Педагог Анастасия Онищук. Учим говорить и читать без зубрежки правил — через настольные игры, живые диалоги и дружескую атмосферу. В группе строго до 6 детей: говорит каждый ребёнок.
-            </p>
+            <div class="space-y-3 max-w-2xl">
+              <p class="text-base sm:text-xl font-bold text-brand-900 leading-snug">
+                Живой английский через игру, движение и общение — без бесконечной зубрёжки
+              </p>
+              <p class="text-sm sm:text-base text-surface-muted leading-relaxed font-normal">
+                Внимание каждому, свобода пробовать и целое комьюнити: занятия, клубы, интенсивы и языковые лагеря в Красноярске.
+              </p>
+            </div>
 
             <!-- Metrics bar -->
             <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-2 border-t border-surface-border">
@@ -368,8 +373,8 @@
             <h2 class="text-3xl sm:text-4xl font-black text-white mt-3 font-heading">
               Посмотрите 30 секунд любого нашего занятия
             </h2>
-            <p class="text-emerald-100/70 mt-2 text-sm max-w-2xl font-normal">
-              Никаких заученных постановок. Реальные дети на реальных уроках: как они двигаются, говорят и радуются правильным ответам.
+            <p class="text-blue-100/90 mt-2 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+              Уроки, на которых детям интересно: играть, исследовать, общаться, ошибаться и пробовать снова — и постепенно всё увереннее говорить по-английски.
             </p>
           </div>
           <div class="mt-4 md:mt-0 text-xs text-emerald-300 font-bold flex items-center gap-2 bg-brand-900/60 px-3 py-2 rounded-xl border border-brand-800">
@@ -384,9 +389,9 @@
           <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-0" src="media/videos/v1.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-0" class="font-bold text-sm text-white">01 / Смена деятельности каждые 15 минут</div>
-              <p id="video-desc-0" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
-                Разминки и динамичные игры: дети не устают от парт и моментально включаются в разговорный процесс.
+              <div id="video-title-0" class="font-bold text-sm text-white">01 / Динамичные занятия и частая смена деятельности</div>
+              <p id="video-desc-0" class="text-xs text-blue-100/90 mt-1.5 leading-relaxed font-normal">
+                В возрасте, когда детям важно движение — мы используем это на пользу!
               </p>
             </div>
           </div>
@@ -395,9 +400,9 @@
           <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-1" src="media/videos/v2.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-1" class="font-bold text-sm text-white">02 / Разговорная практика каждое занятие</div>
-              <p id="video-desc-1" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
-                Живые диалоги и вопросы-ответы. До 6 человек в группе: каждый ребенок говорит на английском вслух.
+              <div id="video-title-1" class="font-bold text-sm text-white">02 / Постоянная разговорная практика</div>
+              <p id="video-desc-1" class="text-xs text-blue-100/90 mt-1.5 leading-relaxed font-normal">
+                Диалоги, сценки и разнообразные role-plays каждый урок → выводим знания в речь.
               </p>
             </div>
           </div>
@@ -406,9 +411,9 @@
           <div class="lesson-video bg-brand-900/90 p-3 rounded-2xl border border-brand-800 space-y-3 shadow-lg">
             <video id="lesson-video-2" src="media/videos/v3.mp4" controls playsinline preload="metadata"></video>
             <div class="p-2">
-              <div id="video-title-2" class="font-bold text-sm text-white">03 / Британские настольные игры (20 мин)</div>
-              <p id="video-desc-2" class="text-xs text-blue-100/80 mt-1 leading-relaxed font-normal">
-                В конце каждого урока играем в Dobble, Uno и викторины строго на английском: азарт победы без страха ошибок!
+              <div id="video-title-2" class="font-bold text-sm text-white">03 / Игры на английском в конце каждого урока</div>
+              <p id="video-desc-2" class="text-xs text-blue-100/90 mt-1.5 leading-relaxed font-normal">
+                Закрепляем материал в увлекательном, интерактивном формате через азарт и командный дух.
               </p>
             </div>
           </div>
@@ -686,14 +691,14 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-800 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
-              КАНИКУЛЯРНЫЕ ПОГРУЖЕНИЯ
+            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200">
+              ПОГРУЖЕНИЯ, РАЗГОВОРНЫЕ КЛУБЫ И ЛЕТНИЕ ЛАГЕРЯ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
-              Тематические интенсивы на школьных каникулах
+              Комьюнити, чтобы прочувствовать английский на все 100
             </h2>
-            <p class="text-surface-muted mt-2 text-sm max-w-2xl">
-              Каждые каникулы (лето, осень, зима) мы проводим 3–4 дневные глубокие языковые погружения в формате увлекательных ролевых сюжетов.
+            <p class="text-surface-muted mt-2 text-sm sm:text-base max-w-2xl leading-relaxed">
+              Язык усваивается естественно и легко, когда ребенок увлечен веселой игрой. Насыщенные мероприятия, которые позволяют погрузиться в английскую культуру в интересном, интерактивном и игровом формате.
             </p>
           </div>
           <div class="mt-4 md:mt-0 flex items-center gap-3">
@@ -706,53 +711,50 @@
 
         <div class="grid md:grid-cols-3 gap-8" id="intensives-container">
           
-          <!-- Intensive 1: Hogwarts -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
+          <!-- Intensive 2: Hogwarts -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-white flex flex-col justify-between shadow-sm hover:border-brand-700 hover:shadow-md transition-all">
             <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/02.jpg" alt="Школа магии Хогвартс" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-amber-300 text-[11px] font-bold uppercase tracking-wider">
-                Каникулярный хит
+              <img src="media/photos/02.jpg" alt="Школа магии Hogwarts" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-900/90 backdrop-blur-sm text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                Школа магии
               </span>
             </div>
-            <div class="p-6 space-y-2">
-              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 1–5 классы</div>
-              <h3 class="font-bold text-lg text-surface-dark font-heading">Школа магии Хогвартс (Harry Potter)</h3>
+            <div class="p-6 space-y-2.5">
+              <h3 class="font-bold text-lg text-surface-dark font-heading">Школа магии Hogwarts</h3>
               <p class="text-xs text-surface-muted leading-relaxed">
-                Распределяющая шляпа, уроки зельеварения, свитки с заклинаниями и турнир волшебников. Всё общение, подсказки и квесты проходят только на английском языке!
+                Всё как в настоящей школе магии – распределяющая шляпа, волшебные палочки, мифические существа и много-много английского!
               </p>
             </div>
           </div>
 
-          <!-- Intensive 2: Sherlock Holmes -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
+          <!-- Intensive 1: Sherlock Holmes -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-white flex flex-col justify-between shadow-sm hover:border-brand-700 hover:shadow-md transition-all">
             <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/04.jpg" alt="Штаб Шерлока Холмса" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-blue-200 text-[11px] font-bold uppercase tracking-wider">
-                Детективное дело
+              <img src="media/photos/04.jpg" alt="Штаб-квартира Шерлока Холмса" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-900/90 backdrop-blur-sm text-blue-200 text-[11px] font-bold uppercase tracking-wider">
+                Детективный квест
               </span>
             </div>
-            <div class="p-6 space-y-2">
-              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 2–6 классы</div>
+            <div class="p-6 space-y-2.5">
               <h3 class="font-bold text-lg text-surface-dark font-heading">Штаб-квартира Шерлока Холмса</h3>
               <p class="text-xs text-surface-muted leading-relaxed">
-                Секретные конверты с уликами, допрос свидетелей и шифры. Чтобы разгадать тайну, дети задают вопросы, сопоставляют факты и говорят полными фразами.
+                Ребята расследуют настоящее детективное дело, собирая подсказки на английском в квестовом формате.
               </p>
             </div>
           </div>
 
-          <!-- Intensive 3: Safari & Supermarket -->
-          <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
+          <!-- Intensive 3: Safari -->
+          <div class="rounded-3xl border border-surface-border overflow-hidden bg-white flex flex-col justify-between shadow-sm hover:border-brand-700 hover:shadow-md transition-all">
             <div class="h-52 overflow-hidden relative">
-              <img src="media/photos/05.jpg" alt="Экспедиция Сафари и English Supermarket" class="w-full h-full object-cover">
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-950/85 backdrop-blur-sm text-emerald-300 text-[11px] font-bold uppercase tracking-wider">
-                Ролевой тренинг
+              <img src="media/photos/05.jpg" alt="Поездка в сафари-тур" class="w-full h-full object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-brand-900/90 backdrop-blur-sm text-emerald-300 text-[11px] font-bold uppercase tracking-wider">
+                Экспедиция
               </span>
             </div>
-            <div class="p-6 space-y-2">
-              <div class="text-[11px] font-bold text-brand-700 uppercase tracking-wide">3–4 дня погружения • 1–4 классы</div>
-              <h3 class="font-bold text-lg text-surface-dark font-heading">Экспедиция Сафари & English Supermarket</h3>
+            <div class="p-6 space-y-2.5">
+              <h3 class="font-bold text-lg text-surface-dark font-heading">Поездка в сафари-тур в роли настоящих исследователей</h3>
               <p class="text-xs text-surface-muted leading-relaxed">
-                Аэропорт, багаж, таможня, поход в супермаркет с корзинками и игровой валютой. Ребенок учится уверенно чувствовать себя в любых реальных путешествиях.
+                Вооружившись дневниками исследователей, ребята отправятся в настоящий зоопарк с целью наблюдения, описания и решения задач спасения флоры и фауны.
               </p>
             </div>
           </div>

@@ -375,7 +375,7 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-sky-200 bg-sky-900/80 px-3.5 py-1 rounded-full border border-sky-700/60 shadow-sm">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-200 bg-sky-900/80 px-3.5 py-1.5 rounded-full border border-sky-700/60 shadow-sm">
               АТМОСФЕРА С УРОКОВ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-white mt-3 font-heading">
@@ -436,7 +436,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+          <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-900 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">
             ПОДХОД К ОБУЧЕНИЮ
           </span>
           <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
@@ -511,7 +511,7 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-900 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">
               ПРОГРАММЫ И СТОИМОСТЬ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
@@ -699,8 +699,8 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200">
-              ПОГРУЖЕНИЯ, РАЗГОВОРНЫЕ КЛУБЫ И ЛЕТНИЕ ЛАГЕРЯ
+            <span class="inline-block text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-sky-800 bg-sky-50 px-3.5 py-1.5 rounded-xl sm:rounded-full border border-sky-200 leading-snug max-w-full">
+              ПОГРУЖЕНИЯ, КЛУБЫ И ЛЕТНИЕ ЛАГЕРЯ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
               Комьюнити, чтобы прочувствовать английский на все 100
@@ -807,7 +807,7 @@
 
           <!-- Teacher Story & Credentials -->
           <div class="lg:col-span-7 space-y-6">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-900 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">
               ПРЕПОДАВАТЕЛЬ И МЕТОДИСТ
             </span>
 
@@ -861,7 +861,7 @@
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-900 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">
               АТМОСФЕРА И МАТЕРИАЛЫ
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-surface-dark mt-3 font-heading">
@@ -877,49 +877,49 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-container">
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(0)">
             <img id="gallery-img-0" src="media/photos/01.jpg" alt="Карточки с английскими словами на ковре" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(1)">
             <img id="gallery-img-1" src="media/photos/02.jpg" alt="Занятие с бинго" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(2)">
             <img id="gallery-img-2" src="media/photos/03.jpg" alt="Игра с пальчиковыми куклами" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(3)">
             <img id="gallery-img-3" src="media/photos/04.jpg" alt="Словесная игра с тигром" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(4)">
             <img id="gallery-img-4" src="media/photos/05.jpg" alt="Календарь My Daily Calendar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(5)">
             <img id="gallery-img-5" src="media/photos/06.jpg" alt="Игра Собери лицо" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(6)">
             <img id="gallery-img-6" src="media/photos/07.jpg" alt="Пицца-алфавит с буквами-кусочками" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
             </div>
           </div>
-          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openPhotoModal(this.querySelector('img').src)">
+          <div class="rounded-2xl overflow-hidden border border-surface-border aspect-square group cursor-pointer shadow-sm relative" onclick="openGalleryPhoto(7)">
             <img id="gallery-img-7" src="media/photos/08.jpg" alt="Магниты на доске" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <i data-lucide="zoom-in" class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow"></i>
@@ -1106,7 +1106,7 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-10">
-          <span class="text-xs font-extrabold uppercase tracking-wider text-brand-900 bg-brand-50 px-3.5 py-1 rounded-full border border-brand-100">
+          <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-sky-900 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">
             ОТВЕТЫ НА ВОПРОСЫ
           </span>
           <h2 class="text-3xl font-black text-surface-dark mt-2 font-heading">
@@ -1182,8 +1182,7 @@
           <p class="font-bold text-slate-200">ИП Онищук Анастасия Андреевна</p>
           <p>ИНН: 246523984190</p>
           <p>ОГРНИП: 321246800045123</p>
-          <p class="text-emerald-400 font-semibold">152-ФЗ РФ соблюден в полном объёме</p>
-        </div>
+                  </div>
       </div>
 
       <!-- Col 2: Studio Address -->
@@ -1246,7 +1245,7 @@
           <li>
             <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:text-blue-300 transition-colors flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
-              <span>Политика конфиденциальности (152-ФЗ)</span>
+              <span>Политика конфиденциальности</span>
             </a>
           </li>
           <li>
@@ -1276,7 +1275,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-sky-900/40 text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
       <div>© 2026 Студия «ТалантЛэнд». Все права защищены.</div>
       <div class="flex flex-wrap gap-4 text-slate-400">
-        <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:underline">Политика 152-ФЗ</a>
+        <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:underline">Конфиденциальность</a>
         <span>•</span>
         <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="hover:underline">Согласие</a>
         <span>•</span>
@@ -1338,9 +1337,9 @@
         <!-- 152-ФЗ Mandatory Consent Checkbox -->
         <div class="pt-2 pb-1 border-t border-slate-100">
           <label class="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600 select-none group">
-            <input type="checkbox" id="modal-policy-consent" required checked class="mt-0.5 w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer shrink-0">
+            <input type="checkbox" id="modal-policy-consent" required checked class="mt-0.5 w-4 h-4 text-sky-600 rounded border-slate-300 focus:ring-sky-500 cursor-pointer shrink-0">
             <span class="leading-snug text-[11px] sm:text-xs">
-              Я даю согласие на <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="underline text-blue-600 hover:text-blue-800 font-bold">обработку персональных данных</a> и принимаю условия <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политики конфиденциальности</a> (согласно 152-ФЗ РФ)
+              Я даю согласие на <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="underline text-sky-600 hover:text-sky-800 font-bold">обработку персональных данных</a> и принимаю условия <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-sky-600 hover:text-sky-800 font-bold">Политики конфиденциальности</a> (согласно 152-ФЗ РФ)
             </span>
           </label>
           <div id="modal-consent-error" class="hidden text-rose-600 text-[11px] font-bold mt-1.5 flex items-center gap-1">
@@ -1355,8 +1354,8 @@
 
         <div class="flex items-center justify-center gap-3 text-[10px] text-slate-500 pt-1">
           <span class="flex items-center gap-1">
-            <i data-lucide="lock" class="w-3 h-3 text-emerald-600"></i>
-            <span>152-ФЗ РФ</span>
+            <i data-lucide="lock" class="w-3 h-3 text-sky-600"></i>
+            <span>Конфиденциально</span>
           </span>
           <span>•</span>
           <span>Свяжемся за 15 минут</span>
@@ -1392,14 +1391,38 @@
     </div>
   </div>
 
-  <!-- ==================== LIGHTBOX MODAL ==================== -->
-  <div id="photo-lightbox" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4 backdrop-blur-sm" onclick="closePhotoModal()">
-    <div class="relative max-w-4xl max-h-[90vh]" onclick="event.stopPropagation()">
-      <img id="lightbox-image" src="" alt="Фотография студии" class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl">
-      <button onclick="closePhotoModal()" class="absolute -top-10 right-0 text-white font-bold text-sm hover:text-sky-300 flex items-center gap-1">
+  <!-- ==================== LIGHTBOX MODAL (WITH ARROWS, COUNTER & SWIPE) ==================== -->
+  <div id="photo-lightbox" class="hidden" style="position: fixed; inset: 0; width: 100vw; max-width: 100%; height: 100vh; max-height: 100%; background-color: rgba(0,0,0,0.96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; display: none; overflow: hidden; user-select: none;" onclick="closePhotoModal()">
+    
+    <!-- Top Bar: Counter & Close -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; z-index: 60; pointer-events: none;">
+      <span id="lightbox-counter" class="text-xs font-bold text-white bg-black/60 px-3.5 py-1.5 rounded-full border border-white/20 shadow-md pointer-events-auto">
+        1 / 8
+      </span>
+      <button type="button" onclick="closePhotoModal()" class="pointer-events-auto h-9 px-3.5 rounded-full bg-black/60 hover:bg-black/85 active:scale-95 text-white font-bold text-xs uppercase tracking-wider border border-white/20 flex items-center gap-1.5 transition-all shadow-lg cursor-pointer" title="Закрыть">
         <span>Закрыть</span>
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
+    </div>
+
+    <!-- Left Prev Arrow -->
+    <button type="button" id="lightbox-prev-btn" onclick="stepGallery(-1, event)" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); z-index: 60;" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/65 hover:bg-black/90 active:scale-90 text-white flex items-center justify-center transition-all cursor-pointer shadow-2xl border border-white/25 hover:border-white/50" aria-label="Предыдущее фото" title="Предыдущее фото">
+      <i data-lucide="chevron-left" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[2.5]"></i>
+    </button>
+
+    <!-- Center Stage Image Container (Strictly bounded between arrows) -->
+    <div style="position: absolute; inset: 56px 52px 34px 52px; display: flex; align-items: center; justify-content: center; z-index: 40;" onclick="event.stopPropagation()">
+      <img id="lightbox-image" src="" alt="Фотография студии" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.85); transition: opacity 0.15s ease;">
+    </div>
+
+    <!-- Right Next Arrow -->
+    <button type="button" id="lightbox-next-btn" onclick="stepGallery(1, event)" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); z-index: 60;" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-black/65 hover:bg-black/90 active:scale-90 text-white flex items-center justify-center transition-all cursor-pointer shadow-2xl border border-white/25 hover:border-white/50" aria-label="Следующее фото" title="Следующее фото">
+      <i data-lucide="chevron-right" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[2.5]"></i>
+    </button>
+
+    <!-- Bottom touch hint for mobile -->
+    <div style="position: absolute; bottom: 8px; left: 0; right: 0; z-index: 50;" class="text-[10px] text-white/50 text-center sm:hidden pointer-events-none">
+      Свайпайте влево или вправо для перелистывания
     </div>
   </div>
 
@@ -1479,17 +1502,119 @@
       }
     });
 
-    // ----- PHOTO LIGHTBOX -----
-    function openPhotoModal(src) {
-      document.getElementById('lightbox-image').src = src;
-      document.getElementById('photo-lightbox').classList.remove('hidden');
+    // ----- PHOTO LIGHTBOX WITH ARROWS, KEYBOARD & TOUCH SWIPE -----
+    let currentGalleryIndex = 0;
+
+    function getGalleryImages() {
+      const container = document.getElementById('gallery-container');
+      if (!container) return [];
+      const imgElements = container.querySelectorAll('img');
+      return Array.from(imgElements).map((img, i) => ({
+        src: img.src,
+        alt: img.alt || `Фотография студии #${i + 1}`
+      }));
+    }
+
+    function openGalleryPhoto(index) {
+      const items = getGalleryImages();
+      if (!items.length) return;
+      currentGalleryIndex = ((index % items.length) + items.length) % items.length;
+      updateLightboxDisplay();
+      const modal = document.getElementById('photo-lightbox');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+      }
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function openPhotoModal(src) {
+      const items = getGalleryImages();
+      const idx = items.findIndex(item => item.src === src || src.endsWith(item.src) || item.src.endsWith(src));
+      openGalleryPhoto(idx >= 0 ? idx : 0);
+    }
+
+    function stepGallery(direction, event) {
+      if (event) event.stopPropagation();
+      const items = getGalleryImages();
+      if (!items.length) return;
+      currentGalleryIndex = ((currentGalleryIndex + direction) % items.length + items.length) % items.length;
+      updateLightboxDisplay();
+    }
+
+    function updateLightboxDisplay() {
+      const items = getGalleryImages();
+      if (!items.length) return;
+      const cur = items[currentGalleryIndex];
+      const img = document.getElementById('lightbox-image');
+      const counter = document.getElementById('lightbox-counter');
+      const caption = document.getElementById('lightbox-caption');
+
+      if (img) {
+        img.style.opacity = '0.3';
+        img.src = cur.src;
+        img.alt = cur.alt;
+        setTimeout(() => { img.style.opacity = '1'; }, 70);
+      }
+      if (counter) {
+        counter.textContent = `${currentGalleryIndex + 1} / ${items.length}`;
+      }
+      if (caption) {
+        caption.textContent = cur.alt || 'Фотография студии';
+      }
+      if (window.lucide) lucide.createIcons();
     }
 
     function closePhotoModal() {
-      document.getElementById('photo-lightbox').classList.add('hidden');
+      const modal = document.getElementById('photo-lightbox');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+      }
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
+
+    // Keyboard navigation (Escape, ArrowLeft, ArrowRight)
+    document.addEventListener('keydown', (e) => {
+      const lightbox = document.getElementById('photo-lightbox');
+      if (lightbox && !lightbox.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') {
+          stepGallery(-1);
+        } else if (e.key === 'ArrowRight') {
+          stepGallery(1);
+        } else if (e.key === 'Escape') {
+          closePhotoModal();
+        }
+      }
+    });
+
+    // Touch swipe navigation for mobile phones
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightboxEl = document.getElementById('photo-lightbox');
+      if (lightboxEl) {
+        lightboxEl.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        lightboxEl.addEventListener('touchend', (e) => {
+          const deltaX = e.changedTouches[0].screenX - touchStartX;
+          const deltaY = e.changedTouches[0].screenY - touchStartY;
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+              stepGallery(1);  // Swipe left -> next photo
+            } else {
+              stepGallery(-1); // Swipe right -> prev photo
+            }
+          }
+        }, { passive: true });
+      }
+    });
 
     // ----- ACCORDION TOGGLE -----
     function toggleAccordion(btn) {
@@ -1788,7 +1913,7 @@
     // ----- LEGAL MODAL (152-ФЗ) -----
     const LEGAL_DOCS = {
       privacy: {
-        title: "Политика в отношении обработки персональных данных (152-ФЗ)",
+        title: "Политика в отношении обработки персональных данных",
         externalUrl: "privacy.html",
         content: `
           <div class="space-y-3">
@@ -1889,6 +2014,12 @@
           openBookingModal('Прямая ссылка');
         } else if (params.get('modal') === 'legal') {
           openLegalModal(params.get('tab') || 'privacy');
+        } else if (params.get('lightbox') !== null) {
+          openGalleryPhoto(parseInt(params.get('lightbox')) || 0);
+        }
+        if (params.get('scroll')) {
+          const el = document.getElementById(params.get('scroll'));
+          if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
         }
       } catch(e) {}
     }
@@ -1932,9 +2063,9 @@
         🍪
       </div>
       <div class="space-y-1">
-        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">Файлы Cookie & 152-ФЗ РФ</h4>
+        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">Файлы Cookie</h4>
         <p class="text-xs text-slate-600 leading-relaxed">
-          Мы используем cookie и сервисы веб-аналитики для корректной работы сайта. Нажимая «Принять», вы соглашаетесь с <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политикой защиты данных</a> и <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="underline text-blue-600 hover:text-blue-800 font-bold">Политикой Cookie</a>.
+          Мы используем cookie и сервисы веб-аналитики для корректной работы сайта. Нажимая «Принять», вы соглашаетесь с <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="underline text-sky-600 hover:text-sky-800 font-bold">Политикой защиты данных</a> и <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="underline text-sky-600 hover:text-sky-800 font-bold">Политикой Cookie</a>.
         </p>
       </div>
     </div>
@@ -1961,7 +2092,7 @@
       <div class="pb-4 border-b border-slate-200">
         <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-extrabold bg-blue-50 text-blue-700 mb-1.5">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-          <span>Юридическая информация • 152-ФЗ РФ</span>
+          <span>Юридическая информация</span>
         </div>
         <h3 id="legal-modal-title" class="text-xl sm:text-2xl font-black text-slate-900 font-heading">
           Политика в отношении обработки персональных данных
@@ -1970,7 +2101,7 @@
         <!-- Tabs -->
         <div class="flex flex-wrap gap-2 mt-4">
           <button id="legal-tab-btn-privacy" onclick="switchLegalTab('privacy')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-blue-600 text-white transition-colors cursor-pointer">
-            1. Политика ПДн (152-ФЗ)
+            1. Политика конфиденциальности
           </button>
           <button id="legal-tab-btn-consent" onclick="switchLegalTab('consent')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
             2. Согласие на обработку

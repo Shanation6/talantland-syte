@@ -213,10 +213,7 @@
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <!-- MAX Messenger button with authentic vector icon -->
         <a id="header-max-link" href="https://max.ru" target="_blank" rel="noopener" title="Написать в мессенджер MAX" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border border-blue-200 text-xs font-bold text-blue-700 hover:border-blue-400 hover:bg-blue-50 transition-all bg-white shadow-sm whitespace-nowrap group">
-          <svg class="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="24" height="24" rx="6" fill="#165DFB"/>
-            <path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/>
-          </svg>
+          <img src="media/icon_max.png" alt="MAX" class="w-4 h-4 rounded-md object-contain shrink-0 transition-transform group-hover:scale-110">
           <span class="font-extrabold">MAX</span>
         </a>
         <!-- Telegram button with official TG icon -->
@@ -260,7 +257,7 @@
             <span>Telegram</span>
           </a>
           <a id="mobile-menu-max-link" href="https://max.ru" target="_blank" rel="noopener" class="py-2.5 rounded-xl border border-blue-200 text-blue-800 font-bold text-xs text-center flex items-center justify-center gap-2 bg-blue-50/50">
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
+            <img src="media/icon_max.png" alt="MAX" class="w-4 h-4 rounded-md object-contain shrink-0">
             <span>Мессенджер MAX</span>
           </a>
         </div>
@@ -1091,7 +1088,7 @@
           </a>
 
           <a id="cta-max-link" href="https://max.ru" target="_blank" class="w-full sm:w-auto px-6 py-4 rounded-2xl border border-white/30 bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2 backdrop-blur-sm">
-            <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+            <img src="media/icon_max.png" alt="MAX" class="w-4 h-4 rounded-md object-contain shrink-0 shadow-sm">
             <span>Написать в MAX</span>
           </a>
         </div>
@@ -1215,7 +1212,7 @@
         <div class="space-y-2.5">
           <!-- MAX Messenger card -->
           <a id="footer-max-link" href="https://max.ru" target="_blank" rel="noopener" class="flex items-center gap-2.5 p-2.5 rounded-xl bg-sky-900/30 hover:bg-brand-900 border border-brand-800 hover:border-blue-500 text-white transition-all group shadow-sm">
-            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
+            <img src="media/icon_max.png" alt="MAX" class="w-6 h-6 rounded-md object-contain shrink-0 shadow-sm">
             <div>
               <div class="font-bold text-xs text-white group-hover:text-blue-300 transition-colors">Мессенджер MAX</div>
               <div class="text-[10px] text-slate-400">Консультация и запись в MAX</div>
@@ -1262,6 +1259,12 @@
               <span>Политика файлов Cookie</span>
             </a>
           </li>
+          <li>
+            <a href="#legal" onclick="event.preventDefault(); openLegalModal('copyright')" class="hover:text-blue-300 transition-colors flex items-center gap-1.5 text-amber-300/90 hover:text-amber-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span>
+              <span>Товарные знаки и копирайт</span>
+            </a>
+          </li>
         </ul>
         <div class="mt-4 pt-3 border-t border-sky-900/40">
           <a href="admin.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-300 font-bold transition-colors">
@@ -1273,8 +1276,19 @@
 
     </div>
 
+    <!-- Legal & Trademark Nominative Fair Use Disclaimer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-sky-900/40 text-slate-400 text-[10px] leading-relaxed space-y-2">
+      <p>
+        <strong class="text-slate-300 uppercase tracking-wider">Правовая информация и товарные знаки третьих лиц:</strong>
+        Все товарные знаки, знаки обслуживания, коммерческие обозначения, логотипы и эмблемы сторонних сервисов (включая Telegram, MAX, 2ГИС и др.), представленные на сайте, являются зарегистрированной интеллектуальной собственностью их законных правообладателей. Их размещение носит строго информационный характер для указания доступных каналов коммуникации и навигации пользователей в соответствии со ст. 1274 и ст. 1487 Гражданского кодекса РФ (номинативное использование) и не свидетельствует о спонсорстве, партнерстве или одобрении студии «ТалантЛэнд» указанными правообладателями.
+      </p>
+      <p>
+        Все авторские права на текстовые, методические и фотографические материалы сайта «ТалантЛэнд» защищены частью IV ГК РФ. Копирование и распространение без письменного разрешения ИП Онищук А. А. запрещено. Обращения правообладателей принимаются на <a href="mailto:talantland@mail.ru" class="text-blue-400 underline hover:text-blue-300">talantland@mail.ru</a>.
+      </p>
+    </div>
+
     <!-- Bottom sub-footer -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-sky-900/40 text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 mt-4 border-t border-sky-900/30 text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
       <div>© 2026 Студия «ТалантЛэнд». Все права защищены.</div>
       <div class="flex flex-wrap gap-4 text-slate-400">
         <a href="privacy.html" onclick="event.preventDefault(); openLegalModal('privacy')" class="hover:underline">Конфиденциальность</a>
@@ -1282,6 +1296,8 @@
         <a href="consent.html" onclick="event.preventDefault(); openLegalModal('consent')" class="hover:underline">Согласие</a>
         <span>•</span>
         <a href="cookies.html" onclick="event.preventDefault(); openLegalModal('cookies')" class="hover:underline">Файлы Cookie</a>
+        <span>•</span>
+        <a href="#legal" onclick="event.preventDefault(); openLegalModal('copyright')" class="hover:underline text-amber-400/80 hover:text-amber-300">Авторские права</a>
       </div>
     </div>
   </footer>
@@ -1381,7 +1397,7 @@
             <span>Открыть диалог в Telegram</span>
           </a>
           <a id="modal-max-send-link" href="https://max.ru" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors">
-            <span class="w-2 h-2 rounded-full bg-white"></span>
+            <img src="media/icon_max.png" alt="MAX" class="w-4 h-4 rounded-md object-contain shrink-0 shadow-sm">
             <span>Открыть диалог в MAX</span>
           </a>
           <button onclick="closeBookingModal()" class="text-xs text-surface-muted hover:text-surface-dark font-semibold py-1 cursor-pointer">
@@ -1799,14 +1815,14 @@
         if (data.messengers) {
           if (data.messengers.telegram) {
             const tg = sanitizeUrl(data.messengers.telegram, 'https://t.me/on_anastasiia');
-            ['header-tg-link', 'mobile-menu-tg-link', 'cta-tg-link', 'modal-tg-send-link'].forEach(id => {
+            ['header-tg-link', 'mobile-menu-tg-link', 'cta-tg-link', 'modal-tg-send-link', 'footer-tg-link', 'mobile-bar-tg-link'].forEach(id => {
               const el = document.getElementById(id);
               if (el) el.href = tg;
             });
           }
           if (data.messengers.max) {
             const maxUrl = sanitizeUrl(data.messengers.max, 'https://max.ru');
-            ['header-max-link', 'mobile-menu-max-link', 'cta-max-link', 'modal-max-send-link'].forEach(id => {
+            ['header-max-link', 'mobile-menu-max-link', 'cta-max-link', 'modal-max-send-link', 'footer-max-link', 'mobile-bar-max-link'].forEach(id => {
               const el = document.getElementById(id);
               if (el) el.href = maxUrl;
             });
@@ -2009,6 +2025,30 @@
             <p>Вы можете в любой момент отключить сохранение cookie в настройках своего браузера.</p>
           </div>
         `
+      },
+      copyright: {
+        title: "Интеллектуальная собственность, авторские права и товарные знаки",
+        externalUrl: "privacy.html#copyright",
+        content: `
+          <div class="space-y-4">
+            <div class="p-3 bg-amber-50 text-amber-900 rounded-xl font-bold text-xs border border-amber-200">
+              Правовое обоснование: Часть IV Гражданского кодекса РФ (ст. 1274 «Свободное использование в информационных целях», ст. 1487 «Исчерпание исключительного права / Номинативное использование товарных знаков»).
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 mb-1">1. Использование товарных знаков и логотипов третьих лиц:</h4>
+              <p class="leading-relaxed">Все упоминаемые на сайте наименования сервисов, логотипы, торговые марки и знаки обслуживания (включая Telegram, MAX, 2ГИС, VK и иные) являются зарегистрированной собственностью их законных правообладателей.</p>
+              <p class="mt-2 leading-relaxed">Их использование на сайте студии «ТалантЛэнд» носит <strong>исключительно информационный и справочный характер</strong> (номинативное использование — <em>nominative fair use</em>) с единственной целью: указать для посетителей сайта техническую возможность связи через соответствующие мессенджеры и навигации по картам. Данное использование не означает и не подразумевает спонсорства, одобрения, партнерства или иной аффилированности между студией «ТалантЛэнд» и упомянутыми компаниями.</p>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 mb-1">2. Авторские права студии «ТалантЛэнд»:</h4>
+              <p class="leading-relaxed">Все методические разработки, описания учебных программ, авторские тексты, дизайн-макеты и фотоматериалы с занятий студии защищены законодательством Российской Федерации об авторском праве. Исключительные права принадлежат ИП Онищук А. А. Любое несанкционированное копирование или распространение без предварительного письменного согласия запрещено.</p>
+            </div>
+            <div class="p-3 bg-slate-50 text-slate-700 rounded-xl text-xs space-y-1 border border-slate-200">
+              <h4 class="font-bold text-slate-900">3. Досудебный порядок для правообладателей:</h4>
+              <p class="leading-relaxed">Если вы являетесь правообладателем какого-либо объекта интеллектуальной собственности и полагаете, что ваши права были затронуты, направьте официальное обращение на электронную почту: <a href="mailto:talantland@mail.ru" class="text-blue-600 underline font-bold">talantland@mail.ru</a>. Студия гарантирует рассмотрение каждого обоснованного обращения в течение 24 часов и оперативное урегулирование любых вопросов в досудебном порядке.</p>
+            </div>
+          </div>
+        `
       }
     };
 
@@ -2040,7 +2080,7 @@
       document.getElementById('legal-modal-body').innerHTML = doc.content;
       document.getElementById('legal-open-external-btn').href = doc.externalUrl;
 
-      ['privacy', 'consent', 'cookies'].forEach(k => {
+      ['privacy', 'consent', 'cookies', 'copyright'].forEach(k => {
         const btn = document.getElementById(`legal-tab-btn-${k}`);
         if (btn) {
           if (k === tabKey) {
@@ -2062,7 +2102,7 @@
           openBookingModal('Прямая ссылка');
         } else if (params.get('modal') === 'legal') {
           const tab = params.get('tab');
-          openLegalModal(['privacy', 'consent', 'cookies'].includes(tab) ? tab : 'privacy');
+          openLegalModal(['privacy', 'consent', 'cookies', 'copyright'].includes(tab) ? tab : 'privacy');
         } else if (params.get('lightbox') !== null) {
           const idx = parseInt(params.get('lightbox'), 10);
           if (!isNaN(idx) && idx >= 0 && idx < 50) {
@@ -2102,8 +2142,8 @@
       <a id="mobile-bar-tg-link" href="https://t.me/on_anastasiia" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-sky-50 hover:bg-sky-100 flex items-center justify-center text-sky-600 transition-colors border border-sky-100 shadow-sm" title="Написать в Telegram">
         <svg class="w-4 h-4 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .36z"/></svg>
       </a>
-      <a id="mobile-bar-max-link" href="https://max.ru" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors border border-blue-100 shadow-sm" title="Написать в MAX">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#165DFB"/><path d="M5.5 16.5V7.5H8.2L12 12.3L15.8 7.5H18.5V16.5H16.2V11.2L12.8 15.2H11.2L7.8 11.2V16.5H5.5Z" fill="white"/></svg>
+      <a id="mobile-bar-max-link" href="https://max.ru" target="_blank" rel="noopener" class="w-10 h-10 rounded-xl bg-blue-50 hover:bg-blue-100 flex items-center justify-center text-blue-600 transition-colors border border-blue-100 shadow-sm p-2" title="Написать в MAX">
+        <img src="media/icon_max.png" alt="MAX" class="w-full h-full rounded-md object-contain">
       </a>
     </div>
     <button type="button" onclick="openBookingModal('Мобильная нижняя панель')" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-700 hover:to-sky-600 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-sky-500/25 active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
@@ -2164,6 +2204,9 @@
           </button>
           <button id="legal-tab-btn-cookies" onclick="switchLegalTab('cookies')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
             3. Файлы Cookie
+          </button>
+          <button id="legal-tab-btn-copyright" onclick="switchLegalTab('copyright')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer">
+            4. Авторские права & Знаки
           </button>
         </div>
       </div>

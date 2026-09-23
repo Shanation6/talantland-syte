@@ -2,6 +2,8 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Студия английского языка «ТалантЛэнд» в Красноярске | ул. Ленина, 74</title>
   <link rel="icon" type="image/png" href="media/favicon.png">
@@ -1648,17 +1650,34 @@
         }
       }
 
-      const name = document.getElementById(isModal ? 'modal-parent-name' : 'parent-name').value;
-      const phone = document.getElementById(isModal ? 'modal-parent-phone' : 'parent-phone').value;
-      const grade = document.getElementById(isModal ? 'modal-child-grade' : 'child-grade').value;
-      const format = document.getElementById(isModal ? 'modal-course-format' : 'course-format').value;
+      const rawName = document.getElementById(isModal ? 'modal-parent-name' : 'parent-name').value;
+      const rawPhone = document.getElementById(isModal ? 'modal-parent-phone' : 'parent-phone').value;
+      const rawGrade = document.getElementById(isModal ? 'modal-child-grade' : 'child-grade').value;
+      const rawFormat = document.getElementById(isModal ? 'modal-course-format' : 'course-format').value;
+
+      // Strict validation & sanitization
+      const name = rawName.trim().replace(/[<>\"\'`]/g, '').slice(0, 60);
+      if (name.length < 2) {
+        alert('Пожалуйста, укажите ваше имя (не менее 2 символов).');
+        return;
+      }
+
+      const cleanPhone = rawPhone.trim().replace(/[^\d\+\(\)\s\-]/g, '').slice(0, 25);
+      const digitsOnly = cleanPhone.replace(/\D/g, '');
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        alert('Пожалуйста, укажите корректный номер телефона (не менее 10 цифр).');
+        return;
+      }
+
+      const grade = rawGrade.trim().replace(/[<>\"\'`]/g, '').slice(0, 50);
+      const format = rawFormat.trim().replace(/[<>\"\'`]/g, '').slice(0, 80);
 
       // Save lead to CRM log in localStorage
       const newLead = {
         id: Date.now(),
         date: new Date().toLocaleString('ru-RU'),
         name: name,
-        phone: phone,
+        phone: cleanPhone,
         grade: grade,
         format: format,
         status: 'Новая'
@@ -1667,6 +1686,8 @@
       try {
         const existingLeads = JSON.parse(localStorage.getItem('talantland_leads') || '[]');
         existingLeads.unshift(newLead);
+        // Cap leads history to prevent localStorage exhaustion
+        if (existingLeads.length > 100) existingLeads.length = 100;
         localStorage.setItem('talantland_leads', JSON.stringify(existingLeads));
       } catch (err) {
         console.warn('LocalStorage error:', err);
@@ -1681,7 +1702,7 @@
       const text = encodeURIComponent(`Здравствуйте, Анастасия! Заявка с сайта ТалантЛэнд:
 
 Имя: ${name}
-Телефон: ${phone}
+Телефон: ${cleanPhone}
 Класс: ${grade}
 Формат: ${format}`);
       const tgLink = document.getElementById('modal-tg-send-link');
@@ -1777,14 +1798,14 @@
         // 2.1 Messengers Sync
         if (data.messengers) {
           if (data.messengers.telegram) {
-            const tg = data.messengers.telegram;
+            const tg = sanitizeUrl(data.messengers.telegram, 'https://t.me/on_anastasiia');
             ['header-tg-link', 'mobile-menu-tg-link', 'cta-tg-link', 'modal-tg-send-link'].forEach(id => {
               const el = document.getElementById(id);
               if (el) el.href = tg;
             });
           }
           if (data.messengers.max) {
-            const maxUrl = data.messengers.max;
+            const maxUrl = sanitizeUrl(data.messengers.max, 'https://max.ru');
             ['header-max-link', 'mobile-menu-max-link', 'cta-max-link', 'modal-max-send-link'].forEach(id => {
               const el = document.getElementById(id);
               if (el) el.href = maxUrl;
@@ -1799,7 +1820,7 @@
             intContainer.innerHTML = data.intensives.map(item => `
               <div class="rounded-3xl border border-surface-border overflow-hidden bg-surface-bg flex flex-col justify-between shadow-sm hover:border-brand-700 transition-colors">
                 <div class="h-52 overflow-hidden relative">
-                  <img src="${item.image || 'media/photos/02.jpg'}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover">
+                  <img src="${escapeHtml(sanitizeUrl(item.image, 'media/photos/02.jpg'))}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover">
                   <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-sky-900/80 backdrop-blur-sm text-sky-100 text-[11px] font-bold uppercase tracking-wider">
                     ${escapeHtml(item.tag || 'Каникулярный интенсив')}
                   </span>
@@ -1824,7 +1845,7 @@
             data.photos.teacher = 'media/photos/teacher_anastasia_new.jpg?v=20260919';
             try { localStorage.setItem('talantland_cms_data', JSON.stringify(data)); } catch(e){}
           }
-          if (teacherImg) teacherImg.src = data.photos.teacher;
+          if (teacherImg) teacherImg.src = sanitizeUrl(data.photos.teacher, 'media/photos/teacher_anastasia_new.jpg?v=20260919');
         }
 
         // 4. Gallery Photos
@@ -1832,7 +1853,7 @@
           data.photos.gallery.forEach((item, idx) => {
             const imgEl = document.getElementById(`gallery-img-${idx}`);
             if (imgEl && item && item.src) {
-              imgEl.src = item.src;
+              imgEl.src = sanitizeUrl(item.src);
               if (item.alt) imgEl.alt = item.alt;
             }
           });
@@ -1842,14 +1863,16 @@
         if (data.videos) {
           if (data.videos.hero) {
             const heroVid = document.getElementById('hero-video-element');
-            if (heroVid && heroVid.src !== data.videos.hero) heroVid.src = data.videos.hero;
+            const safeHero = sanitizeUrl(data.videos.hero);
+            if (heroVid && heroVid.src !== safeHero) heroVid.src = safeHero;
           }
           if (data.videos.items && Array.isArray(data.videos.items)) {
             data.videos.items.forEach((item, idx) => {
               const vidEl = document.getElementById(`lesson-video-${idx}`);
               const titleEl = document.getElementById(`video-title-${idx}`);
               const descEl = document.getElementById(`video-desc-${idx}`);
-              if (vidEl && item.src && vidEl.src !== item.src) vidEl.src = item.src;
+              const safeSrc = sanitizeUrl(item.src);
+              if (vidEl && item.src && vidEl.src !== safeSrc) vidEl.src = safeSrc;
               if (titleEl && item.title) titleEl.innerText = item.title;
               if (descEl && item.desc) descEl.innerText = item.desc;
             });
@@ -1881,8 +1904,33 @@
     }
 
     function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      if (!str && str !== 0) return '';
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/`/g, "&#96;");
+    }
+
+    function sanitizeUrl(url, fallback = '') {
+      if (!url || typeof url !== 'string') return fallback;
+      const trimmed = url.trim();
+      if (trimmed.startsWith('media/') || trimmed.startsWith('./') || trimmed.startsWith('/') || trimmed.startsWith('data:image/')) {
+        return trimmed;
+      }
+      try {
+        const parsed = new URL(trimmed, window.location.origin);
+        if (['http:', 'https:', 'tg:', 'tel:', 'mailto:'].includes(parsed.protocol)) {
+          return trimmed;
+        }
+      } catch (e) {
+        if (/^(https?:\/\/|tg:\/\/|tel:|mailto:)/i.test(trimmed)) {
+          return trimmed;
+        }
+      }
+      return fallback;
     }
 
     // Hydrate immediately and listen to storage events across tabs
@@ -2013,13 +2061,21 @@
         if (params.get('modal') === 'booking') {
           openBookingModal('Прямая ссылка');
         } else if (params.get('modal') === 'legal') {
-          openLegalModal(params.get('tab') || 'privacy');
+          const tab = params.get('tab');
+          openLegalModal(['privacy', 'consent', 'cookies'].includes(tab) ? tab : 'privacy');
         } else if (params.get('lightbox') !== null) {
-          openGalleryPhoto(parseInt(params.get('lightbox')) || 0);
+          const idx = parseInt(params.get('lightbox'), 10);
+          if (!isNaN(idx) && idx >= 0 && idx < 50) {
+            openGalleryPhoto(idx);
+          }
         }
         if (params.get('scroll')) {
-          const el = document.getElementById(params.get('scroll'));
-          if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+          const scrollTarget = params.get('scroll');
+          const ALLOWED_SECTIONS = ['about', 'videos', 'formats', 'cases', 'teacher', 'reviews', 'faq', 'contacts', 'lead-form'];
+          if (ALLOWED_SECTIONS.includes(scrollTarget)) {
+            const el = document.getElementById(scrollTarget);
+            if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
         }
       } catch(e) {}
     }
